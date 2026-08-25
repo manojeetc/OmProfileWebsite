@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TankFlare — an AI-assisted aquarium planner that checks fish, plant, and decor compatibility before you buy.">
+  <title>TankFlare | Om</title>
+  <link rel="stylesheet" href="../detail.css">
+  <script src="../lightbox.js" defer></script>
+</head>
+<body>
+  <header class="detail-header">
+    <div class="container detail-nav">
+      <a class="brand" href="../index.html">OM<span>.</span></a>
+      <a class="back" href="../index.html#projects">← Back to projects</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="kicker">WEB • AI • AQUARISTICS</p>
+        <h1>TankFlare</h1>
+        <p class="summary">
+          A website I designed and built that uses AI to answer the question every
+          new fishkeeper gets wrong: will these fish, plants, and decorations
+          actually live together?
+        </p>
+
+        <div class="meta">
+          <div><span>YEAR</span><strong>2025 – 2026</strong></div>
+          <div><span>TYPE</span><strong>Web application</strong></div>
+          <div><span>ROLE</span><strong>Designer &amp; developer</strong></div>
+          <div><span>STATUS</span><strong>Live at tankflare.com</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <figure class="cover placeholder">
+        <div>Add a screenshot of the TankFlare compatibility results page</div>
+      </figure>
+
+      <div class="detail-section">
+        <div><p class="kicker">OVERVIEW</p><h2>The problem</h2></div>
+        <div class="content">
+          <p class="lead">
+            Most aquarium mistakes are not made in the tank. They are made in the
+            store aisle, minutes before checkout.
+          </p>
+          <p>
+            A beginner picks fish because they look good together, plants because
+            they are green, and decor because it fits the theme. What they cannot
+            see is that one fish needs soft acidic water while another needs hard
+            alkaline water, that a plant needs more light than the tank will ever
+            get, or that a beautiful piece of driftwood will slowly shift the pH
+            in the wrong direction.
+          </p>
+          <p>
+            Compatibility information exists, but it is scattered across forums,
+            care sheets, and contradictory blog posts. TankFlare pulls that
+            reasoning into one place and applies it to the specific combination a
+            person is actually considering.
+          </p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">HIGHLIGHTS</p><h2>Key details</h2></div>
+        <div class="content">
+          <div class="stat-grid">
+            <div class="stat"><strong>3</strong><span>Compatibility layers: fish, plants, decor</span></div>
+            <div class="stat"><strong>1</strong><span>Tank profile drives every recommendation</span></div>
+            <div class="stat"><strong>AI</strong><span>Explains the reasoning, not just a yes or no</span></div>
+          </div>
+          <p>
+            <em>Update these figures with your real numbers — species in the
+            database, monthly visitors, or checks run.</em>
+          </p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">HOW IT WORKS</p><h2>Three layers of compatibility</h2></div>
+        <div class="content">
+          <p>
+            The user describes their tank — volume, water parameters, lighting,
+            substrate, and current inhabitants — and then adds what they are
+            thinking of buying. TankFlare evaluates the combination on three
+            fronts.
+          </p>
+          <ul>
+            <li>
+              <strong>Fish &harr; fish.</strong> Temperament and aggression,
+              adult size versus tank volume, schooling requirements, territory
+              and swimming level, fin-nipping risk, and overlapping water
+              parameter ranges for temperature, pH, and hardness.
+            </li>
+            <li>
+              <strong>Fish &harr; plants.</strong> Some species eat, uproot, or
+              shred live plants. The planner flags known plant-destroyers, matches
+              plant light and nutrient demands against the tank's setup, and
+              suggests hardy alternatives when a species is a poor fit.
+            </li>
+            <li>
+              <strong>Fish &harr; decor.</strong> Substrate against bottom-dweller
+              barbels, sharp ornaments against long-finned species, driftwood and
+              rock that alter pH or hardness, and whether there is enough cover
+              for shy species to feel secure.
+            </li>
+          </ul>
+          <p>
+            Instead of returning a bare verdict, the AI explains <em>why</em> a
+            pairing fails and what to change — a different species, a larger
+            tank, or an adjustment to the setup.
+          </p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">BUILD</p><h2>How I built it</h2></div>
+        <div class="content">
+          <p>
+            <em>Replace this section with your real stack and architecture.</em>
+          </p>
+          <ul>
+            <li><strong>Front end:</strong> the tank builder, species search, and results view.</li>
+            <li><strong>Data:</strong> the species and plant records behind each check, and where that data came from.</li>
+            <li><strong>AI layer:</strong> how prompts are assembled from the tank profile, and how responses are constrained so the advice stays grounded in real care requirements.</li>
+            <li><strong>Hosting:</strong> deployment, domain, and analytics.</li>
+          </ul>
+          <p>
+            The hardest engineering problem was keeping the AI honest. A model
+            asked about fish compatibility will happily invent a confident answer,
+            so the value is in grounding it with structured species data and
+            forcing it to justify every conclusion against real parameters.
+          </p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">EVIDENCE</p><h2>Screenshots</h2></div>
+        <div class="content">
+          <p>
+            Add screenshots to <code>images/tf/</code> and swap them in below.
+          </p>
+          <div class="gallery">
+            <figure class="ph"><div>Home page</div></figure>
+            <figure class="ph"><div>Tank setup form</div></figure>
+            <figure class="ph"><div>Compatibility results</div></figure>
+            <figure class="ph"><div>Species detail view</div></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">REFLECTION</p><h2>What I learned</h2></div>
+        <div class="content">
+          <p>
+            TankFlare taught me that the interesting part of an AI product is
+            rarely the model. It is deciding what the model is allowed to say,
+            what data it must reason from, and how to present an answer that a
+            beginner will actually trust and act on.
+          </p>
+          <p>
+            It also connected two things I care about separately — keeping
+            aquariums and building software — into one project where the payoff is
+            a fish that does not die because someone did not know better.
+          </p>
+          <div class="links">
+            <a class="button primary" href="https://www.tankflare.com" target="_blank" rel="noopener">Visit TankFlare ↗</a>
+            <a class="button" href="../index.html#projects">More projects →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Om • Student résumé & portfolio
+    </div>
+  </footer>
+</body>
+</html>
