@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum vitae for Om Chatterjee, a student interested in science, engineering, AI, robotics, and chess.">
+  <title>CV | Om Chatterjee</title>
+  <link rel="stylesheet" href="../detail.css">
+  <style>
+    .cv-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .cv-hero-grid { display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: center; }
+    .cv-portrait { width: 220px; aspect-ratio: 4 / 5; object-fit: cover; border: 3px solid var(--accent); border-radius: 4px; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .65); }
+    .cv-sheet { padding: 0 0 82px; }
+    .cv-section { border-top: 1px solid var(--line); padding: 30px 0; display: grid; grid-template-columns: 190px 1fr; gap: 36px; }
+    .skills-section { padding-block: 16px; }
+    .skills-section .skill-list { gap: 6px; }
+    .skills-section .skill-list span { padding: 4px 8px; font-size: .76rem; }
+    .cv-section h2 { margin: 0; font-family: var(--font-display); font-size: 1.55rem; }
+    .cv-section h3 { margin: 0; font-size: 1.08rem; }
+    .cv-section p { margin: 8px 0 0; color: var(--muted); }
+    .cv-section ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); }
+    .cv-section li + li { margin-top: 7px; }
+    .cv-entry + .cv-entry { margin-top: 28px; }
+    .cv-entry-head { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+    .cv-date { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill-list span { background: var(--soft); border: 1px solid var(--line); padding: 7px 11px; font-size: .88rem; }
+    .project-link { color: var(--accent); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .button { display: inline-block; border: 1px solid var(--line); padding: 11px 16px; font-weight: 800; font-size: .86rem; }
+    .project-action { margin-bottom: 0; }
+    .project-action .button { display: inline-flex; min-height: 0; width: fit-content; padding: 4px 8px; font-size: .62rem; line-height: 1.1; }
+    .button.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+    .button:hover { color: #fff; background: var(--text); border-color: var(--text); }
+    .project-action .button.primary,
+    .project-action .button.primary:hover { color: var(--accent); background: transparent; border-color: transparent; padding-inline: 0; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 700px) {
+      .cv-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+      .cv-portrait { width: min(180px, 100%); }
+      .cv-section { grid-template-columns: 1fr; gap: 16px; }
+      .cv-entry-head { display: block; }
+      .cv-date { display: block; margin-top: 5px; }
+    }
+    @media print {
+      .detail-header, .cv-actions { display: none; }
+      .hero { padding: 20px 0 28px; }
+      .cv-hero-grid { grid-template-columns: 1fr 150px; gap: 28px; }
+      .cv-portrait { width: 150px; }
+      .cv-sheet { padding-bottom: 0; }
+      .cv-section { padding: 18px 0; }
+      body { font-size: 11pt; }
+    }
+  </style>
+</head>
+<body>
+  <header class="detail-header">
+    <div class="container detail-nav">
+      <a class="brand" href="../index.html">OM<span>.</span></a>
+      <a class="back" href="../index.html#about">← Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container cv-hero-grid">
+        <div>
+          <p class="kicker">CURRICULUM VITAE</p>
+          <h1>Om Chatterjee</h1>
+          <p class="summary">Student builder exploring science, engineering, artificial intelligence, robotics, mathematics, and chess.</p>
+          <div class="cv-actions">
+            <a class="button primary" href="javascript:window.print()">Print / Save as PDF</a>
+            <a class="button" href="../index.html#about">About me</a>
+          </div>
+        </div>
+        <img class="cv-portrait" src="../images/portfolio_img.png" alt="Portrait of Om Chatterjee">
+      </div>
+    </section>
+
+    <section class="container cv-sheet">
+      <div class="cv-section">
+        <h2>Profile</h2>
+        <div>
+          <p>I am a curious and motivated student who enjoys exploring ideas, learning through experience, and taking on challenges that require both creativity and persistence. Whether I am studying, building, competing, or helping others, I look for opportunities to understand how things work and turn that understanding into meaningful progress.</p>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2>Education</h2>
+        <div class="cv-entry">
+          <div class="cv-entry-head"><h3>Student, 8th Grade</h3><span class="cv-date">2026–2027</span></div>
+          <p>My academic focus is on challenging myself through advanced mathematics, science, and English while developing a strong foundation in STEM.</p>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2>Coding</h2>
+        <div class="cv-entry">
+          <div class="cv-entry-head"><h3>Competitive Programming</h3><span class="cv-date">C++·Python·Algorithms</span></div>
+          <p>I first became interested in coding in sixth grade while using Python to build small robotics projects. What began as a way to control and experiment with hardware grew into a broader interest in algorithms, problem solving, and AI/ML. I have developed projects including TankFlare, an AI-powered web application, and a personalized allergy prediction system that uses a trained neural network. I later began competing in USACO, using C++ to work through increasingly challenging programming problems and advancing from Bronze to Silver. My interest in competitive programming also led me to Codeforces, where I currently compete at the Pupil level as <strong>overflux</strong>.</p>
+          <p><a href="https://codeforces.com/profile/overflux" target="_blank" rel="noopener">View Codeforces profile &rarr;</a></p>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2>Robotics</h2>
+        <div class="cv-entry">
+          <div class="cv-entry-head"><h3>Hands-on engineering</h3><span class="cv-date">Python · Hardware</span></div>
+          <p>My interest in robotics began in seventh grade and has grown into one of my strongest areas of curiosity and independent learning. Through designing and building projects such as my Autonomous Car and Whispering Hat, I have gained hands-on experience with CAD design, soldering, electronics, sensors, hardware integration, and programming. Working with Python libraries and hardware interfaces taught me how software can interact with sensors, cameras, motors, and other electronic components to create complete working systems. These projects have encouraged me to explore robotics more deeply, troubleshoot real engineering problems, and pursue my next goal of exploring <strong>swarm robotics</strong>, inspired by the idea of many small robots working together as a coordinated system.</p>
+          
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2>Chess</h2>
+        <div class="cv-entry">
+          <div class="cv-entry-head"><h3>Competitive chess</h3><span class="cv-date">USCF 1800+ · Lichess 2000+</span></div>
+          <p>Chess has become one of my strongest interests and one of the main ways I challenge myself outside the classroom. I have competed in and won multiple tournaments, reached a USCF rating above 1800 and a Lichess rating above 2000, and continue to study the game through regular competition and analysis.</p>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2>Giving Back</h2>
+        <div class="cv-entry">
+          <div class="cv-entry-head"><h3>Sharing skills and opportunity</h3><span class="cv-date">Community · Society</span></div>
+          <p>Giving back has become an important way for me to share my interests with others, especially through chess. I introduced and teach chess at a school in Tanzania, work with children from a refugee camp in Uganda, and volunteer with children and families at Ronald McDonald House in Columbus. These experiences have shown me that meaningful service can begin by sharing a skill or passion in a way that creates opportunity, confidence, and connection for others.</p>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2>Showcase Projects</h2>
+        <div>
+          <div class="cv-entry"><div class="cv-entry-head"><h3>Personalized Allergy Prediction</h3><span class="cv-date">Science · ML</span></div><p>Developed an early-warning system that combines pollen, weather, air quality, sensor-collected indoor dust particles, and personal symptom history. Trained a neural network to estimate the probability of allergy symptoms occurring the following day.</p><p class="project-action"><a class="button primary" href="project-allergy.html">View project &rarr;</a></p></div>
+          <div class="cv-entry" id="whispering-hat"><div class="cv-entry-head"><h3>Whispering Hat</h3><span class="cv-date">Engineering · AI</span></div><p>Developed an offline assistive wearable that helps visually impaired users navigate with AI models, cameras, and sensors for obstacle detection, familiar-person recognition, emotion interpretation, and visual explanations. Voice commands control its hands-free operating modes, while the offline design avoids Wi-Fi and cloud services.</p><p class="project-action"><a class="button primary" href="project-whispering-hat.html">View project &rarr;</a></p></div>
+          <div class="cv-entry"><div class="cv-entry-head"><h3>TankFlare</h3><span class="cv-date">Web · AI</span></div><p>Developed TankFlare, an AI-assisted freshwater aquarium platform that helps hobbyists make safer fishkeeping decisions through compatibility checks, aquarium tracking, and aquascape planning. I am also working with Fit's Fish Pond to improve their customer journey by applying my interests in AI, web development, and aquariums.</p><p class="project-action"><a class="button primary" href="project-tankflare.html">View project &rarr;</a></p></div>
+          <div class="cv-entry" id="autonomous-car"><div class="cv-entry-head"><h3>Autonomous Car</h3><span class="cv-date">Robotics · AI</span></div><p>Autonomous Car is a Raspberry Pi-powered robotics project I built to explore computer vision, sensors, and autonomous navigation. Using a camera, ultrasonic sensors, servos, and motor-control electronics, the car can detect free space, avoid obstacles, follow paths, and make movement decisions in real time. Building it gave me hands-on experience with Python, OpenCV, electronics, motor control, sensor integration, and debugging complete robotic systems.</p><p class="project-action"><a class="button primary" href="project-robot-car.html">View project &rarr;</a></p></div>
+        </div>
+      </div>
+
+      <div class="cv-section">
+        <h2>Recognition</h2>
+        <div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>2026 Indianapolis Chess Open</h3><span class="cv-date">August 23, 2026</span></div>
+            <p>3rd in the U2100 section.</p>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>NY Times Highlight Article</h3><span class="cv-date">June 4, 2026</span></div>
+            <p>Selected for publication as a highlight article in The New York Times 2026 Student Reading Challenge.</p>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>Ohio State Science Fair</h3><span class="cv-date">May 16, 2026</span></div>
+            <p>For the Personalized Pollen Prediction System: Superior rating, invitation to Thermo Fisher Scientific Junior Innovation, Ohio Environmental Health Association Award, and Naval Science Award.</p>
+            <p><a class="project-link" href="project-allergy.html">View project &rarr;</a></p>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>2026 Cincinnati Chess Open</h3><span class="cv-date">April 10, 2026</span></div>
+            <p>Section Champion, U1901.</p>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>USACO Silver Promotion</h3><span class="cv-date">January 12, 2026</span></div>
+            <p>Promoted from USACO Bronze to USACO Silver.</p>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>MATHCOUNTS Olentangy District</h3><span class="cv-date">January 11, 2026</span></div>
+            <p>2nd in Countdown and 6th overall; top individual performer at Hyatts Middle School.</p>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>MOEMS, Division M</h3><span class="cv-date">October 2025</span></div>
+            <p>Mathematics competition result: score of 24/25 and Gold Pin Winner, awarded to the top 2% worldwide.</p>
+          </div>
+          <div class="cv-entry">
+            <div class="cv-entry-head"><h3>2025 Ohio Chess Congress</h3><span class="cv-date">August 31, 2025</span></div>
+            <p>Section Champion, U1900.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-section skills-section">
+        <h2>Skills</h2>
+        <div class="skill-list">
+          <span>Python</span><span>Web development</span><span>Machine learning</span><span>Computer vision</span><span>Robotics</span><span>Electronics</span><span>Science research</span><span>Mathematics</span><span>Competitive chess</span><span>Technical writing</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">Om Chatterjee • Student résumé &amp; portfolio</div></footer>
+</body>
+</html>

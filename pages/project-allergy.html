@@ -1,119 +1,245 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Science project details.">
-  <title>Personalized Allergy Prediction | Om</title>
-  <link rel="stylesheet" href="../detail.css">
+<meta charset="utf-8" />
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Personalized Allergy Prediction — a student science project using environmental, sensor, and symptom data to forecast next-day allergy symptoms." />
+<title>Personalized Allergy Prediction | Om Chatterjee</title>
+<style>
+:root {
+  --ink:#132238; --muted:#607086; --navy:#0a2f63; --blue:#1f66b3; --sky:#eaf4ff;
+  --green:#1f8c72; --mint:#eaf8f2; --peach:#fff3ea; --line:#dfe7ef; --card:#ffffff;
+  --shadow:0 16px 46px rgba(11,37,69,.10); --radius:22px; --max:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#f7f9fc;line-height:1.65}
+a{color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+#progress{position:fixed;z-index:100;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--green),var(--blue))}
+.nav{position:sticky;top:0;z-index:50;background:rgba(247,249,252,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,231,239,.85)}
+.nav-inner{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{font-weight:900;letter-spacing:.02em;text-decoration:none;font-size:1.05rem} .brand span{color:var(--blue)}
+.back{text-decoration:none;font-size:.92rem;color:#455870;white-space:nowrap;margin-left:auto} .back:hover{color:var(--blue)}
+.nav-links{display:flex;gap:20px;align-items:center;font-size:.92rem;color:#455870} .nav-links a{text-decoration:none} .nav-links a:hover{color:var(--blue)}
+.hero{padding:82px 0 54px;background:radial-gradient(circle at 82% 20%,#dff3ff 0,transparent 34%),radial-gradient(circle at 15% 15%,#e4f7ef 0,transparent 26%),linear-gradient(180deg,#fff 0,#f7f9fc 100%)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:58px;align-items:center}
+.eyebrow{font-weight:800;letter-spacing:.13em;text-transform:uppercase;font-size:.79rem;color:var(--green);margin:0 0 14px}
+h1{font-size:clamp(3rem,6vw,5.4rem);line-height:.98;letter-spacing:-.055em;margin:0 0 22px;max-width:800px}
+.hero p{font-size:1.18rem;color:#52657c;max-width:680px;margin:0 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 32px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;text-decoration:none;font-weight:800;border:1px solid var(--line);background:white}
+.btn.primary{background:var(--navy);color:white;border-color:var(--navy)} .btn:hover{transform:translateY(-1px)}
+.meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.meta-card{padding:14px 16px;background:rgba(255,255,255,.8);border:1px solid var(--line);border-radius:16px}
+.meta-card span{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.09em;color:#718096;font-weight:800}
+.meta-card strong{display:block;margin-top:3px;font-size:.95rem}
+.hero-visual{background:white;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
+.hero-visual img{border-radius:18px;width:100%;background:white}
+.caption{font-size:.84rem;color:#7a8798;margin-top:10px}
+.section{padding:74px 0}
+.section.alt{background:white;border-top:1px solid #edf1f5;border-bottom:1px solid #edf1f5}
+.section-head{display:grid;grid-template-columns:.42fr 1fr;gap:46px;align-items:start;margin-bottom:38px}
+.section-head h2{font-size:clamp(2rem,4vw,3.35rem);line-height:1.05;letter-spacing:-.035em;margin:2px 0}
+.section-head p{margin:0;color:var(--muted);font-size:1.07rem;max-width:760px}
+.kicker{font-size:.75rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.question{background:linear-gradient(135deg,#0b356b,#0a254b);color:white;border-radius:28px;padding:38px;box-shadow:var(--shadow)}
+.question p{font-size:clamp(1.45rem,3vw,2.25rem);line-height:1.25;margin:0;letter-spacing:-.02em}
+.hypothesis{margin-top:20px;padding:24px 26px;border-left:5px solid var(--green);background:var(--mint);border-radius:0 18px 18px 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.stat{background:white;border:1px solid var(--line);border-radius:20px;padding:22px;min-height:132px}
+.stat strong{font-size:2rem;display:block;line-height:1.1;color:var(--navy)} .stat span{color:var(--muted);font-size:.92rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 10px 28px rgba(17,44,77,.06)}
+.card h3{margin:0 0 8px;font-size:1.22rem} .card p{margin:0;color:var(--muted)}
+.input-groups{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.input{padding:18px;border-radius:18px;border:1px solid var(--line);background:white}
+.input .icon{font-size:1.55rem} .input strong{display:block;margin-top:8px} .input small{display:block;color:var(--muted);margin-top:4px}
+.figure{background:white;border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:var(--shadow)}
+.figure img{width:100%;border-radius:14px}
+.workflow{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;align-items:center}
+.steps{display:grid;gap:12px}
+.step{display:grid;grid-template-columns:42px 1fr;gap:14px;padding:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.step b{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--sky);color:var(--blue)}
+.step h3{margin:0;font-size:1rem} .step p{margin:2px 0 0;color:var(--muted);font-size:.92rem}
+.model-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:center}
+.pills{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.pill{padding:8px 12px;border-radius:999px;background:var(--sky);border:1px solid #d8e9fb;font-weight:800;font-size:.86rem;color:#285d92}
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.result-hero{grid-column:1/-1;display:grid;grid-template-columns:1.08fr .92fr;gap:26px;align-items:center;background:linear-gradient(135deg,#fdfefe,#eef8f4)}
+.result-copy h3{font-size:2rem;line-height:1.1;margin:0 0 12px} .result-copy p{color:var(--muted)}
+.notice{font-size:.88rem;color:#52657c;background:#f2f6fa;border:1px solid var(--line);padding:14px 16px;border-radius:14px;margin-top:14px}
+.video-wrap{position:relative;padding-top:56.25%;border-radius:22px;overflow:hidden;background:#0b1727;box-shadow:var(--shadow)}
+.video-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.conclusion{background:linear-gradient(135deg,#f0f8ff,#effaf5);border:1px solid #dbece5;border-radius:28px;padding:34px}
+.conclusion h3{margin-top:0;font-size:2rem}
+.future{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.future .card{box-shadow:none}
+.references{font-size:.9rem;color:#5f6f82} .references li{margin-bottom:10px} .references a{color:#2e659d}
+footer{padding:34px 0 56px;color:#718096;text-align:center;font-size:.9rem}
+.reveal{opacity:0;transform:translateY(18px);transition:.6s ease} .reveal.visible{opacity:1;transform:none}
+@media (max-width:900px){
+ .hero-grid,.section-head,.workflow,.model-grid,.result-hero{grid-template-columns:1fr} .meta{grid-template-columns:repeat(2,1fr)} .stats,.input-groups{grid-template-columns:repeat(2,1fr)} .nav-links>:not(.back){display:none} .nav-links{gap:0} .results-grid{grid-template-columns:1fr} .result-hero{grid-column:auto} .future{grid-template-columns:1fr}
+}
+@media (max-width:560px){.container{width:min(100% - 26px,var(--max))} .hero{padding-top:54px} .meta,.stats,.input-groups,.grid2{grid-template-columns:1fr} h1{font-size:3.2rem} .section{padding:56px 0}}
+@media print{.nav,#progress,.actions{display:none} body{background:white} .section{padding:28px 0} .reveal{opacity:1;transform:none}}
+</style>
 </head>
 <body>
-  <header class="detail-header">
-    <div class="container detail-nav">
-      <a class="brand" href="../index.html">OM<span>.</span></a>
-      <a class="back" href="../index.html#projects">← Back to portfolio</a>
+<div id="progress"></div>
+<nav class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="../index.html">OM<span>.</span></a>
+    <div class="nav-links"><a href="#question">Question</a><a href="#system">System</a><a href="#model">Model</a><a href="#results">Results</a><a href="#future">Future</a><a class="back" href="../index.html#projects">← Back</a></div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Science • Machine Learning • 2026</p>
+      <h1>Personalized Allergy Prediction</h1>
+      <p>An end-to-end early-warning system that combines pollen, weather, air quality, indoor particle data, and personal symptom history to forecast next-day allergy symptoms.</p>
+      <div class="actions"><a class="btn primary" href="#results">See the results ↓</a><a class="btn" href="#video">Watch presentation ↗</a></div>
+      <div class="meta">
+        <div class="meta-card"><span>Student</span><strong>Om Chatterjee</strong></div>
+        <div class="meta-card"><span>Grade</span><strong>7th Grade</strong></div>
+        <div class="meta-card"><span>Role</span><strong>Researcher & Developer</strong></div>
+        <div class="meta-card"><span>Status</span><strong>Completed</strong></div>
+      </div>
     </div>
-  </header>
+    <figure class="hero-visual">
+      <img src="../images/pollen/pollen1.png" alt="Diagram showing pollen, weather, sensor, food and symptom data flowing into AI symptom prediction and early warnings" />
+      <figcaption class="caption">Project concept: multi-source data + personalized symptom tracking → AI-powered next-day warnings.</figcaption>
+    </figure>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <p class="kicker">SCIENCE • MACHINE LEARNING</p>
-        <h1>Personalized Allergy Prediction</h1>
-        <p class="summary">A science-fair project exploring whether personalized environmental and behavioral data can improve next-day allergy symptom prediction.</p>
+<main>
+<section class="section" id="question">
+ <div class="container">
+   <div class="section-head reveal"><div><span class="kicker">01 • Research</span><h2>The question</h2></div><p>Generic pollen forecasts assume people react similarly. This project tests whether a model trained on one person's own history can make a more useful next-day prediction.</p></div>
+   <div class="question reveal"><p>Can a personalized machine-learning model that combines pollen, weather, air quality, indoor dust data, and daily symptom history reliably predict next-day allergy symptom severity and provide an early warning?</p></div>
+   <div class="hypothesis reveal"><strong>Hypothesis.</strong> A neural network using personal history plus environmental and indoor data will predict next-day symptom severity more accurately than a pollen-only warning.</div>
+   <div class="stats reveal">
+     <div class="stat"><strong>76</strong><span>input features across environment, habits, and sensors</span></div>
+     <div class="stat"><strong>11</strong><span>symptom outputs predicted by the model</span></div>
+     <div class="stat"><strong>221</strong><span>recent low-pollen days used in the comparison chart</span></div>
+     <div class="stat"><strong>Daily</strong><span>automated collection, retraining, prediction, and alerts</span></div>
+   </div>
+ </div>
+</section>
 
-        <div class="meta">
-          <div><span>YEAR</span><strong>2026</strong></div>
-          <div><span>TYPE</span><strong>Science Project</strong></div>
-          <div><span>ROLE</span><strong>Researcher & Developer</strong></div>
-          <div><span>STATUS</span><strong>Completed</strong></div>
-        </div>
-      </div>
-    </section>
+<section class="section alt" id="data">
+ <div class="container">
+  <div class="section-head reveal"><div><span class="kicker">02 • Inputs</span><h2>What the model sees</h2></div><p>The project intentionally goes beyond pollen. Outdoor conditions, indoor air, behavior, and symptom reports are brought together into one daily dataset.</p></div>
+  <div class="input-groups reveal">
+   <div class="input"><div class="icon">🌾</div><strong>Pollen</strong><small>Tree, grass, weed, and individual pollen indices.</small></div>
+   <div class="input"><div class="icon">🌦️</div><strong>Weather</strong><small>Temperature, precipitation, wind, humidity and related variables.</small></div>
+   <div class="input"><div class="icon">🌫️</div><strong>Air quality</strong><small>AQI plus pollutants such as PM2.5, PM10, O₃ and NO₂.</small></div>
+   <div class="input"><div class="icon">🏠</div><strong>Indoor particles</strong><small>SPS30 particle measurements collected in the home.</small></div>
+   <div class="input"><div class="icon">💊</div><strong>Medication</strong><small>Daily medication and exposure context.</small></div>
+   <div class="input"><div class="icon">🥗</div><strong>Food & habits</strong><small>Manual logs that capture potential non-pollen influences.</small></div>
+   <div class="input"><div class="icon">🤧</div><strong>Symptoms</strong><small>Severity reports such as itchy eyes, sneezing, fatigue, congestion and more.</small></div>
+   <div class="input"><div class="icon">📈</div><strong>Trend signals</strong><small>Other external indicators, including optional Google Trends data.</small></div>
+  </div>
+  <figure class="figure reveal" style="margin-top:24px"><img src="../images/pollen/pollen2.png" alt="Table of project input variables from weather, pollen, air quality, SPS30 sensor, food and symptom tracking" /><figcaption class="caption">Input-variable inventory used by the project.</figcaption></figure>
+ </div>
+</section>
 
-    <section class="container">
-      <div class="cover">Main photo / certificate / tournament image / project video</div>
+<section class="section" id="system">
+ <div class="container">
+   <div class="section-head reveal"><div><span class="kicker">03 • Engineering</span><h2>How predictions happen</h2></div><p>A scheduled pipeline turns the experiment into a repeatable daily system: collect → store → train → predict → show an alert.</p></div>
+   <div class="workflow">
+     <figure class="figure reveal"><img src="../images/pollen/pollen3.png" alt="Engineering process diagram for the allergy prediction system" /><figcaption class="caption">End-to-end architecture: Apps Script, Google Sheets, TensorFlow/Keras, AppSheet, APIs, and Raspberry Pi sensor collection.</figcaption></figure>
+     <div class="steps reveal">
+       <div class="step"><b>1</b><div><h3>Data entry</h3><p>Apps Script gathers pollen, weather, air quality, trend data, and indoor sensor readings, then standardizes the daily record.</p></div></div>
+       <div class="step"><b>2</b><div><h3>Automation</h3><p>Time-based triggers collect new data, validate the latest row, refresh calculations, retrain, and run predictions.</p></div></div>
+       <div class="step"><b>3</b><div><h3>Database</h3><p>Google Sheets stores the history of environmental variables, indoor readings, and personal symptom logs.</p></div></div>
+       <div class="step"><b>4</b><div><h3>Machine learning</h3><p>TensorFlow/Keras learns relationships between conditions and next-day symptom outcomes.</p></div></div>
+       <div class="step"><b>5</b><div><h3>User interface</h3><p>AppSheet handles daily logging and presents current predictions and high-risk warnings.</p></div></div>
+     </div>
+   </div>
+ </div>
+</section>
 
-      <div class="detail-section">
-        <div><p class="kicker">OVERVIEW</p><h2>The research question</h2></div>
-        <div class="content">
-          <p class="lead">Can a personalized model predict allergy symptoms better than a pollen-only baseline?</p>
-          <p>Use this section to explain the hypothesis, data collected, model design, experiment setup, and why the question matters.</p>
-        </div>
-      </div>
+<section class="section alt" id="model">
+ <div class="container">
+   <div class="section-head reveal"><div><span class="kicker">04 • Model</span><h2>The neural network</h2></div><p>The model converts a wide mix of inputs into separate symptom predictions. The architecture stays compact enough to retrain routinely as new personal data arrives.</p></div>
+   <div class="model-grid">
+     <div class="reveal">
+       <div class="pills"><span class="pill">76 input features</span><span class="pill">40-neuron hidden layer</span><span class="pill">10-neuron hidden layer</span><span class="pill">ReLU</span><span class="pill">Sigmoid output</span></div>
+       <div class="card"><h3>Personalization is the key idea</h3><p>Instead of asking only “Is pollen high?”, the network learns combinations that are specific to the user — for example wind + dryness + particles + past symptom patterns.</p></div>
+       <div class="card" style="margin-top:14px"><h3>Evaluation</h3><p>Training uses metrics including MAE, RMSE, and R². Predictions can also be converted to high-risk flags with a predefined cutoff.</p></div>
+     </div>
+     <figure class="figure reveal"><img src="../images/pollen/pollen4.png" alt="Neural network model architecture with 76 input features, 40 and 10 neuron hidden layers, and 11 symptom outputs" /><figcaption class="caption">Neural-network architecture used for next-day symptom prediction.</figcaption></figure>
+   </div>
+ </div>
+</section>
 
-      <div class="detail-section">
-        <div><p class="kicker">HIGHLIGHTS</p><h2>Key details</h2></div>
-        <div class="content">
-          <div class="stat-grid">
-            <div class="stat"><strong>221</strong><span>Example test days</span></div>
-            <div class="stat"><strong>ML</strong><span>Personalized model</span></div>
-            <div class="stat"><strong>Result</strong><span>Add strongest conclusion</span></div>
-          </div>
-        </div>
-      </div>
+<section class="section" id="results">
+ <div class="container">
+   <div class="section-head reveal"><div><span class="kicker">05 • Results</span><h2>What the data showed</h2></div><p>The training curves improved over time, while symptom-level evaluation showed that some outcomes were easier to forecast than others. The most practical comparison was against the simple pollen-only baseline.</p></div>
+   <div class="results-grid">
+     <div class="card result-hero reveal">
+       <div class="result-copy"><h3>Personalization beat the pollen-only warning on the low-pollen comparison.</h3><p>Across the recent 221-day low-pollen subset shown in the project report, the personalized model made fewer incorrect predictions for itchy eyes, sneezing, fatigue, and yawning. That is the setting where a generic “low pollen = low risk” rule is especially likely to miss symptoms driven by other conditions.</p><div class="notice">This is a single-participant student study, so the result supports the project hypothesis but does not establish medical effectiveness for other people.</div></div>
+       <figure class="figure" style="box-shadow:none"><img src="../images/pollen/pollen5.png" alt="Bar chart comparing incorrect pollen-count predictions with incorrect personalized model predictions on 221 low-pollen days" /><figcaption class="caption">Comparison of incorrect predictions in the low-pollen subset.</figcaption></figure>
+     </div>
+     <figure class="figure reveal"><img src="../images/pollen/pollen6.png" alt="Training and validation loss decreasing over epochs" /><figcaption class="caption">Training and validation loss both trend downward.</figcaption></figure>
+     <figure class="figure reveal"><img src="../images/pollen/pollen7.png" alt="Training and validation mean absolute error decreasing over epochs" /><figcaption class="caption">Mean Absolute Error decreases during training.</figcaption></figure>
+     <figure class="figure reveal"><img src="../images/pollen/pollen8.png" alt="Symptom by symptom classification performance table" /><figcaption class="caption">Symptom-level precision, recall, F1, accuracy, and confusion-count metrics.</figcaption></figure>
+     <figure class="figure reveal"><img src="../images/pollen/pollen9.png" alt="F1 score ranking by symptom" /><figcaption class="caption">F1 scores show that prediction performance differs by symptom.</figcaption></figure>
+   </div>
+ </div>
+</section>
 
-      <div class="detail-section">
-        <div><p class="kicker">VIDEO</p><h2>Project presentation</h2></div>
-        <div class="content">
-          <p>A walkthrough of the research question, the data, the model, and the results.</p>
-          <figure class="video">
-            <div class="video-frame">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/M1J254dyeMs"
-                title="Personalized Allergy Prediction — project presentation"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-            </div>
-            <figcaption>Personalized Allergy Prediction &mdash; project presentation.</figcaption>
-          </figure>
-        </div>
-      </div>
+<section class="section alt" id="video">
+ <div class="container">
+   <div class="section-head reveal"><div><span class="kicker">06 • Presentation</span><h2>Project walkthrough</h2></div><p>A video presentation of the research question, data pipeline, model, and results.</p></div>
+   <div class="video-wrap reveal"><iframe src="https://www.youtube-nocookie.com/embed/M1J254dyeMs" title="Personalized Allergy Prediction — project presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+ </div>
+</section>
 
-      <div class="detail-section">
-        <div><p class="kicker">STORY</p><h2>What happened</h2></div>
-        <div class="content">
-          <p>Describe the experiment from beginning to end, including data collection, model training, testing, comparisons, and judging or competition experience.</p>
-          <ul>
-            <li>Add important milestone, result, or achievement.</li>
-            <li>Add an interesting challenge or lesson.</li>
-            <li>Add context that helps the reader understand why this matters.</li>
-          </ul>
-        </div>
-      </div>
+<section class="section" id="conclusion">
+ <div class="container">
+   <div class="section-head reveal"><div><span class="kicker">07 • Conclusion</span><h2>What it means</h2></div><p>The project supports the idea that allergy forecasting can become more useful when it learns the way multiple environmental conditions interact for one person.</p></div>
+   <div class="conclusion reveal"><h3>More than pollen.</h3><p>The model combined pollen, weather, air-quality and particle measurements with personal symptom history. The report concludes that this multi-factor approach can identify symptom risk that a pollen-only warning may miss — particularly on low-to-moderate pollen days.</p><p><strong>Key limitations:</strong> one participant, a limited collection window, self-reported symptoms, and missing variables such as exact outdoor exposure time, sleep, and detailed medication timing.</p></div>
+ </div>
+</section>
 
-      <div class="detail-section">
-        <div><p class="kicker">EVIDENCE</p><h2>Photos & documents</h2></div>
-        <div class="content">
-          <p>Add images, certificates, charts, tournament screenshots, PDFs, or videos.</p>
-          <div class="gallery">
-            <div>Photo / screenshot 1</div>
-            <div>Photo / screenshot 2</div>
-            <div>Document / result</div>
-            <div>Additional image</div>
-          </div>
-        </div>
-      </div>
+<section class="section alt" id="future">
+ <div class="container">
+   <div class="section-head reveal"><div><span class="kicker">08 • Next steps</span><h2>Future possibilities</h2></div><p>The report groups future work into three directions: richer data, smarter modeling, and broader integrations.</p></div>
+   <div class="future reveal">
+     <div class="card"><h3>More inputs</h3><p>Add participants, collect across more seasons, expand sensor coverage, improve symptom labels, and incorporate medical guidance where appropriate.</p></div>
+     <div class="card"><h3>Smarter modeling</h3><p>Engineer stronger features, compare additional model types, deepen personalization, and strengthen privacy and security.</p></div>
+     <div class="card"><h3>More integrations</h3><p>Explore LLM-assisted explanations plus calendar, reminder, and collaboration integrations for predicted high-risk days.</p></div>
+   </div>
+ </div>
+</section>
 
-      <div class="detail-section">
-        <div><p class="kicker">REFLECTION</p><h2>What I learned</h2></div>
-        <div class="content">
-          <p>Explain what you learned about machine learning, experimental design, data quality, and interpreting results.</p>
-          <div class="links">
-            <a class="button primary" href="#">Primary link ↗</a>
-            <a class="button" href="#">Supporting link ↗</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      Om • Student résumé & portfolio
-    </div>
-  </footer>
+<section class="section" id="references">
+ <div class="container">
+  <div class="section-head reveal"><div><span class="kicker">09 • Sources</span><h2>Selected references</h2></div><p>Background research cited in the project report.</p></div>
+  <ol class="references reveal">
+   <li>Alnahas, S. et al. (2023). <em>Prevalence, severity, and risk factors of allergic rhinitis among schoolchildren in Saudi Arabia.</em> World Allergy Organization Journal. <a href="https://doi.org/10.1016/j.waojou.2023.100824" target="_blank" rel="noreferrer">DOI ↗</a></li>
+   <li>Ng, A. E., & Boersma, P. (2023). <em>Diagnosed allergic conditions in adults: United States, 2021.</em> CDC/NCHS. <a href="https://www.cdc.gov/nchs/products/databriefs/db460.htm" target="_blank" rel="noreferrer">CDC ↗</a></li>
+   <li>Asthma and Allergy Foundation of America. (2025). <em>Allergy Capitals.</em> <a href="https://aafa.org/asthma-allergy-research/allergy-capitals/" target="_blank" rel="noreferrer">AAFA ↗</a></li>
+   <li>Osborne, N. J. et al. (2017). Pollen exposure and hospitalization due to asthma exacerbations. <a href="https://doi.org/10.1007/s00484-017-1369-2" target="_blank" rel="noreferrer">DOI ↗</a></li>
+   <li>Shrestha, S. K., Lambert, K. A., & Erbas, B. (2021). Ambient pollen concentrations and asthma hospitalization in children and adolescents. <a href="https://doi.org/10.1080/02770903.2020.1771726" target="_blank" rel="noreferrer">DOI ↗</a></li>
+   <li>Carlsen, H. K. et al. (2022). Birch pollen, air pollution and their interactive effects on airway symptoms. <a href="https://doi.org/10.1186/s12940-022-00871-x" target="_blank" rel="noreferrer">DOI ↗</a></li>
+  </ol>
+ </div>
+</section>
+</main>
+<footer><div class="container">Om Chatterjee • Student science portfolio • Personalized Allergy Prediction</div></footer>
+<script>
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const h=document.documentElement;const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;progress.style.width=pct+'%'});
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

@@ -2,11 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="TankFlare — an AI-assisted aquarium planner that checks fish, plant, and decor compatibility before you buy.">
+  <meta name="description" content="TankFlare, an AI-assisted aquarium planner that checks fish, plant, and decor compatibility before you buy.">
   <title>TankFlare | Om</title>
   <link rel="stylesheet" href="../detail.css">
   <script src="../lightbox.js" defer></script>
+  <style>
+    .status-link { color: var(--accent); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .status-link:hover { color: var(--accent-deep); }
+    .model-flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 24px; }
+    .model-stage { min-height: 150px; padding: 20px; border: 1px solid var(--line); border-top: 3px solid var(--accent); background: var(--soft); }
+    .model-stage strong { display: block; font-family: var(--font-display); font-size: 1.35rem; color: var(--text); }
+    .model-stage span { display: block; margin-top: 8px; color: var(--muted); font-size: .85rem; line-height: 1.5; }
+    .model-stage.final { color: #fff; border-color: var(--accent); background: var(--accent); }
+    .model-stage.final strong, .model-stage.final span { color: #fff; }
+    .compatibility-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 24px 0; }
+    .compatibility-card { min-height: 230px; padding: 20px; border: 1px solid var(--line); border-top: 3px solid var(--accent); background: #fff; }
+    .compatibility-icon { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #cbb8bb; border-radius: 50%; color: var(--accent); font-size: 1.25rem; }
+    .compatibility-card h3 { margin: 16px 0 8px; font-family: var(--font-display); font-size: 1.15rem; }
+    .compatibility-card p { margin: 0; color: var(--muted); font-size: .87rem; line-height: 1.55; }
+    .gallery img { object-fit: contain; background: var(--soft); }
+    .architecture { overflow: hidden; padding: 26px; border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 4px; background: #fff; color: var(--text); }
+    .architecture-lead { margin: 0 0 20px; color: var(--muted); font-size: .92rem; }
+    .architecture-layer { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); }
+    .architecture-label { color: var(--accent); font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .architecture-content strong { display: block; color: var(--text); font-family: var(--font-display); font-size: 1.18rem; }
+    .architecture-content p { margin: 6px 0 0; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+    .technology-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+    .technology-chip { padding: 5px 8px; border: 1px solid #cbb8bb; border-radius: 3px; color: var(--accent); font-size: .72rem; font-weight: 800; }
+    .ml-flow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+    .ml-step { position: relative; min-height: 85px; padding: 12px; border: 1px solid var(--line); border-top: 2px solid #cbb8bb; background: var(--soft); color: var(--muted); font-size: .75rem; line-height: 1.4; }
+    .ml-step + .ml-step::before { position: absolute; top: 50%; left: -8px; color: var(--accent); content: "→"; transform: translateY(-50%); }
+    .ml-step strong { display: block; margin-bottom: 4px; color: var(--text); font-family: var(--font-display); font-size: .95rem; }
+    .architecture-note { margin: 14px 0 0; padding: 10px 12px; border-left: 3px solid var(--accent); background: var(--soft); color: var(--text); font-size: .8rem; }
+    .data-flow { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-align: center; }
+    .architecture-strip { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .architecture-strip span { color: var(--muted); font-size: .7rem; }
+    @media (max-width: 700px) { .model-flow, .compatibility-grid { grid-template-columns: 1fr; } .compatibility-card { min-height: 0; } .architecture { padding: 20px; } .architecture-layer { grid-template-columns: 1fr; gap: 8px; } .ml-flow { grid-template-columns: 1fr; } .ml-step + .ml-step::before { top: -9px; left: 50%; transform: translateX(-50%) rotate(90deg); } }
+  </style>
 </head>
 <body>
   <header class="detail-header">
@@ -31,14 +65,15 @@
           <div><span>YEAR</span><strong>2025 – 2026</strong></div>
           <div><span>TYPE</span><strong>Web application</strong></div>
           <div><span>ROLE</span><strong>Designer &amp; developer</strong></div>
-          <div><span>STATUS</span><strong>Live at tankflare.com</strong></div>
+          <div><span>STATUS</span><strong>Live at <a class="status-link" href="https://www.tankflare.com" target="_blank" rel="noopener">tankflare.com</a></strong></div>
         </div>
       </div>
     </section>
 
     <section class="container">
-      <figure class="cover placeholder">
-        <div>Add a screenshot of the TankFlare compatibility results page</div>
+      <figure class="cover">
+        <img src="../images/tflare/tflarehero.png" alt="TankFlare freshwater aquarium planning interface">
+        <figcaption>TankFlare helps aquarium hobbyists evaluate tank setups and make better stocking decisions.</figcaption>
       </figure>
 
       <div class="detail-section">
@@ -69,14 +104,10 @@
         <div><p class="kicker">HIGHLIGHTS</p><h2>Key details</h2></div>
         <div class="content">
           <div class="stat-grid">
-            <div class="stat"><strong>3</strong><span>Compatibility layers: fish, plants, decor</span></div>
-            <div class="stat"><strong>1</strong><span>Tank profile drives every recommendation</span></div>
-            <div class="stat"><strong>AI</strong><span>Explains the reasoning, not just a yes or no</span></div>
+            <div class="stat"><strong>496</strong><span>Freshwater species profiles</span></div>
+            <div class="stat"><strong>45</strong><span>Compatibility signals evaluated</span></div>
+            <div class="stat"><strong>1,200+</strong><span>Monthly visitors</span></div>
           </div>
-          <p>
-            <em>Update these figures with your real numbers — species in the
-            database, monthly visitors, or checks run.</em>
-          </p>
         </div>
       </div>
 
@@ -84,71 +115,117 @@
         <div><p class="kicker">HOW IT WORKS</p><h2>Three layers of compatibility</h2></div>
         <div class="content">
           <p>
-            The user describes their tank — volume, water parameters, lighting,
-            substrate, and current inhabitants — and then adds what they are
+            The user describes their tank: volume, water parameters, lighting,
+            substrate, and current inhabitants, then adds what they are
             thinking of buying. TankFlare evaluates the combination on three
             fronts.
           </p>
-          <ul>
-            <li>
-              <strong>Fish &harr; fish.</strong> Temperament and aggression,
-              adult size versus tank volume, schooling requirements, territory
-              and swimming level, fin-nipping risk, and overlapping water
-              parameter ranges for temperature, pH, and hardness.
-            </li>
-            <li>
-              <strong>Fish &harr; plants.</strong> Some species eat, uproot, or
-              shred live plants. The planner flags known plant-destroyers, matches
-              plant light and nutrient demands against the tank's setup, and
-              suggests hardy alternatives when a species is a poor fit.
-            </li>
-            <li>
-              <strong>Fish &harr; decor.</strong> Substrate against bottom-dweller
-              barbels, sharp ornaments against long-finned species, driftwood and
-              rock that alter pH or hardness, and whether there is enough cover
-              for shy species to feel secure.
-            </li>
-          </ul>
+          <div class="compatibility-grid">
+            <article class="compatibility-card">
+              <div class="compatibility-icon" aria-hidden="true">🐟</div>
+              <h3>Fish &harr; Fish</h3>
+              <p>Checks temperament, adult size, schooling needs, territory, swimming level, fin-nipping risk, and shared temperature, pH, and hardness ranges.</p>
+            </article>
+            <article class="compatibility-card">
+              <div class="compatibility-icon" aria-hidden="true">🌿</div>
+              <h3>Fish &harr; Plants</h3>
+              <p>Flags species that eat, uproot, or shred plants, then compares plant light and nutrient needs against the tank setup and suggests alternatives.</p>
+            </article>
+            <article class="compatibility-card">
+              <div class="compatibility-icon" aria-hidden="true">🪨</div>
+              <h3>Fish &harr; Decor</h3>
+              <p>Reviews substrate safety, sharp edges, driftwood and rock effects on water chemistry, and the cover needed for shy fish to feel secure.</p>
+            </article>
+          </div>
           <p>
             Instead of returning a bare verdict, the AI explains <em>why</em> a
-            pairing fails and what to change — a different species, a larger
+            pairing fails and what to change: a different species, a larger
             tank, or an adjustment to the setup.
           </p>
         </div>
       </div>
 
       <div class="detail-section">
-        <div><p class="kicker">BUILD</p><h2>How I built it</h2></div>
+        <div><p class="kicker">AI MODEL</p><h2>How TankFlare reaches a match</h2></div>
         <div class="content">
+          <p class="lead">TankFlare uses an ensemble model to turn aquarium details into a clear compatibility recommendation.</p>
           <p>
-            <em>Replace this section with your real stack and architecture.</em>
+            More than 15,000 data points were collected and organized using
+            personal freshwater-aquarium knowledge. Specialist XGBoost and
+            LightGBM models evaluate signals from the tank setup, water
+            parameters, bioload, and the fish-and-decor combination. Each model
+            contributes an independent opinion; a logistic regression model then
+            combines those predictions into the final match result.
           </p>
-          <ul>
-            <li><strong>Front end:</strong> the tank builder, species search, and results view.</li>
-            <li><strong>Data:</strong> the species and plant records behind each check, and where that data came from.</li>
-            <li><strong>AI layer:</strong> how prompts are assembled from the tank profile, and how responses are constrained so the advice stays grounded in real care requirements.</li>
-            <li><strong>Hosting:</strong> deployment, domain, and analytics.</li>
-          </ul>
-          <p>
-            The hardest engineering problem was keeping the AI honest. A model
-            asked about fish compatibility will happily invent a confident answer,
-            so the value is in grounding it with structured species data and
-            forcing it to justify every conclusion against real parameters.
-          </p>
+          <div class="model-flow" aria-label="TankFlare ensemble model flow">
+            <div class="model-stage">
+              <strong>Tank signals</strong>
+              <span>Tank conditions, water parameters, bioload, species, and decor details.</span>
+            </div>
+            <div class="model-stage">
+              <strong>Model ensemble</strong>
+              <span>Multiple XGBoost and LightGBM models assess compatibility from different perspectives.</span>
+            </div>
+            <div class="model-stage final">
+              <strong>Final match</strong>
+              <span>A logistic regression model combines the ensemble's opinions into one recommendation.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">ARCHITECTURE</p><h2>How TankFlare works</h2></div>
+        <div class="content">
+          <div class="architecture" aria-label="TankFlare technology architecture">
+            <p class="architecture-lead">A layered application architecture keeps the web experience, persistent aquarium data, and trained compatibility models clearly separated.</p>
+            <div class="architecture-layer">
+              <div class="architecture-label">Presentation layer</div>
+              <div class="architecture-content"><strong>Next.js · React · TypeScript</strong><p>Responsive web interface, dashboards, stocking checker, species pages, logbook, and AI-assisted tools.</p></div>
+            </div>
+            <div class="architecture-layer">
+              <div class="architecture-label">Application &amp; API</div>
+              <div class="architecture-content"><strong>REST / Server-side APIs</strong><p>Handles application logic, validation, data access, authentication-related operations, and communication with hosted AI services.</p></div>
+            </div>
+            <div class="architecture-layer">
+              <div class="architecture-label">Data layer</div>
+              <div class="architecture-content"><strong>Firebase · Firestore</strong><p>Stores aquarium data, user tank information, logs, species information, configuration, and application data.</p></div>
+            </div>
+            <div class="architecture-layer">
+              <div class="architecture-label">AI / ML layer</div>
+              <div class="architecture-content">
+                <strong>Offline training → Hosted ML inference</strong>
+                <div class="ml-flow">
+                  <div class="ml-step"><strong>Prepared data</strong>Historical compatibility records.</div>
+                  <div class="ml-step"><strong>Features</strong>Engineer tank and species signals.</div>
+                  <div class="ml-step"><strong>Training</strong>Train and evaluate models offline.</div>
+                  <div class="ml-step"><strong>Saved model</strong>Export the approved model.</div>
+                  <div class="ml-step"><strong>Hosted API</strong>Return predictions and risk scores.</div>
+                </div>
+                <p class="architecture-note">The model is not trained during normal website use. TankFlare sends compatibility features to a hosted inference API, which loads the pre-trained model and returns a prediction.</p>
+              </div>
+            </div>
+            <div class="architecture-layer">
+              <div class="architecture-label">Infrastructure</div>
+              <div class="architecture-content"><strong>Vercel</strong><p>Hosts and deploys the Next.js application and server-side endpoints.</p></div>
+            </div>
+            <div class="architecture-layer">
+              <div class="architecture-label">Analytics</div>
+              <div class="architecture-content"><strong>Google Analytics</strong><p>Tracks anonymized usage, page activity, and product engagement.</p></div>
+            </div>
+            <div class="architecture-strip" aria-label="Technology stack"><span>Next.js</span><span>· React</span><span>· TypeScript</span><span>· Firebase</span><span>· Firestore</span><span>· Vercel</span><span>· Google Analytics</span><span>· Custom Machine Learning</span><span>· REST APIs</span></div>
+          </div>
         </div>
       </div>
 
       <div class="detail-section">
         <div><p class="kicker">EVIDENCE</p><h2>Screenshots</h2></div>
         <div class="content">
-          <p>
-            Add screenshots to <code>images/tf/</code> and swap them in below.
-          </p>
           <div class="gallery">
-            <figure class="ph"><div>Home page</div></figure>
-            <figure class="ph"><div>Tank setup form</div></figure>
-            <figure class="ph"><div>Compatibility results</div></figure>
-            <figure class="ph"><div>Species detail view</div></figure>
+            <figure class="shot"><a href="../images/tflare/tflare1.png"><img src="../images/tflare/tflare1.png" alt="TankFlare home page"></a><figcaption>Home page</figcaption></figure>
+            <figure class="shot"><a href="../images/tflare/tflare2.png"><img src="../images/tflare/tflare2.png" alt="Available TankFlare services"></a><figcaption>Available TankFlare services</figcaption></figure>
+            <figure class="shot"><a href="../images/tflare/tflare3.png"><img src="../images/tflare/tflare3.png" alt="TankFlare tank setup"></a><figcaption>Tank setup</figcaption></figure>
+            <figure class="shot"><a href="../images/tflare/tflare4.png"><img src="../images/tflare/tflare4.png" alt="TankFlare AI-driven compatibility check"></a><figcaption>AI-driven compatibility check</figcaption></figure>
           </div>
         </div>
       </div>
@@ -163,9 +240,9 @@
             beginner will actually trust and act on.
           </p>
           <p>
-            It also connected two things I care about separately — keeping
-            aquariums and building software — into one project where the payoff is
-            a fish that does not die because someone did not know better.
+            It brought together my interest in aquariums and software development
+            to help fishkeepers make better-informed decisions for the health of
+            their fish.
           </p>
           <div class="links">
             <a class="button primary" href="https://www.tankflare.com" target="_blank" rel="noopener">Visit TankFlare ↗</a>

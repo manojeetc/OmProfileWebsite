@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Student resume and portfolio for Om." />
   <title>Om | Student Resume & Portfolio</title>
@@ -18,11 +19,12 @@
       <nav class="nav">
         <a href="#about">About</a>
         <a href="#academics">Academics</a>
+        <a href="#coding">Coding</a>
         <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#society">Beyond the Classroom</a>
         <a href="#awards">Awards</a>
         <a href="#chess">Chess</a>
-        <a href="#society">Building Society</a>
-        <a href="#activities">Activities</a>
       </nav>
     </div>
   </header>
@@ -148,6 +150,7 @@
             This site is a collection of my work, achievements, activities, and
             things I am proud to have learned.
           </p>
+          <a class="button secondary" href="pages/cv.html">View my CV →</a>
         </div>
       </div>
     </section>
@@ -208,6 +211,39 @@
       </div>
     </section>
 
+    <!-- CODING -->
+    <section class="section section-alt" id="coding">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">CODING</p>
+          <h2>Algorithms, problem solving, and competitive programming.</h2>
+          <p>
+            Coding is one of my strongest interests. I primarily program in C++,
+            using it to explore data structures, algorithms, and the challenge of
+            solving problems under competition conditions.
+          </p>
+        </div>
+
+        <div class="coding-layout">
+          <div class="body-copy">
+            <p>
+              I use C++ to prepare for and compete in the USA Computing Olympiad,
+              where I have qualified for the Bronze division. I also practice on
+              Codeforces as <strong>overflux</strong>, learning from each contest
+              and working to improve my speed, reasoning, and implementation.
+            </p>
+            <a class="button secondary" href="https://codeforces.com/profile/overflux" target="_blank" rel="noopener">View Codeforces Profile →</a>
+          </div>
+
+          <div class="coding-stats">
+            <div class="coding-stat"><strong>C++</strong><span>Competitive Programming</span></div>
+            <div class="coding-stat"><strong>USACO</strong><span>Bronze</span></div>
+            <div class="coding-stat"><strong>Codeforces</strong><span>1233 · Pupil</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
@@ -218,51 +254,107 @@
         </div>
 
         <div class="feature-list">
-          <a class="feature-row" href="pages/project-allergy.html">
+          <a class="feature-row feature-row-with-image" href="pages/project-allergy.html">
             <div class="feature-number">01</div>
             <div>
               <span>SCIENCE • MACHINE LEARNING</span>
               <h3>Personalized Allergy Prediction</h3>
               <p>Can personalized data predict next-day allergy symptoms better than pollen alone?</p>
             </div>
+            <img class="feature-image" src="images/pollen/pollen4.png" alt="Personalized allergy prediction neural network visualization">
             <div class="feature-arrow">→</div>
           </a>
 
-          <a class="feature-row" href="pages/project-whispering-hat.html">
+          <a class="feature-row feature-row-with-image" href="pages/project-whispering-hat.html">
             <div class="feature-number">02</div>
             <div>
               <span>ENGINEERING • AI • ASSISTIVE TECHNOLOGY</span>
               <h3>Whispering Hat</h3>
               <p>A wearable system that uses a camera, sensors, and audio feedback.</p>
             </div>
+            <img class="feature-image" src="images/what/what1.jpg" alt="Whispering Hat assistive technology project">
             <div class="feature-arrow">→</div>
           </a>
 
-          <a class="feature-row" href="pages/project-robot-car.html">
+          <a class="feature-row feature-row-with-image" href="pages/project-robot-car.html">
             <div class="feature-number">03</div>
             <div>
               <span>ROBOTICS • PYTHON • COMPUTER VISION</span>
               <h3>Autonomous Robot Car</h3>
               <p>A Raspberry Pi robot used to experiment with sensors, motors, and navigation.</p>
             </div>
+            <img class="feature-image" src="images/acar/acar1.png" alt="Autonomous Car robotics project">
             <div class="feature-arrow">→</div>
           </a>
 
-          <a class="feature-row" href="pages/project-tankflare.html">
+          <a class="feature-row feature-row-with-image" href="pages/project-tankflare.html">
             <div class="feature-number">04</div>
             <div>
               <span>WEB • AI • AQUARISTICS</span>
               <h3>TankFlare</h3>
               <p>A live site that uses AI to check fish, plant, and decor compatibility before you buy.</p>
             </div>
+            <img class="feature-image" src="images/tflare/tflare1.png" alt="TankFlare aquarium planning project">
             <div class="feature-arrow">→</div>
           </a>
         </div>
       </div>
     </section>
 
+    <!-- BEYOND THE CLASSROOM -->
+    <section class="section society-section" id="society">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">BEYOND THE CLASSROOM</p>
+          <h2>Chess as a way to give back</h2>
+          <p>
+            Volunteering, outreach, and fundraising work that uses chess to reach
+            students and families across two continents.
+          </p>
+        </div>
+
+        <div class="item-grid">
+          <a class="item-card photo-card" href="pages/society-rmh-chess.html">
+            <div class="card-thumb">
+              <img src="images/rmh/2026-02-12-18-50-36-1024x768.jpeg" alt="A chess game at the Ronald McDonald House" loading="lazy">
+            </div>
+            <div>
+              <span class="item-type">VOLUNTEERING</span>
+              <h3>RMH &mdash; Introducing Chess</h3>
+              <p>Weekly chess evenings at the largest Ronald McDonald House in the country.</p>
+              <strong>Open &rarr;</strong>
+            </div>
+          </a>
+
+          <a class="item-card photo-card" href="pages/society-arise-tablets.html">
+            <div class="card-thumb">
+              <img src="images/act/IMG_0601-1024x576.jpg" alt="Children celebrating with the chess-loaded tablets" loading="lazy">
+            </div>
+            <div>
+              <span class="item-type">FUNDRAISING</span>
+              <h3>Arise &mdash; Chess-Loaded Tablets</h3>
+              <p>Raising funds and shipping offline chess tools to students in East Africa.</p>
+              <strong>Open &rarr;</strong>
+            </div>
+          </a>
+
+          <a class="item-card photo-card" href="pages/society-arise-school.html">
+            <div class="card-thumb">
+              <img src="images/asb/school3.png" alt="Arise Community School in Tanzania" loading="lazy">
+            </div>
+            <div>
+              <span class="item-type">EDUCATION</span>
+              <h3>Arise School &mdash; New Beginnings</h3>
+              <p>Building a chess club from scratch at a school in the foothills of Kilimanjaro.</p>
+              <strong>Open &rarr;</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- AWARDS -->
-    <section class="section section-alt" id="awards">
+    <section class="section" id="awards">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">RECOGNITION</p>
@@ -341,97 +433,22 @@
       </div>
     </section>
 
-    <!-- BUILDING SOCIETY -->
-    <section class="section" id="society">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">BUILDING SOCIETY</p>
-          <h2>Chess as a way to give back</h2>
+    <!-- PUBLICATIONS -->
+    <section class="section" id="publications">
+      <div class="container split">
+        <div>
+          <p class="eyebrow">WRITING PORTFOLIO</p>
+          <h2>Publications</h2>
+        </div>
+
+        <div class="body-copy">
+          <p class="lead">Essays, reading responses, and science writing shaped by the questions I want to understand better.</p>
           <p>
-            Volunteering, outreach, and fundraising work that uses chess to reach
-            students and families across two continents.
+            My writing includes a New York Times Student Reading Challenge
+            highlight article and popular-science work such as <em>Why Turtles?</em>,
+            an exploration of turtle evolution and adaptation.
           </p>
-        </div>
-
-        <div class="item-grid">
-          <a class="item-card photo-card" href="pages/society-rmh-chess.html">
-            <div class="card-thumb">
-              <img src="images/rmh/2026-02-12-18-50-36-1024x768.jpeg" alt="A chess game at the Ronald McDonald House" loading="lazy">
-            </div>
-            <div>
-              <span class="item-type">VOLUNTEERING</span>
-              <h3>RMH &mdash; Introducing Chess</h3>
-              <p>Weekly chess evenings at the largest Ronald McDonald House in the country.</p>
-              <strong>Open &rarr;</strong>
-            </div>
-          </a>
-
-          <a class="item-card photo-card" href="pages/society-arise-tablets.html">
-            <div class="card-thumb">
-              <img src="images/act/IMG_0601-1024x576.jpg" alt="Children celebrating with the chess-loaded tablets" loading="lazy">
-            </div>
-            <div>
-              <span class="item-type">FUNDRAISING</span>
-              <h3>Arise &mdash; Chess-Loaded Tablets</h3>
-              <p>Raising funds and shipping offline chess tools to students in East Africa.</p>
-              <strong>Open &rarr;</strong>
-            </div>
-          </a>
-
-          <a class="item-card photo-card" href="pages/society-arise-school.html">
-            <div class="card-thumb">
-              <img src="images/asb/school3.png" alt="Arise Community School in Tanzania" loading="lazy">
-            </div>
-            <div>
-              <span class="item-type">EDUCATION</span>
-              <h3>Arise School &mdash; New Beginnings</h3>
-              <p>Building a chess club from scratch at a school in the foothills of Kilimanjaro.</p>
-              <strong>Open &rarr;</strong>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACTIVITIES -->
-    <section class="section section-alt" id="activities">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">BEYOND THE CLASSROOM</p>
-          <h2>Leadership, service & activities</h2>
-          <p>Clubs, mentoring, volunteering, teamwork, writing, and community involvement.</p>
-        </div>
-
-        <div class="item-grid">
-          <a class="item-card" href="pages/activity-leadership.html">
-            <div class="item-icon">◎</div>
-            <div>
-              <span class="item-type">LEADERSHIP</span>
-              <h3>Leadership & Mentoring</h3>
-              <p>Teamwork, helping others learn, club roles, and project collaboration.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-
-          <a class="item-card" href="pages/activity-writing.html">
-            <div class="item-icon">✎</div>
-            <div>
-              <span class="item-type">WRITING</span>
-              <h3>Writing & Creative Work</h3>
-              <p>Selected writing, publications, contests, reviews, or creative work.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-
-          <a class="item-card" href="pages/activity-community.html">
-            <div class="item-icon">♡</div>
-            <div>
-              <span class="item-type">COMMUNITY</span>
-              <h3>Service & Community</h3>
-              <p>Volunteer work, outreach, civic participation, or other activities.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
+          <a class="button primary" href="pages/publications.html">Explore publications →</a>
         </div>
       </div>
     </section>

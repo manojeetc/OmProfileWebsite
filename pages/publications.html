@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Publication portfolio for Om Chatterjee, featuring student writing and notable published work.">
+  <title>Publications | Om Chatterjee</title>
+  <link rel="stylesheet" href="../detail.css">
+  <style>
+    .archive-section { padding-bottom: 82px; }
+    .archive-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+    .archive-heading h2 { margin: 0; }
+    .view-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .view-tab { border: 1px solid var(--line); background: #fff; padding: 8px 11px; color: var(--muted); font: inherit; font-size: .76rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+    .view-tab:hover, .view-tab[aria-selected="true"] { color: #fff; border-color: var(--accent); background: var(--accent); }
+    .archive-view[hidden] { display: none; }
+    .post-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; border-top: 1px solid var(--line); }
+    .post { padding: 28px 0; border-bottom: 1px solid var(--line); }
+    .post-wide { grid-column: 1 / -1; }
+    .publication-date { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+    .post h3 { margin: 8px 0 0; font-size: 1.45rem; }
+    .post p { margin: 8px 0 0; color: var(--muted); }
+    .publication-meta { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .genre-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .genre-tag { padding: 3px 7px; border: 1px solid #cbb8bb; color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .genre-group + .genre-group { margin-top: 34px; }
+    .genre-group h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 1.2rem; }
+    .highlights { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    .highlight { min-height: 130px; padding: 18px; border-top: 3px solid var(--accent); background: var(--soft); }
+    .highlight p { margin: 10px 0 0; color: var(--muted); }
+    .highlight strong { display: block; margin-top: 8px; font-family: var(--font-display); font-size: 1.08rem; line-height: 1.2; }
+    .publication-link { display: inline-block; margin-top: 12px; color: var(--accent); font-size: .75rem; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .sample-highlight { border-top-color: #a8874b; background: #f6f3ea; }
+    @media (max-width: 700px) {
+      .archive-heading { display: block; }
+      .view-tabs { margin-top: 18px; }
+      .post-grid { grid-template-columns: 1fr; }
+      .highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 430px) {
+      .highlights { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="detail-header">
+    <div class="container detail-nav">
+      <a class="brand" href="../index.html">OM<span>.</span></a>
+      <a class="back" href="../index.html#publications">← Back to portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="kicker">WRITING PORTFOLIO</p>
+        <h1>Publications</h1>
+        <p class="summary">A growing collection of essays and published writing that explores science, history, and the ideas that make me curious.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="detail-section">
+        <div><p class="kicker">HIGHLIGHTS</p><h2>Notable mentions</h2></div>
+        <div class="highlights">
+          <article class="highlight">
+            <span class="publication-meta">Published · June 2026</span>
+            <strong>NY Times Highlight Article</strong>
+            <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
+          </article>
+          <article class="highlight sample-highlight">
+            <span class="publication-meta">Sample mention</span>
+            <strong>Student Science Journal</strong>
+          </article>
+          <article class="highlight sample-highlight">
+            <span class="publication-meta">Sample mention</span>
+            <strong>Regional Writing Showcase</strong>
+          </article>
+          <article class="highlight sample-highlight">
+            <span class="publication-meta">Sample mention</span>
+            <strong>School Literary Review</strong>
+          </article>
+        </div>
+      </div>
+
+      <section class="archive-section" aria-labelledby="archive-heading">
+        <div class="archive-heading">
+          <div><p class="kicker">BLOG ARCHIVE</p><h2 id="archive-heading">Writing archive</h2></div>
+          <div class="view-tabs" role="tablist" aria-label="Publication views">
+            <button class="view-tab" id="all-posts-tab" type="button" role="tab" aria-selected="true" aria-controls="all-posts">All posts</button>
+            <button class="view-tab" id="genre-tab" type="button" role="tab" aria-selected="false" aria-controls="by-genre">By genre</button>
+            <button class="view-tab" id="date-tab" type="button" role="tab" aria-selected="false" aria-controls="by-date">By date</button>
+          </div>
+        </div>
+
+        <div class="archive-view" id="all-posts" role="tabpanel" aria-labelledby="all-posts-tab">
+          <div class="post-grid">
+            <article class="post">
+              <div class="genre-tags"><span class="genre-tag">Popular Science</span><span class="genre-tag">Evolution</span></div>
+              <h3>Why Turtles?</h3>
+              <p>A lively exploration of turtle evolution that reframes their protective shell as a remarkable survival adaptation shaped over millions of years.</p>
+              <a class="publication-link" href="publications/why-turtles.html">Read article &rarr;</a>
+              <span class="publication-date">Date to be added</span>
+            </article>
+            <article class="post">
+              <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span></div>
+              <h3>NY Times Student Reading Challenge Highlight</h3>
+              <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Reading Challenge.</p>
+              <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="archive-view" id="by-genre" role="tabpanel" aria-labelledby="genre-tab" hidden>
+          <div class="genre-group">
+            <h3>Popular Science</h3>
+            <div class="post-grid">
+              <article class="post post-wide">
+                <div class="genre-tags"><span class="genre-tag">Popular Science</span><span class="genre-tag">Evolution</span></div>
+                <h3>Why Turtles?</h3>
+                <p>A lively exploration of turtle evolution that reframes their protective shell as a remarkable survival adaptation shaped over millions of years.</p>
+                <a class="publication-link" href="publications/why-turtles.html">Read article &rarr;</a>
+              </article>
+            </div>
+          </div>
+          <div class="genre-group">
+            <h3>Reading Response</h3>
+            <div class="post-grid">
+              <article class="post post-wide">
+                <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span></div>
+                <h3>NY Times Student Reading Challenge Highlight</h3>
+                <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Reading Challenge.</p>
+                <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="archive-view" id="by-date" role="tabpanel" aria-labelledby="date-tab" hidden>
+          <div class="post-grid">
+            <article class="post post-wide">
+              <span class="publication-date">June 4, 2026</span>
+              <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span></div>
+              <h3>NY Times Student Reading Challenge Highlight</h3>
+              <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Reading Challenge.</p>
+              <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
+            </article>
+            <article class="post post-wide">
+              <span class="publication-date">Date to be added</span>
+              <div class="genre-tags"><span class="genre-tag">Popular Science</span><span class="genre-tag">Evolution</span></div>
+              <h3>Why Turtles?</h3>
+              <p>A lively exploration of turtle evolution that reframes their protective shell as a remarkable survival adaptation shaped over millions of years.</p>
+              <a class="publication-link" href="publications/why-turtles.html">Read article &rarr;</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer><div class="container">Om Chatterjee • Student résumé &amp; portfolio</div></footer>
+  <script>
+    const tabs = document.querySelectorAll('[role="tab"]');
+    const views = document.querySelectorAll('[role="tabpanel"]');
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((item) => item.setAttribute('aria-selected', item === tab));
+        views.forEach((view) => { view.hidden = view.id !== tab.getAttribute('aria-controls'); });
+      });
+    });
+  </script>
+</body>
+</html>

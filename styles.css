@@ -278,6 +278,10 @@ h3 {
   background: var(--soft);
 }
 
+.society-section {
+  background: #e9f1ef;
+}
+
 .section-dark {
   color: #fff;
   background: var(--dark);
@@ -313,6 +317,43 @@ h3 {
 .body-copy .lead {
   color: #2a2f36;
   font-size: 1.23rem;
+}
+
+.coding-layout {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.coding-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.coding-stat {
+  min-height: 132px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: #fff;
+}
+
+.coding-stat strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+.coding-stat span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.4;
 }
 
 .highlight-grid {
@@ -421,6 +462,24 @@ h3 {
   align-items: center;
   padding: 30px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.feature-row-with-image {
+  grid-template-columns: 90px minmax(0, 1fr) 250px 50px;
+  gap: 20px;
+}
+
+.feature-image {
+  width: 250px;
+  height: 158px;
+  object-fit: cover;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  transition: transform .3s ease;
+}
+
+.feature-row-with-image:hover .feature-image {
+  transform: scale(1.03);
 }
 
 .feature-row:hover h3 {
@@ -637,11 +696,19 @@ footer {
     gap: 45px;
   }
 
+  .coding-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+
   .highlight-grid,
   .item-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+
+  .coding-stats {
+    grid-template-columns: 1fr;
+  }
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -707,6 +774,24 @@ footer {
 
   .feature-row {
     grid-template-columns: 48px 1fr 30px;
+  }
+
+  .feature-row-with-image {
+    grid-template-columns: 48px 1fr 30px;
+    gap: 20px;
+  }
+
+  .feature-image {
+    grid-column: 2;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    margin-top: 12px;
+  }
+
+  .feature-row-with-image .feature-arrow {
+    grid-column: 3;
+    grid-row: 1;
   }
 
   .skills-grid > div,
