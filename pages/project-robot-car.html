@@ -21,6 +21,10 @@
     .robot-demo figcaption { padding: 10px 14px; color: var(--muted); font-size: .8rem; border-left: 3px solid var(--accent); background: var(--soft); }
     .robot-demo-link { margin: 12px 0 0; font-size: .85rem; }
     .robot-demo-link a { color: var(--accent); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .robot-demo-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 24px; }
+    .robot-demo-gallery figure { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: var(--soft); }
+    .robot-demo-gallery img { width: 100%; height: 220px; object-fit: cover; }
+    .robot-demo-gallery figcaption { padding: 9px 12px; color: var(--muted); font-size: .78rem; background: #fff; border-top: 1px solid var(--line); }
     .robot-steps { display: grid; gap: 10px; margin: 24px 0; padding: 0; list-style: none; counter-reset: robot-step; }
     .robot-steps li { display: grid; grid-template-columns: 36px 120px minmax(0, 1fr); gap: 16px; align-items: start; padding: 13px 0; border-top: 1px solid var(--line); counter-increment: robot-step; }
     .robot-steps li::before { grid-column: 1; content: counter(robot-step, decimal-leading-zero); color: var(--accent); font-weight: 800; font-size: .75rem; letter-spacing: .1em; }
@@ -160,6 +164,16 @@
             <figcaption>Autonomous Robot Car demonstration.</figcaption>
           </figure>
           <p class="robot-demo-link">If the embedded player does not load, <a href="https://youtube.com/shorts/gdj-aWxs_uI?feature=share" target="_blank" rel="noopener noreferrer">watch the demonstration on YouTube ↗</a>.</p>
+          <div class="robot-demo-gallery" aria-label="RobotCar demonstration photos">
+            <figure><img src="../images/acar/acar3.jpeg" alt="RobotCar demonstration photo 3"><figcaption>First Motor Control Setup</figcaption></figure>
+            <figure><img src="../images/acar/acar4.jpeg" alt="RobotCar demonstration photo 4"><figcaption>Dual Motor Driver System</figcaption></figure>
+            <figure><img src="../images/acar/acar5.jpg" alt="RobotCar demonstration photo 5"><figcaption>First Driveable Prototype</figcaption></figure>
+            <figure><img src="../images/acar/acar6.jpeg" alt="RobotCar demonstration photo 6"><figcaption>Drivetrain Upgrade</figcaption></figure>
+            <figure><img src="../images/acar/acar7.jpeg" alt="RobotCar demonstration photo 7"><figcaption>Sensor &amp; Servo Integration</figcaption></figure>
+            <figure><img src="../images/acar/acar8.jpeg" alt="RobotCar demonstration photo 8"><figcaption>Raspberry Pi Control System</figcaption></figure>
+            <figure><img src="../images/acar/acar9.jpeg" alt="RobotCar demonstration photo 9"><figcaption>Integrated Autonomous RobotCar</figcaption></figure>
+            <figure><img src="../images/acar/acar1.png" alt="Completed autonomous RobotCar ready for testing"><figcaption>Final Autonomous Car Ready for Testing</figcaption></figure>
+          </div>
         </div>
       </div>
 
