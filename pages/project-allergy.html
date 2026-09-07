@@ -204,6 +204,15 @@ h1 {
 .pill { border-radius: 4px; background: var(--sky); border-color: var(--line); color: var(--blue); }
 .result-hero { background: #fff; }
 .video-wrap { border-radius: 4px; box-shadow: none; }
+.video-fallback {
+  margin: 0;
+  padding: 12px 14px;
+  color: var(--muted);
+  font-size: .85rem;
+  background: var(--soft, #f3f2ef);
+  border-top: 1px solid var(--line);
+}
+.video-fallback a { color: var(--blue); font-weight: 800; text-decoration: underline; }
 .conclusion { background: var(--soft, #f3f2ef); }
 footer { border-top: 4px solid var(--blue); background: var(--soft, #f3f2ef); }
 </style>
@@ -319,7 +328,8 @@ footer { border-top: 4px solid var(--blue); background: var(--soft, #f3f2ef); }
 <section class="section alt" id="video">
  <div class="container">
    <div class="section-head reveal"><div><span class="kicker">06 • Presentation</span><h2>Project walkthrough</h2></div><p>A video presentation of the research question, data pipeline, model, and results.</p></div>
-   <div class="video-wrap reveal"><iframe src="https://www.youtube-nocookie.com/embed/M1J254dyeMs" title="Personalized Allergy Prediction — project presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <div class="video-wrap reveal"><iframe src="https://www.youtube.com/embed/M1J254dyeMs?origin=https%3A%2F%2Fomspace.dev" title="Personalized Allergy Prediction — project presentation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+  <p class="video-fallback">If the embedded player does not load, <a href="https://www.youtube.com/watch?v=M1J254dyeMs" target="_blank" rel="noopener noreferrer">watch the presentation on YouTube ↗</a>.</p>
  </div>
 </section>
 
