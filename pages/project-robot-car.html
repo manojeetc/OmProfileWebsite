@@ -4,9 +4,45 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Robotics project details.">
-  <title>Autonomous Robot Car | Om</title>
+  <meta name="description" content="Autonomous Robot Car, a Raspberry Pi robotics project using motors, ultrasonic sensors, Python, and obstacle avoidance.">
+  <title>Autonomous Robot Car | Om Chatterjee</title>
   <link rel="stylesheet" href="../detail.css">
+  <style>
+    .robot-stat-grid { grid-template-columns: repeat(4, 1fr); }
+    .robot-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+    .robot-card { padding: 18px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+    .robot-card h3 { margin: 0 0 6px; font-family: var(--font-display); font-size: 1.05rem; color: var(--text); }
+    .robot-card p { margin: 0; font-size: .9rem; }
+    .robot-steps { display: grid; gap: 10px; margin: 24px 0; padding: 0; list-style: none; counter-reset: robot-step; }
+    .robot-steps li { display: grid; grid-template-columns: 36px 120px minmax(0, 1fr); gap: 16px; align-items: start; padding: 13px 0; border-top: 1px solid var(--line); counter-increment: robot-step; }
+    .robot-steps li::before { grid-column: 1; content: counter(robot-step, decimal-leading-zero); color: var(--accent); font-weight: 800; font-size: .75rem; letter-spacing: .1em; }
+    .robot-steps strong { grid-column: 2; }
+    .robot-steps span { grid-column: 3; }
+    .control-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 24px; }
+    .control-grid div { display: flex; align-items: center; gap: 10px; padding: 10px; border: 1px solid var(--line); border-radius: 4px; background: var(--soft); }
+    kbd { min-width: 42px; padding: 4px 7px; color: var(--text); text-align: center; font: 800 .72rem var(--font-body); background: #fff; border: 1px solid #bfc3c8; border-bottom-width: 2px; border-radius: 3px; }
+    .control-grid span { font-size: .82rem; }
+    .layer-list { display: grid; gap: 0; margin: 20px 0; }
+    .layer-list p { display: grid; grid-template-columns: 150px 1fr; gap: 16px; margin: 0; padding: 13px 0; border-top: 1px solid var(--line); }
+    .layer-list strong { color: var(--accent); }
+    .tech-list { display: grid; gap: 0; }
+    .tech-list div { display: grid; grid-template-columns: 145px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid var(--line); }
+    .tech-list span { color: var(--accent); font-size: .7rem; font-weight: 800; letter-spacing: .12em; }
+    .tech-list strong { color: var(--text); font-size: .92rem; }
+    @media (max-width: 720px) {
+      .robot-stat-grid { grid-template-columns: 1fr 1fr; }
+      .robot-cards { grid-template-columns: 1fr; }
+      .robot-steps li { grid-template-columns: 42px minmax(0, 1fr); gap: 12px; }
+      .robot-steps li::before { grid-row: span 2; }
+      .robot-steps strong { margin: 0; }
+      .robot-steps span { grid-column: 2; }
+      .control-grid { grid-template-columns: 1fr 1fr; }
+      .layer-list p, .tech-list div { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (max-width: 500px) {
+      .robot-stat-grid, .control-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
   <header class="detail-header">
@@ -18,63 +54,117 @@
 
   <main>
     <section class="hero">
-      <div class="container">
-        <p class="kicker">ROBOTICS • PYTHON • SENSORS</p>
-        <h1>Autonomous Robot Car</h1>
-        <p class="summary">A Raspberry Pi robot platform used to learn motor control, sensors, computer vision, and autonomous navigation.</p>
-
-        <div class="meta">
-          <div><span>YEAR</span><strong>2026</strong></div>
-          <div><span>TYPE</span><strong>Robotics Project</strong></div>
-          <div><span>ROLE</span><strong>Builder & Programmer</strong></div>
-          <div><span>STATUS</span><strong>In Development</strong></div>
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">ROBOTICS • PYTHON • AUTONOMOUS SYSTEMS</p>
+          <h1>Autonomous Robot Car</h1>
+          <p class="summary">A Raspberry Pi-powered four-wheel robot that can sense obstacles, control its own movement, and make basic navigation decisions without a human driver.</p>
+          <div class="meta">
+            <div><span>YEAR</span><strong>2026</strong></div>
+            <div><span>TYPE</span><strong>Robotics Project</strong></div>
+            <div><span>ROLE</span><strong>Builder & Programmer</strong></div>
+            <div><span>STATUS</span><strong>In Development</strong></div>
+          </div>
         </div>
+        <figure class="hero-image">
+          <img src="../images/acar/acar1.png" alt="Autonomous Robot Car four-wheel chassis">
+          <figcaption>RobotCar prototype</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="container">
-      <div class="cover">Main photo / certificate / tournament image / project video</div>
-
       <div class="detail-section">
         <div><p class="kicker">OVERVIEW</p><h2>The challenge</h2></div>
         <div class="content">
-          <p class="lead">Build a small robot that can sense its environment and make movement decisions.</p>
-          <p>Show the chassis, electronics, motor drivers, camera, sensor setup, code architecture, and successive versions.</p>
+          <p class="lead">Building a robot that moves is relatively easy. Building one that can decide where it should move next is much harder.</p>
+          <p>I built RobotCar as an experimental platform for learning how autonomous machines connect sensing, software, and physical movement. The car uses a Raspberry Pi to control four motors while three ultrasonic sensors measure the space in front of and beside it. The software uses those measurements to decide whether to continue forward, stop, reverse, or turn toward a clearer path.</p>
+          <p>The project also includes manual keyboard control, which lets me test the drivetrain directly and temporarily take control even while autonomous mode is running.</p>
         </div>
       </div>
 
       <div class="detail-section">
         <div><p class="kicker">HIGHLIGHTS</p><h2>Key details</h2></div>
         <div class="content">
-          <div class="stat-grid">
+          <div class="stat-grid robot-stat-grid">
             <div class="stat"><strong>4</strong><span>Drive motors</span></div>
-            <div class="stat"><strong>Pi</strong><span>Raspberry Pi</span></div>
-            <div class="stat"><strong>CV</strong><span>Computer vision</span></div>
+            <div class="stat"><strong>3</strong><span>Ultrasonic sensors</span></div>
+            <div class="stat"><strong>2</strong><span>DRV8833 motor drivers</span></div>
+            <div class="stat"><strong>1</strong><span>Raspberry Pi controller</span></div>
           </div>
         </div>
       </div>
 
       <div class="detail-section">
-        <div><p class="kicker">STORY</p><h2>What happened</h2></div>
+        <div><p class="kicker">HARDWARE</p><h2>From code to motion</h2></div>
         <div class="content">
-          <p>Document major versions, wiring changes, motor-control debugging, sensor testing, camera experiments, and autonomous behavior.</p>
-          <ul>
-            <li>Add important milestone, result, or achievement.</li>
-            <li>Add an interesting challenge or lesson.</li>
-            <li>Add context that helps the reader understand why this matters.</li>
-          </ul>
+          <p>RobotCar combines a small Linux computer with motor-control electronics and distance sensors.</p>
+          <div class="robot-cards">
+            <article class="robot-card"><h3>Raspberry Pi</h3><p>A Raspberry Pi 4B runs the Python programs that read sensor measurements, make navigation decisions, and send commands to the motors.</p></article>
+            <article class="robot-card"><h3>Four-wheel drivetrain</h3><p>Four DC gear motors drive the chassis. Two DRV8833 motor drivers provide the interface between the Raspberry Pi's control signals and the motors.</p></article>
+            <article class="robot-card"><h3>Three ultrasonic sensors</h3><p>Left, center, and right HC-SR04 sensors measure nearby obstacles and give the software a simple view of available space.</p></article>
+            <article class="robot-card"><h3>Separate motor power</h3><p>Two motor battery packs provide power for the drivetrain, separating motor demand from the controller's logic.</p></article>
+          </div>
+          <p>The combination turns the car into a physical computing system where software decisions immediately become real movement.</p>
         </div>
       </div>
 
       <div class="detail-section">
-        <div><p class="kicker">EVIDENCE</p><h2>Photos & documents</h2></div>
+        <div><p class="kicker">AUTONOMY</p><h2>How the car decides</h2></div>
         <div class="content">
-          <p>Add images, certificates, charts, tournament screenshots, PDFs, or videos.</p>
-          <div class="gallery">
-            <div>Photo / screenshot 1</div>
-            <div>Photo / screenshot 2</div>
-            <div>Document / result</div>
-            <div>Additional image</div>
+          <p class="lead">The first autonomous version uses a straightforward sense → decide → move loop.</p>
+          <ol class="robot-steps">
+            <li><strong>Drive</strong><span>The car moves forward while checking its left, center, and right distance sensors.</span></li>
+            <li><strong>Detect</strong><span>If an obstacle becomes too close, the car stops instead of continuing blindly.</span></li>
+            <li><strong>Create space</strong><span>It can reverse to give itself room to maneuver.</span></li>
+            <li><strong>Compare</strong><span>The software compares the available space around the car.</span></li>
+            <li><strong>Choose</strong><span>It turns toward the clearer direction.</span></li>
+            <li><strong>Continue</strong><span>Once the new path is selected, the car resumes driving and begins sensing again.</span></li>
+          </ol>
+          <p>This creates basic autonomous obstacle avoidance without requiring a remote driver. A manual override is also available while autonomous mode is active.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">CONTROL</p><h2>Manual and autonomous driving</h2></div>
+        <div class="content">
+          <p>Before testing autonomy, I built keyboard controls so each movement could be tested independently. Manual driving became an important debugging tool: it separates motor and wiring problems from navigation-logic problems.</p>
+          <div class="control-grid">
+            <div><kbd>W</kbd><span>Forward</span></div><div><kbd>S</kbd><span>Reverse</span></div><div><kbd>A</kbd><span>Turn left</span></div><div><kbd>D</kbd><span>Turn right</span></div><div><kbd>SPACE</kbd><span>Stop</span></div><div><kbd>Q</kbd><span>Quit</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">ENGINEERING</p><h2>Building in layers</h2></div>
+        <div class="content">
+          <div class="layer-list">
+            <p><strong>Motor layer</strong><span>Python controls the four DC motors through the two DRV8833 drivers.</span></p>
+            <p><strong>Sensor layer</strong><span>Three HC-SR04 sensors provide left, center, and right distance measurements.</span></p>
+            <p><strong>Control layer</strong><span>Manual driving verifies that motor direction and steering work correctly.</span></p>
+            <p><strong>Autonomy layer</strong><span>The navigation program combines sensor readings with movement rules to avoid obstacles and choose a direction.</span></p>
+          </div>
+          <p>The repository includes separate programs for motor testing, ultrasonic-sensor testing, manual driving, and autonomous driving, along with build, wiring, setup, and parts documentation.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">DEVELOPMENT</p><h2>Toward computer vision</h2></div>
+        <div class="content">
+          <p>Distance sensors can tell the robot that something is nearby, but they cannot tell it what that object is or whether an open-looking area is actually safe to drive across.</p>
+          <p>The next stage is camera-based navigation: identifying driveable floor and making better path decisions using visual information rather than relying entirely on three distance measurements. That moves the project from reactive obstacle avoidance toward a more complete autonomous-navigation system.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">TECH STACK</p><h2>What I used</h2></div>
+        <div class="content">
+          <div class="tech-list">
+            <div><span>COMPUTING</span><strong>Raspberry Pi 4B · Python</strong></div>
+            <div><span>MOTOR CONTROL</span><strong>2 × DRV8833 · 4 × DC gear motors</strong></div>
+            <div><span>SENSING</span><strong>3 × HC-SR04 ultrasonic sensors</strong></div>
+            <div><span>SOFTWARE</span><strong>Python · gpiozero · Linux / Raspberry Pi</strong></div>
+            <div><span>NEXT STAGE</span><strong>Camera navigation · computer vision · AI floor detection</strong></div>
           </div>
         </div>
       </div>
@@ -82,11 +172,10 @@
       <div class="detail-section">
         <div><p class="kicker">REFLECTION</p><h2>What I learned</h2></div>
         <div class="content">
-          <p>Explain what the project taught you about debugging hardware, safe wiring, control systems, computer vision, and iteration.</p>
-          <div class="links">
-            <a class="button primary" href="#">Primary link ↗</a>
-            <a class="button" href="#">Supporting link ↗</a>
-          </div>
+          <p>RobotCar taught me that autonomy is not one piece of code. It is a chain of systems that all have to work together.</p>
+          <p>A navigation algorithm can be correct while a motor is wired backward. A sensor can produce measurements while still giving unreliable information to the decision logic. Behavior that looks simple, such as turning away from an obstacle, requires sensing, timing, motor control, and software decisions to happen in the right order.</p>
+          <p>Building the car has given me experience debugging at the boundary between hardware and software, where changing a wire, a sensor position, or a few lines of Python can completely change how the physical system behaves.</p>
+          <div class="links"><a class="button primary" href="https://github.com/overcharged-coder/RobotCar" target="_blank" rel="noopener noreferrer">View source & documentation ↗</a></div>
         </div>
       </div>
     </section>
