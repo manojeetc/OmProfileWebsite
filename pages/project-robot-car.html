@@ -165,14 +165,14 @@
           </figure>
           <p class="robot-demo-link">If the embedded player does not load, <a href="https://youtube.com/shorts/gdj-aWxs_uI?feature=share" target="_blank" rel="noopener noreferrer">watch the demonstration on YouTube ↗</a>.</p>
           <div class="robot-demo-gallery" aria-label="RobotCar demonstration photos">
-            <figure><img src="../images/acar/acar3.jpeg" alt="RobotCar demonstration photo 3"><figcaption>First Motor Control Setup</figcaption></figure>
-            <figure><img src="../images/acar/acar4.jpeg" alt="RobotCar demonstration photo 4"><figcaption>Dual Motor Driver System</figcaption></figure>
+            <figure><img src="../images/acar/acar3.jpeg" alt="RobotCar demonstration photo 3"><figcaption>Initial L298N Mini Motor Control</figcaption></figure>
+            <figure><img src="../images/acar/acar4.jpeg" alt="RobotCar demonstration photo 4"><figcaption>Dual L298N Mini Driver Setup</figcaption></figure>
             <figure><img src="../images/acar/acar5.jpg" alt="RobotCar demonstration photo 5"><figcaption>First Driveable Prototype</figcaption></figure>
-            <figure><img src="../images/acar/acar6.jpeg" alt="RobotCar demonstration photo 6"><figcaption>Drivetrain Upgrade</figcaption></figure>
-            <figure><img src="../images/acar/acar7.jpeg" alt="RobotCar demonstration photo 7"><figcaption>Sensor &amp; Servo Integration</figcaption></figure>
+            <figure><img src="../images/acar/acar6.jpeg" alt="RobotCar demonstration photo 6"><figcaption>L298N Mini Wiring Complete</figcaption></figure>
+            <figure><img src="../images/acar/acar7.jpeg" alt="RobotCar demonstration photo 7"><figcaption>DRV8833 Upgrade with Sensor Wirings</figcaption></figure>
             <figure><img src="../images/acar/acar8.jpeg" alt="RobotCar demonstration photo 8"><figcaption>Raspberry Pi Control System</figcaption></figure>
-            <figure><img src="../images/acar/acar9.jpeg" alt="RobotCar demonstration photo 9"><figcaption>Integrated Autonomous RobotCar</figcaption></figure>
-            <figure><img src="../images/acar/acar1.png" alt="Completed autonomous RobotCar ready for testing"><figcaption>Final Autonomous Car Ready for Testing</figcaption></figure>
+            <figure><img src="../images/acar/acar9.jpeg" alt="RobotCar demonstration photo 9"><figcaption>Fully Integrated Autonomous RobotCar</figcaption></figure>
+            <figure><img src="../images/acar/acar1.png" alt="Completed autonomous RobotCar ready for testing"><figcaption>Autonomous RobotCar Ready for Testing</figcaption></figure>
           </div>
         </div>
       </div>
@@ -214,9 +214,13 @@
       <div class="detail-section">
         <div><p class="kicker">REFLECTION</p><h2>What I learned</h2></div>
         <div class="content">
-          <p>RobotCar taught me that autonomy is not one piece of code. It is a chain of systems that all have to work together.</p>
-          <p>A navigation algorithm can be correct while a motor is wired backward. A sensor can produce measurements while still giving unreliable information to the decision logic. Behavior that looks simple, such as turning away from an obstacle, requires sensing, timing, motor control, and software decisions to happen in the right order.</p>
-          <p>Building the car has given me experience debugging at the boundary between hardware and software, where changing a wire, a sensor position, or a few lines of Python can completely change how the physical system behaves.</p>
+          <p class="lead">RobotCar taught me that autonomy is not one piece of code. It is a chain of systems that all have to work together.</p>
+          <ul>
+            <li>A navigation algorithm can be correct while a motor is wired backward.</li>
+            <li>A sensor can produce measurements while still giving unreliable information to the decision logic.</li>
+            <li>I had to transition from the L298N to the DRV8833 because power loss in the L298N reduced the car's maneuverability and control. The DRV8833 provided a more efficient motor-control solution for the autonomous system.</li>
+            <li>Building the car taught me to debug at the boundary between hardware and software, where changing a wire, a sensor position, or a few lines of Python can completely change how the physical system behaves.</li>
+          </ul>
           <div class="links"><a class="button primary" href="https://github.com/overcharged-coder/RobotCar" target="_blank" rel="noopener noreferrer">View source & documentation ↗</a></div>
         </div>
       </div>

@@ -4,8 +4,32 @@
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Engineering project details.">
-  <title>Whispering Hat | Om</title>
+  <meta name="description" content="Whispering Hat, an offline wearable assistive AI system built on Raspberry Pi 5 that detects nearby obstructions and speaks alerts through local audio output.">
+  <title>Whispering Hat | Om Chatterjee</title>
+  <style>
+    .hat-pipeline { display: grid; gap: 10px; margin: 24px 0 0; }
+    .hat-step { display: grid; grid-template-columns: 34px 150px minmax(0, 1fr); gap: 14px; align-items: start; padding: 14px 0; border-top: 1px solid var(--line); }
+    .hat-step-number { color: var(--accent); font-weight: 800; font-size: .78rem; letter-spacing: .08em; }
+    .hat-step strong { color: #272c32; }
+    .hat-step span { color: var(--muted); }
+    .hat-architecture { display: grid; gap: 14px; margin-top: 24px; }
+    .hat-architecture > div { padding: 18px; border: 1px solid var(--line); border-bottom: 3px solid var(--accent); background: var(--soft); }
+    .hat-architecture strong { display: block; color: #272c32; }
+    .hat-architecture span { display: block; margin-top: 6px; color: var(--muted); font-size: .9rem; }
+    .hat-architecture .hat-arrow { padding: 0; border: 0; background: transparent; color: var(--accent); font-size: 1.2rem; text-align: center; }
+    .hat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 24px; }
+    .hat-grid article { padding: 16px; border: 1px solid var(--line); background: #fff; }
+    .hat-grid h3 { margin: 0 0 6px; color: #272c32; font-size: 1rem; }
+    .hat-grid p { margin: 0; font-size: .9rem; }
+    .hat-callout { margin: 24px 0 0; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--soft); color: #272c32; font-family: var(--font-display); font-size: 1.2rem; }
+    .hat-flow { display: grid; gap: 8px; margin-top: 20px; }
+    .hat-flow div { padding: 10px 14px; border-left: 3px solid var(--accent); background: var(--soft); color: #272c32; }
+    @media (max-width: 720px) {
+      .hat-step { grid-template-columns: 30px minmax(0, 1fr); }
+      .hat-step span { grid-column: 2; }
+      .hat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
   <link rel="stylesheet" href="../detail.css">
 </head>
 <body>
@@ -22,13 +46,14 @@
         <div>
           <p class="kicker">ENGINEERING • AI • ASSISTIVE TECHNOLOGY</p>
           <h1>Whispering Hat</h1>
-          <p class="summary">A wearable prototype that combines computer vision, distance sensing, and audio feedback to help identify nearby objects and hazards.</p>
+          <p class="summary">A Raspberry Pi 5 wearable assistive computing system that detects nearby obstructions and speaks alerts to the wearer, while its perception, decisions, speech, and device controls run locally without Wi-Fi or cloud services.</p>
+          <p><a class="button primary" href="https://github.com/overcharged-coder/WhisperingHat" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a></p>
 
           <div class="meta">
             <div><span>YEAR</span><strong>2026</strong></div>
             <div><span>TYPE</span><strong>Engineering Project</strong></div>
             <div><span>ROLE</span><strong>Designer & Developer</strong></div>
-            <div><span>STATUS</span><strong>Prototype</strong></div>
+            <div><span>STATUS</span><strong>Offline prototype</strong></div>
           </div>
         </div>
         <figure class="hero-image">
@@ -40,57 +65,142 @@
 
     <section class="container">
       <div class="detail-section">
-        <div><p class="kicker">OVERVIEW</p><h2>The idea</h2></div>
+        <div><p class="kicker">OVERVIEW</p><h2>Awareness with context</h2></div>
         <div class="content">
-          <p class="lead">Could a wearable system provide useful environmental awareness without requiring the user to look at a screen?</p>
-          <p>Use this page for the problem statement, hardware architecture, software stack, system diagrams, testing, and demo videos.</p>
+          <p class="lead">Whispering Hat is a wearable assistive AI system I built to help blind and visually impaired users understand what is happening around them.</p>
+          <p>The system combines a Raspberry Pi Camera Module 3 Wide, YOLO11n object detection, ByteTrack tracking, VL53L5CX 8x8 Time-of-Flight depth sensing, camera and depth fusion, walking-path analysis, motion and approach estimation, risk classification, known-person recognition, FER2013 TensorFlow Lite facial-expression estimation, prioritized spoken warnings about nearby obstructions, and local microphone voice commands.</p>
+          <p>Multiple sensors and models run at different rates, maintain their own memory, and contribute information to a central decision system that decides what is important enough to tell the wearer. The complete perception, decision, speech, and control pipeline runs on the Raspberry Pi itself.</p>
         </div>
       </div>
 
       <div class="detail-section">
-        <div><p class="kicker">HIGHLIGHTS</p><h2>Key details</h2></div>
+        <div><p class="kicker">THE CHALLENGE</p><h2>Useful alerts, not constant narration</h2></div>
         <div class="content">
-          <div class="stat-grid">
-            <div class="stat"><strong>AI</strong><span>Computer vision</span></div>
-            <div class="stat"><strong>Pi</strong><span>Raspberry Pi</span></div>
-            <div class="stat"><strong>Audio</strong><span>Feedback system</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="detail-section">
-        <div><p class="kicker">STORY</p><h2>What happened</h2></div>
-        <div class="content">
-          <p>Describe how the prototype developed, what worked, what failed, and how each hardware or software decision changed the design.</p>
+          <p>A normal object detector can identify dozens of things in a camera frame, but announcing every detection would overwhelm a blind user. Whispering Hat therefore evaluates context before deciding whether a spoken alert is useful.</p>
           <ul>
-            <li>Add important milestone, result, or achievement.</li>
-            <li>Add an interesting challenge or lesson.</li>
-            <li>Add context that helps the reader understand why this matters.</li>
+            <li>What the object is, where it is, and whether it is inside the walking path</li>
+            <li>How far away it is, whether distance is shrinking, and whether its bounding box is growing</li>
+            <li>Whether a collision may be approaching or the hazard level has increased</li>
+            <li>Whether the system already warned the wearer</li>
+            <li>Whether a person is known and what visible facial expression is estimated</li>
           </ul>
         </div>
       </div>
 
       <div class="detail-section">
-        <div><p class="kicker">EVIDENCE</p><h2>Photos & documents</h2></div>
+        <div><p class="kicker">PROCESSING PIPELINE</p><h2>From seeing to speaking</h2></div>
         <div class="content">
-          <p>Add images, certificates, charts, tournament screenshots, PDFs, or videos.</p>
-          <div class="gallery">
-            <div>Photo / screenshot 1</div>
-            <div>Photo / screenshot 2</div>
-            <div>Document / result</div>
-            <div>Additional image</div>
+          <div class="hat-pipeline">
+            <div class="hat-step"><span class="hat-step-number">01</span><strong>SEE - Camera Module 3 Wide</strong><span>Picamera2/libcamera captures a 640x480 stream with continuous autofocus. A background camera worker keeps only the newest frame, so inference does not build up a queue of stale views.</span></div>
+            <div class="hat-step"><span class="hat-step-number">02</span><strong>DETECT - YOLO11n + ByteTrack</strong><span>YOLO11n detects selected environment-relevant classes and ByteTrack gives objects persistent identities. Detection answers what is there; tracking helps answer what it is doing.</span></div>
+            <div class="hat-step"><span class="hat-step-number">03</span><strong>MEASURE - VL53L5CX</strong><span>A dedicated worker reads the 8x8 Time-of-Flight grid at a requested 12 Hz, validates measurements, and keeps the newest usable spatial depth map.</span></div>
+            <div class="hat-step"><span class="hat-step-number">04</span><strong>RECOGNIZE - Known people</strong><span>HOG face detection locates faces, then locally cached face encodings are compared for identity matching on the Raspberry Pi.</span></div>
+            <div class="hat-step"><span class="hat-step-number">05</span><strong>INTERPRET - Facial expression</strong><span>A bundled FER2013 TensorFlow Lite model estimates visible expressions. Predictions are smoothed so spoken labels do not flicker from reading to reading.</span></div>
+            <div class="hat-step"><span class="hat-step-number">06</span><strong>ASSESS - Risk engine</strong><span>Object position, depth, motion, approach, time-to-collision, detection history, and walking-corridor position are combined into SAFE, NOTICE, CAUTION, or STOP.</span></div>
+            <div class="hat-step"><span class="hat-step-number">07</span><strong>SPEAK - Obstruction alerts</strong><span>When a nearby obstruction matters, eSpeak and the local audio output produce a concise spoken alert for the wearer.</span></div>
+            <div class="hat-step"><span class="hat-step-number">08</span><strong>CONTROL - Microphone commands</strong><span>The microphone receives “detection on” and “detection off” through SpeechRecognition/PyAudio and Vosk, keeping device control local as part of the fully offline system.</span></div>
           </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">CORE ARCHITECTURE</p><h2>Local sensor fusion</h2></div>
+        <div class="content">
+          <p>All awareness and decision-making runs inside the Raspberry Pi 5 local processing boundary. Camera capture, depth sensing, inference, risk logic, speech, and voice control are coordinated as separate workloads rather than one blocking loop.</p>
+          <div class="hat-architecture">
+            <div><strong>Camera Module 3 Wide &rarr; YOLO11n &rarr; ByteTrack</strong><span>Visual input, object classes, persistent tracking IDs, and motion history</span></div>
+            <div><strong>VL53L5CX 8x8 depth grid</strong><span>Independent spatial distance measurements and central-path obstacle sensing</span></div>
+            <div><strong>Camera / depth alignment &rarr; per-object depth matching</strong><span>Camera asks what an object is; the depth grid asks how far away it is</span></div>
+            <div><strong>HOG face detection + cached face encodings</strong><span>Known-person identity matching, with OpenCV Haar fallback for face localization where needed</span></div>
+            <div><strong>FER2013 TensorFlow Lite</strong><span>Visible facial-expression estimates</span></div>
+            <div class="hat-arrow">&darr;</div>
+            <div><strong>Distance + approach speed + time-to-collision</strong><span>Smoothed depth history and bounding-box growth provide complementary movement signals</span></div>
+            <div class="hat-arrow">&darr;</div>
+            <div><strong>Walking corridor + context risk engine</strong><span>Object position, distance, motion, category, detection history, identity, and expression context</span></div>
+            <div class="hat-arrow">&darr;</div>
+            <div><strong>SAFE / NOTICE / CAUTION / STOP</strong><span>Engineered rules classify situations and alert memory prevents unnecessary repetition</span></div>
+            <div class="hat-arrow">&darr;</div>
+            <div><strong>Priority speech queue &rarr; eSpeak + PipeWire</strong><span>STOP can clear lower-priority speech and interrupt current playback</span></div>
+            <div><strong>Nearby obstruction &rarr; eSpeak + PipeWire audio</strong><span>Local spoken alerts tell the wearer when an obstruction matters</span></div>
+            <div><strong>USB microphone &rarr; SpeechRecognition/PyAudio &rarr; Vosk</strong><span>Restricted “detection on” / “detection off” commands control awareness</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">OBJECT AWARENESS</p><h2>Risk depends on context</h2></div>
+        <div class="content">
+          <p>Whispering Hat does not simply speak the name of every object YOLO detects. Its rules classify situations as SAFE / PASSIVE, NOTICE, CAUTION, or STOP, then modify those risks using the walking corridor and the object's category.</p>
+          <ul>
+            <li>People receive context-aware notices or cautions rather than constant STOP warnings at ordinary conversation distance.</li>
+            <li>Vehicles are treated more aggressively when close or approaching.</li>
+            <li>Animals become more important with distance and approach behavior.</li>
+            <li>Chairs, benches, bags, and suitcases matter more when low in the image and inside the path.</li>
+            <li>Traffic lights and stop signs are normally passive visual context.</li>
+            <li>Real ToF time-to-collision information can further escalate an in-path result.</li>
+          </ul>
+          <p>The risk score is built from engineered rules and sensor information, not copied from YOLO confidence. A trapezoidal walking corridor makes objects in the path more important than objects at the side, while camera/depth fusion adds real distance and time-to-collision signals. Short tracking and alert histories smooth approach signals and prevent the same warning from being repeated on every frame.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">HUMAN AWARENESS</p><h2>More than the class "person"</h2></div>
+        <div class="content">
+          <div class="hat-grid">
+            <article><h3>Known-person recognition</h3><p>HOG face detection locates a face, then the local face_recognition pipeline compares its encoding with the cached entries in known_faces_cache.pkl. A matched name can replace the generic word “person” in an alert.</p></article>
+            <article><h3>Facial-expression estimation</h3><p>The bundled FER2013-style TensorFlow Lite model estimates angry, disgust, fear, happy, sad, surprise, or neutral from a cropped face. Readings are smoothed; this is visible-expression estimation, not knowledge of a person's internal emotion.</p></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">COMPLETELY OFFLINE</p><h2>Local by design</h2></div>
+        <div class="content">
+          <p class="lead">Whispering Hat is designed so its core awareness system does not depend on Wi-Fi or cloud services.</p>
+          <p>YOLO11n, ByteTrack, VL53L5CX processing, risk logic, HOG face detection, cached face matching, FER2013 TFLite inference, Vosk recognition, and eSpeak speech output operate locally on the Raspberry Pi. Once the models and software are installed, no cloud inference is required.</p>
+          <p class="hat-callout">No Wi-Fi required for core operation.</p>
+          <p>Vosk accepts only “detection on” and “detection off.” Turning detection off pauses awareness processing while the camera continues running, making voice control deliberately simple rather than a general assistant.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">TECHNICAL STACK</p><h2>Built on Raspberry Pi 5</h2></div>
+        <div class="content">
+          <div class="hat-grid">
+            <article><h3>Compute</h3><p>Raspberry Pi 5</p></article>
+            <article><h3>Operating system</h3><p>Raspberry Pi OS Trixie / Linux</p></article>
+            <article><h3>Vision and camera API</h3><p>Camera Module 3 Wide with Picamera2 + libcamera</p></article>
+            <article><h3>Detection and tracking</h3><p>YOLO11n + ByteTrack</p></article>
+            <article><h3>Depth and interface</h3><p>VL53L5CX 8x8 Time-of-Flight with SparkFun Qwiic / I2C</p></article>
+            <article><h3>Face identity</h3><p>HOG face detection, face_recognition encodings, and local pickle cache</p></article>
+            <article><h3>Expression model</h3><p>FER2013 TFLite / LiteRT-compatible inference</p></article>
+            <article><h3>Voice and audio</h3><p>Vosk + SpeechRecognition + PyAudio; eSpeak and PipeWire / pw-play</p></article>
+            <article><h3>Processing and data</h3><p>Python, OpenCV, NumPy, and CSV event logging</p></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">ENGINEERING FOCUS</p><h2>Coordinating asynchronous systems</h2></div>
+        <div class="content">
+          <p>The difficult part was not running one AI model. It was getting everything to work together quickly enough to be useful. The camera may produce frames faster than YOLO can process them, while the depth sensor produces a separate 8x8 coordinate system that must be aligned with the camera view.</p>
+          <p>Background workers, latest-frame capture, scheduled inference, tracking and depth memory, face memory, expression smoothing, alert memory, priority queues, cooldowns, and risk escalation keep one slow operation from freezing the wearable system. Face recognition, emotion inference, voice recognition, and speech therefore run on their own schedules or workers.</p>
         </div>
       </div>
 
       <div class="detail-section">
         <div><p class="kicker">REFLECTION</p><h2>What I learned</h2></div>
         <div class="content">
-          <p>Explain what you learned about assistive technology, computer vision, real-time systems, electronics, and human-centered design.</p>
-          <div class="links">
-            <a class="button primary" href="#">Primary link ↗</a>
-            <a class="button" href="#">Supporting link ↗</a>
-          </div>
+          <p class="lead">The hardest part of Whispering Hat was not getting YOLO, a distance sensor, or a face model to work individually. It was deciding how all of them should work together.</p>
+          <ul>
+            <li>An object detector can tell me that a chair exists, but that alone does not tell a blind wearer whether the chair matters.</li>
+            <li>Walking-corridor logic made location important; the VL53L5CX made real distance available; tracking made it possible to follow individual objects over time.</li>
+            <li>Distance history, bounding-box growth, and time-to-collision added multiple ways to recognize danger.</li>
+            <li>Face matching can turn a generic person detection into the name of someone the wearer knows, while expression estimation adds optional social context.</li>
+            <li>Alert memory and prioritized speech made the system more selective about what it actually says.</li>
+            <li>The biggest lesson was that assistive AI is not about announcing everything a model can recognize. It is about deciding which information deserves the user's attention.</li>
+          </ul>
+          <div class="links"><a class="button primary" href="https://github.com/overcharged-coder/WhisperingHat" target="_blank" rel="noopener noreferrer">View implementation repository ↗</a></div>
         </div>
       </div>
     </section>
