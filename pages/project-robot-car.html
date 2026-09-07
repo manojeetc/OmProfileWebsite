@@ -13,6 +13,14 @@
     .robot-card { padding: 18px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
     .robot-card h3 { margin: 0 0 6px; font-family: var(--font-display); font-size: 1.05rem; color: var(--text); }
     .robot-card p { margin: 0; font-size: .9rem; }
+    .robot-wiring { margin: 24px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: var(--soft); }
+    .robot-wiring img { width: 100%; max-height: 520px; object-fit: contain; background: #fff; }
+    .robot-wiring figcaption { padding: 10px 14px; color: var(--muted); font-size: .8rem; border-left: 3px solid var(--accent); background: var(--soft); }
+    .robot-demo { margin: 24px 0 0; }
+    .robot-demo .video-frame { background: #16181c; }
+    .robot-demo figcaption { padding: 10px 14px; color: var(--muted); font-size: .8rem; border-left: 3px solid var(--accent); background: var(--soft); }
+    .robot-demo-link { margin: 12px 0 0; font-size: .85rem; }
+    .robot-demo-link a { color: var(--accent); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
     .robot-steps { display: grid; gap: 10px; margin: 24px 0; padding: 0; list-style: none; counter-reset: robot-step; }
     .robot-steps li { display: grid; grid-template-columns: 36px 120px minmax(0, 1fr); gap: 16px; align-items: start; padding: 13px 0; border-top: 1px solid var(--line); counter-increment: robot-step; }
     .robot-steps li::before { grid-column: 1; content: counter(robot-step, decimal-leading-zero); color: var(--accent); font-weight: 800; font-size: .75rem; letter-spacing: .1em; }
@@ -29,6 +37,7 @@
     .tech-list div { display: grid; grid-template-columns: 145px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid var(--line); }
     .tech-list span { color: var(--accent); font-size: .7rem; font-weight: 800; letter-spacing: .12em; }
     .tech-list strong { color: var(--text); font-size: .92rem; }
+    .hero-repo { display: inline-flex; margin-top: 24px; }
     @media (max-width: 720px) {
       .robot-stat-grid { grid-template-columns: 1fr 1fr; }
       .robot-cards { grid-template-columns: 1fr; }
@@ -59,6 +68,7 @@
           <p class="kicker">ROBOTICS • PYTHON • AUTONOMOUS SYSTEMS</p>
           <h1>Autonomous Robot Car</h1>
           <p class="summary">A Raspberry Pi-powered four-wheel robot that can sense obstacles, control its own movement, and make basic navigation decisions without a human driver.</p>
+          <a class="button primary hero-repo" href="https://github.com/overcharged-coder/RobotCar" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a>
           <div class="meta">
             <div><span>YEAR</span><strong>2026</strong></div>
             <div><span>TYPE</span><strong>Robotics Project</strong></div>
@@ -105,6 +115,10 @@
             <article class="robot-card"><h3>Three ultrasonic sensors</h3><p>Left, center, and right HC-SR04 sensors measure nearby obstacles and give the software a simple view of available space.</p></article>
             <article class="robot-card"><h3>Separate motor power</h3><p>Two motor battery packs provide power for the drivetrain, separating motor demand from the controller's logic.</p></article>
           </div>
+          <figure class="robot-wiring">
+            <img src="../images/acar/acarwire1.png" alt="RobotCar wiring and electronics layout">
+            <figcaption>RobotCar wiring layout showing the Raspberry Pi, motor drivers, sensors, motors, and separate power supplies.</figcaption>
+          </figure>
           <p>The combination turns the car into a physical computing system where software decisions immediately become real movement.</p>
         </div>
       </div>
@@ -132,6 +146,20 @@
           <div class="control-grid">
             <div><kbd>W</kbd><span>Forward</span></div><div><kbd>S</kbd><span>Reverse</span></div><div><kbd>A</kbd><span>Turn left</span></div><div><kbd>D</kbd><span>Turn right</span></div><div><kbd>SPACE</kbd><span>Stop</span></div><div><kbd>Q</kbd><span>Quit</span></div>
           </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">DEMONSTRATION</p><h2>RobotCar in motion</h2></div>
+        <div class="content">
+          <p>Watch a short demonstration of the vehicle moving and responding to its environment.</p>
+          <figure class="video robot-demo">
+            <div class="video-frame">
+              <iframe src="https://www.youtube.com/embed/gdj-aWxs_uI" title="Autonomous Robot Car demonstration" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <figcaption>Autonomous Robot Car demonstration.</figcaption>
+          </figure>
+          <p class="robot-demo-link">If the embedded player does not load, <a href="https://youtube.com/shorts/gdj-aWxs_uI?feature=share" target="_blank" rel="noopener noreferrer">watch the demonstration on YouTube ↗</a>.</p>
         </div>
       </div>
 
