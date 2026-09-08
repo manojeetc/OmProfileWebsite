@@ -67,9 +67,10 @@
       <div class="detail-section">
         <div><p class="kicker">OVERVIEW</p><h2>Awareness with context</h2></div>
         <div class="content">
-          <p class="lead">Whispering Hat is a wearable assistive AI system I built to help blind and visually impaired users understand what is happening around them.</p>
-          <p>The system combines a Raspberry Pi Camera Module 3 Wide, YOLO11n object detection, ByteTrack tracking, VL53L5CX 8x8 Time-of-Flight depth sensing, camera and depth fusion, walking-path analysis, motion and approach estimation, risk classification, known-person recognition, FER2013 TensorFlow Lite facial-expression estimation, prioritized spoken warnings about nearby obstructions, and local microphone voice commands.</p>
-          <p>Multiple sensors and models run at different rates, maintain their own memory, and contribute information to a central decision system that decides what is important enough to tell the wearer. The complete perception, decision, speech, and control pipeline runs on the Raspberry Pi itself.</p>
+          <p class="lead">Whispering Hat is a wearable assistive AI system designed to help blind and visually impaired people move through the world with more awareness and confidence.</p>
+          <p>Instead of describing everything in view, the hat focuses on information that can help in the moment: an obstacle in the walking path, something getting closer, or a person the wearer may recognize. It turns those observations into short spoken alerts, helping the wearer notice important changes without being overwhelmed by constant narration.</p>
+          <p>Image recognition can also help the wearer know who they are interacting with by identifying familiar people locally. Facial-expression recognition adds another layer of social context by describing visible cues such as a smile, surprise, or concern, helping the wearer take part in conversations and understand the emotional tone of an interaction. These are estimates of what is visible, not claims about what someone is truly feeling.</p>
+          <p>By bringing this awareness directly to the wearer through local audio, the project can support more independent movement and make nearby surroundings easier to understand. Voice controls also let the wearer pause or resume detection when they choose.</p>
         </div>
       </div>
 
@@ -98,6 +99,7 @@
             <li>Whether the system already warned the wearer</li>
             <li>Whether a person is known and what visible facial expression is estimated</li>
           </ul>
+          <p>Another important direction for the project is reading diagrams. A future mode could describe the layout of a chart, map, science figure, or classroom diagram in words, helping a visually impaired student access visual information without needing someone beside them.</p>
         </div>
       </div>
 
