@@ -40,8 +40,10 @@
     .cv-section h2 { margin: 0 0 12px; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; }
     .cv-heading-with-links { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .cv-heading-title { display: inline-flex; align-items: center; min-width: 0; }
-    .cv-heading-links { display: inline-flex; flex: 0 0 auto; gap: 12px; font-family: var(--font-body); font-size: .68rem; letter-spacing: .08em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
-    .cv-heading-links a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .cv-heading-links { display: inline-flex; flex: 0 0 auto; gap: 14px; font-family: var(--font-display); font-size: .8rem; font-weight: 700; letter-spacing: .03em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    .cv-heading-links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; text-underline-offset: 3px; }
+    .cv-heading-links a:hover, .cv-heading-links a:focus-visible { color: var(--accent-deep); border-bottom-width: 2px; outline: none; }
+    .cv-heading-links .portfolio-link::after { margin-left: 4px; content: "↗"; font-family: var(--font-body); font-size: .82rem; }
     .cv-subsection { margin-left: 19px; }
     .cv-subsection-title { margin: 24px 0 9px; padding-top: 12px; color: var(--text); border-top: 1px solid #e8dfcb; font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; letter-spacing: 0; line-height: 1.25; }
     .cv-heading-icon { display: inline-block; width: 1.35rem; height: 1.35rem; margin-right: 7px; color: #3f777b; line-height: 1; vertical-align: -.2em; }
@@ -217,7 +219,7 @@
         </div>
 
         <div class="cv-section" id="robotics">
-          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-robotics"></use></svg>Robotics &amp; Engineering</h2>
+          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-robotics"></use></svg>Robotics &amp; Engineering</span><span class="cv-heading-links"><a class="portfolio-link" href="pages/project-portfolio.html" aria-label="Open project portfolio">Project portfolio</a></span></h2>
           <ul>
             <li><strong>robotCar:</strong> Raspberry Pi-powered four-wheel robot that can sense obstacles, control its own movement, and make basic navigation decisions without a human driver. <span class="cv-tag-light">Python</span> <span class="cv-tag-light">OpenCV</span> <span class="cv-tag-light">Raspberry Pi</span> <span class="cv-tag-light">Computer Vision</span> <span class="cv-tag-light">Sensor Fusion</span> <span class="cv-tag-light">Motor Control</span> <span class="cv-tag-light">Embedded Systems</span> <span class="cv-timeframe">Jun 2026</span> <a class="project-link project-icon" href="pages/project-robot-car.html" aria-label="Open robotCar project" title="Open project details">↗</a></li>
             <li><strong>Whispering Hat:</strong> a wearable assistive computing system that detects nearby obstructions and speaks alerts to the wearer, while its perception, decisions, speech, and device controls run locally without Wi-Fi or cloud services. <span class="cv-tag-light">Python</span> <span class="cv-tag-light">Raspberry Pi</span> <span class="cv-tag-light">Computer Vision</span> <span class="cv-tag-light">Autonomous Navigation</span> <span class="cv-tag-light">Sensor Integration</span> <span class="cv-timeframe">Sep 2026</span> <a class="project-link project-icon" href="pages/project-whispering-hat.html" aria-label="Open Whispering Hat project" title="Open project details">↗</a></li>
