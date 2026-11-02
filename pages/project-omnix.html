@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Omnix, an open-source 3D-printed hexapod robot with 18 servos, IMU sensing, multiple walking gaits, and an animated face.">
+  <title>Omnix | Om Chatterjee</title>
+  <link rel="stylesheet" href="../detail.css">
+  <style>
+    .omnix-stat-grid { grid-template-columns: repeat(4, 1fr); }
+    .omnix-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+    .omnix-card { padding: 18px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+    .omnix-card h3 { margin: 0 0 6px; font-family: var(--font-display); font-size: 1.05rem; color: var(--text); }
+    .omnix-card p { margin: 0; font-size: .9rem; }
+    .omnix-image { margin: 24px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: var(--soft); }
+    .omnix-image img { width: 100%; max-height: 520px; object-fit: contain; background: #111; }
+    .omnix-image figcaption { padding: 10px 14px; color: var(--muted); font-size: .8rem; border-left: 3px solid var(--accent); background: var(--soft); }
+    .omnix-list { display: grid; gap: 0; margin: 20px 0; }
+    .omnix-list p { display: grid; grid-template-columns: 170px 1fr; gap: 16px; margin: 0; padding: 13px 0; border-top: 1px solid var(--line); }
+    .omnix-list strong { color: var(--accent); }
+    .tech-list { display: grid; gap: 0; }
+    .tech-list div { display: grid; grid-template-columns: 145px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid var(--line); }
+    .tech-list span { color: var(--accent); font-size: .7rem; font-weight: 800; letter-spacing: .12em; }
+    .tech-list strong { color: var(--text); font-size: .92rem; }
+    .hero-repo { display: inline-flex; margin-top: 24px; }
+    @media (max-width: 720px) {
+      .omnix-stat-grid { grid-template-columns: 1fr 1fr; }
+      .omnix-cards { grid-template-columns: 1fr; }
+      .omnix-list p, .tech-list div { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (max-width: 500px) {
+      .omnix-stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="detail-header">
+    <div class="container detail-nav">
+      <a class="brand" href="../index.html">OM<span>.</span></a>
+      <a class="back" href="../index.html#robotics">← Back to CV</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">ROBOTICS • EMBEDDED SYSTEMS • CAD</p>
+          <h1>Omnix</h1>
+          <p class="summary">An open-source, 3D-printed hexapod robot with 18 servos, multiple walking gaits, IMU sensing, and an animated face with live system dashboards.</p>
+          <a class="button primary hero-repo" href="https://github.com/gandalfrepos/Omnix" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a>
+          <div class="meta">
+            <div><span>YEAR</span><strong>2026</strong></div>
+            <div><span>TYPE</span><strong>Robotics Project</strong></div>
+            <div><span>ROLE</span><strong>Builder &amp; Programmer</strong></div>
+            <div><span>STATUS</span><strong>Open-source build</strong></div>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img src="https://raw.githubusercontent.com/gandalfrepos/Omnix/main/imgs/render.png" alt="Omnix six-legged robot render">
+          <figcaption>Omnix hexapod robot render</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="detail-section">
+        <div><p class="kicker">OVERVIEW</p><h2>A walking robot platform</h2></div>
+        <div class="content">
+          <p class="lead">Omnix combines mechanical design, embedded control, sensing, and expressive display into one six-legged robot.</p>
+          <p>The body, legs, head, and feet are 3D-printed. An ESP32 coordinates the robot's motion, settings, and inertial sensing, while a Beetle RP2350 drives a small color display for the animated face and live dashboards.</p>
+          <p>The repository documents the build from printed parts and wiring through firmware, calibration, troubleshooting, and motion diagnostics.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">HIGHLIGHTS</p><h2>Key details</h2></div>
+        <div class="content">
+          <div class="stat-grid omnix-stat-grid">
+            <div class="stat"><strong>6</strong><span>Legs</span></div>
+            <div class="stat"><strong>18</strong><span>MG90S servos</span></div>
+            <div class="stat"><strong>2</strong><span>Control boards</span></div>
+            <div class="stat"><strong>1</strong><span>IMU module</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">CAPABILITIES</p><h2>What Omnix can do</h2></div>
+        <div class="content">
+          <div class="omnix-cards">
+            <article class="omnix-card"><h3>Walk in multiple gaits</h3><p>Omnix can move forward, backward, and sideways, turn, and switch between tripod, ripple, and wave walking patterns.</p></article>
+            <article class="omnix-card"><h3>Adapt its stance</h3><p>Servo targets control body height, stance width, foot lift, and step timing while joint limits and servo-rate guards protect movement.</p></article>
+            <article class="omnix-card"><h3>Sense its orientation</h3><p>The accelerometer and gyro support tilt readings, optional leveling, walking assists, and relative gyro heading during turns.</p></article>
+            <article class="omnix-card"><h3>Show a living face</h3><p>The display renders face animations, tricks, leg positions, stability information, walking assists, and system status dashboards.</p></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">HARDWARE</p><h2>From printed parts to motion</h2></div>
+        <div class="content">
+          <p>Omnix is built as a complete electromechanical system rather than just a software demo.</p>
+          <div class="omnix-list">
+            <p><strong>Motion controller</strong><span>An ESP32 DevKit / ESP-WROOM-32 handles servo motion, settings, IMU data, Bluetooth, and walking control.</span></p>
+            <p><strong>Servo system</strong><span>Eighteen MG90S servos provide three joints on each of the six legs.</span></p>
+            <p><strong>Servo drivers</strong><span>Two PCA9685 boards provide the pulse outputs needed to control the robot's joints.</span></p>
+            <p><strong>Face controller</strong><span>A Beetle RP2350 renders the animated face and receives telemetry for live dashboards.</span></p>
+            <p><strong>Display and power</strong><span>A 240 × 320 ST7789 TFT provides the face display, with separate regulated supplies for servos and electronics.</span></p>
+          </div>
+          <figure class="omnix-image">
+            <img src="https://raw.githubusercontent.com/gandalfrepos/Omnix/main/imgs/render.png" alt="Rendered Omnix hexapod body and legs">
+            <figcaption>The printed body, six legs, head, and display form a modular platform for motion experiments.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">CONTROL</p><h2>Firmware that works offline</h2></div>
+        <div class="content">
+          <p>Normal operation is local. Omnix accepts typed commands over USB Serial or classic Bluetooth, and the walking, calibration, display, and diagnostic logic runs on the robot's boards without a cloud service.</p>
+          <div class="omnix-list">
+            <p><strong>Movement</strong><span>Commands include forward, reverse, turning, gait selection, stance adjustments, and body-height changes.</span></p>
+            <p><strong>Calibration</strong><span>Servo directions, neutral positions, angle scales, battery readings, and IMU mounting can be calibrated for each robot.</span></p>
+            <p><strong>Diagnostics</strong><span>Timing, gyro status, modeled loads, memory, and system state can be inspected from the command interface.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">ENGINEERING</p><h2>Building and debugging in layers</h2></div>
+        <div class="content">
+          <p>One of the hardest parts of Omnix was separating software, wiring, power, calibration, and mechanical problems that could produce similar symptoms.</p>
+          <ul>
+            <li>Intermittent IMU readings required testing spare sensors, boards, jumpers, power rails, and grounds.</li>
+            <li>The display's dimming behavior was traced to its regulated power input rather than its animation code.</li>
+            <li>Adding the printed head changed the robot's balance and made servo calibration, weight, and timing matter together.</li>
+            <li>A neural motion-estimation experiment ran too slowly for the incoming data, so the project focused on local equations and diagnostics that could run on the ESP32.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">TECH STACK</p><h2>What I used</h2></div>
+        <div class="content">
+          <div class="tech-list">
+            <div><span>CONTROLLERS</span><strong>ESP32 DevKit / ESP-WROOM-32 · Beetle RP2350</strong></div>
+            <div><span>FIRMWARE</span><strong>C / C++ · Arduino board packages · USB Serial · Bluetooth</strong></div>
+            <div><span>SENSING</span><strong>GY-521 IMU with accelerometer and gyro</strong></div>
+            <div><span>MECHANICAL</span><strong>CAD · 3D-printed body, legs, head, feet, and mounts</strong></div>
+            <div><span>DISPLAY</span><strong>ST7789 SPI TFT · Face animations · Live dashboards</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">RESOURCES</p><h2>Build documentation</h2></div>
+        <div class="content">
+          <p>The repository includes the assembly guide, firmware setup, calibration steps, troubleshooting notes, CAD sources, print meshes, wiring diagrams, and bill of materials.</p>
+          <div class="links">
+            <a class="button primary" href="https://github.com/gandalfrepos/Omnix" target="_blank" rel="noopener noreferrer">View Omnix on GitHub ↗</a>
+            <a class="button" href="https://github.com/gandalfrepos/Omnix/blob/main/assembly.md" target="_blank" rel="noopener noreferrer">Assembly guide ↗</a>
+            <a class="button" href="https://github.com/gandalfrepos/Omnix/tree/main/firmware" target="_blank" rel="noopener noreferrer">Firmware ↗</a>
+            <a class="button" href="https://github.com/gandalfrepos/Omnix/tree/main/cad" target="_blank" rel="noopener noreferrer">CAD files ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Om Chatterjee • Student résumé &amp; portfolio
+    </div>
+  </footer>
+</body>
+</html>

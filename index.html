@@ -1,488 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Student resume and portfolio for Om Chatterjee." />
-  <title>Om Chatterjee | Student Resume & Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curriculum vitae for Om Chatterjee, a student interested in science, engineering, AI, robotics, and chess.">
+  <title>CV | Om Chatterjee</title>
+  <link rel="stylesheet" href="detail.css">
+  <style>
+    .cv-hero { padding: 42px 0 36px; background: #fbf5ef; border-bottom: 1px solid var(--line); }
+    .cv-hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(190px, 260px); gap: 36px; align-items: center; }
+    .cv-portrait { width: 180px; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid #d6dbe0; border-radius: 3px; box-shadow: 0 12px 28px rgba(75, 37, 25, .12); margin-inline: auto; }
+    .cv-hero h1 { max-width: 700px; margin-bottom: 12px; font-family: var(--font-body); font-size: clamp(2.35rem, 4vw, 3.35rem); font-weight: 700; line-height: 1.08; letter-spacing: 0; }
+    .cv-eyebrow { color: #9c4a31; }
+    .cv-contact { margin: 0; color: #554b47; font-size: .95rem; }
+    .cv-contact a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .cv-print { padding: 7px 10px; color: var(--accent); background: transparent; border: 1px solid var(--line); font: inherit; font-size: .68rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+    .cv-print:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
+    .cv-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 40px; align-items: start; padding-top: 34px; }
+    .cv-sidebar { position: sticky; top: 96px; padding: 18px 14px 14px; border: 1px solid #e9e3d3; border-radius: 12px; background: linear-gradient(180deg, #fffefa 0%, #fbf8ee 100%); box-shadow: 0 12px 24px rgba(80, 65, 35, .05); }
+    .cv-sidebar p { display: flex; align-items: center; justify-content: space-between; margin: 0 8px 12px; color: #625b4d; font-size: .76rem; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .cv-sidebar p::after { content: "CV"; color: #aa9461; font-size: .66rem; letter-spacing: .12em; }
+    .cv-sidebar nav { display: grid; gap: 6px; }
+    .cv-tag-legend { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 6px 0; padding: 14px 2px 0; border-top: 1px solid #ebe6da; }
+    .cv-tag-legend-label { flex-basis: 100%; margin: 0 0 2px 2px; color: #827a68; font-size: .68rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+    .cv-tag-legend .cv-tag-light,
+    .cv-tag-legend .cv-tag-accomplishment,
+    .cv-tag-legend .cv-timeframe { margin-left: 0; }
+    .cv-sidebar a { position: relative; padding: 8px 10px 8px 13px; color: #625e54; font-size: .91rem; font-weight: 750; line-height: 1.3; border: 1px solid #eeeae0; border-left: 3px solid #d9cfb8; border-radius: 5px; background: #faf8f2; transition: color .18s ease, background .18s ease, border-color .18s ease, transform .18s ease; }
+    .cv-sidebar a:nth-child(even) { background: #f5f2e9; }
+    .cv-sidebar a:hover, .cv-sidebar a:focus, .cv-sidebar a.is-active { color: #5c513b; border-color: #e8dfcb; border-left-color: #bda56f; background: #f3eddf; box-shadow: 0 3px 8px rgba(133, 108, 58, .08); transform: translateX(2px); }
+    .cv-sheet { min-width: 0; padding: 0 0 82px; }
+    .cv-icon-definitions { position: absolute; width: 0; height: 0; overflow: hidden; }
+    .cv-section { scroll-margin-top: 95px; border-top: 1px solid var(--line); padding: 24px 0; }
+    .cv-project-list { scroll-margin-top: 95px; }
+    .skills-section { padding-block: 16px; }
+    .skills-section .skill-list { gap: 6px; }
+    .skills-section .skill-list span { padding: 4px 8px; font-size: .76rem; }
+    .cv-section h2 { margin: 0 0 12px; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; }
+    .cv-heading-with-links { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .cv-heading-title { display: inline-flex; align-items: center; min-width: 0; }
+    .cv-heading-links { display: inline-flex; flex: 0 0 auto; gap: 12px; font-family: var(--font-body); font-size: .68rem; letter-spacing: .08em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    .cv-heading-links a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    .cv-subsection { margin-left: 19px; }
+    .cv-subsection-title { margin: 24px 0 9px; padding-top: 12px; color: var(--text); border-top: 1px solid #e8dfcb; font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; letter-spacing: 0; line-height: 1.25; }
+    .cv-heading-icon { display: inline-block; width: 1.35rem; height: 1.35rem; margin-right: 7px; color: #3f777b; line-height: 1; vertical-align: -.2em; }
+    .cv-section h3 { margin: 0; font-size: 1.08rem; }
+    .cv-section p { margin: 6px 0 0; color: var(--muted); }
+    .cv-section ul { margin: 0; padding-left: 19px; color: var(--muted); }
+    .cv-section > ul > li > ul { margin-top: 6px; padding-left: 19px; }
+    .cv-section li + li { margin-top: 6px; }
+    .cv-section li p { display: inline; }
+    .cv-timeframe { display: inline-block; margin-left: 4px; padding: 3px 10px 4px; color: #fff; background: #3f777b; border-radius: 999px; font-size: .68rem; font-weight: 800; letter-spacing: .08em; line-height: 1; white-space: nowrap; vertical-align: middle; }
+    .cv-tag-light { display: inline-block; margin-left: 4px; padding: 3px 10px 4px; color: #31565a; background: #e4eae8; border: 1px solid #c8d6d3; border-radius: 999px; font-size: .68rem; font-weight: 800; letter-spacing: .08em; line-height: 1; white-space: nowrap; vertical-align: middle; }
+    .cv-tag-accomplishment { display: inline-block; margin-left: 4px; padding: 3px 10px 4px; color: #6b531d; background: #f7edcf; border: 1px solid #e3cf91; border-radius: 999px; font-size: .68rem; font-weight: 800; letter-spacing: .08em; line-height: 1; white-space: nowrap; vertical-align: middle; }
+    .cv-entry + .cv-entry { margin-top: 18px; }
+    .cv-entry-head { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; }
+    .cv-project-copy { min-width: 0; }
+    .cv-date { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
+    .skill-list span { background: var(--soft); border: 1px solid var(--line); padding: 7px 11px; font-size: .88rem; }
+    .project-link { color: var(--accent); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .project-icon { display: inline-block; margin-left: 5px; font-size: 1.05em; text-decoration: none; }
+    .cv-more-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+    .cv-more-links a { color: var(--accent); font-size: .82rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .button { display: inline-block; border: 1px solid var(--line); padding: 11px 16px; font-weight: 800; font-size: .86rem; }
+    .project-action { margin-bottom: 0; }
+    .project-action .button { display: inline-flex; min-height: 0; width: fit-content; padding: 4px 8px; font-size: .62rem; line-height: 1.1; }
+    .button.primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+    .button:hover { color: #fff; background: var(--text); border-color: var(--text); }
+    .project-action .button.primary,
+    .project-action .button.primary:hover { color: var(--accent); background: transparent; border-color: transparent; padding-inline: 0; text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 700px) {
+      .cv-hero { padding: 28px 0 24px; }
+      .cv-hero-grid { grid-template-columns: 1fr; gap: 16px; }
+      .cv-portrait { width: 128px; order: -1; }
+      .cv-layout { grid-template-columns: 1fr; gap: 10px; padding-top: 0; }
+      .cv-sidebar { position: sticky; top: 72px; z-index: 5; padding: 10px 12px; border: 0; border-bottom: 1px solid #ebe6da; border-radius: 0; background: #fffefa; box-shadow: 0 4px 12px rgba(80, 65, 35, .05); overflow-x: auto; }
+      .cv-sidebar p { display: none; }
+      .cv-sidebar nav { display: flex; gap: 6px; min-width: max-content; }
+      .cv-tag-legend { flex-wrap: nowrap; gap: 6px; min-width: max-content; margin-top: 10px; padding-top: 10px; }
+      .cv-tag-legend-label { flex-basis: auto; margin: 0 4px 0 0; }
+      .cv-sidebar a { border-radius: 5px; padding: 8px 10px; font-size: .75rem; }
+      .cv-sidebar a:hover, .cv-sidebar a:focus, .cv-sidebar a.is-active { transform: none; }
+      .cv-entry-head { display: block; }
+      .cv-date { display: block; margin-top: 5px; }
+      .cv-heading-with-links { align-items: flex-start; }
+      .cv-heading-links { margin-top: 5px; }
+    }
+    @media print {
+      .detail-header, .cv-print, .cv-sidebar { display: none; }
+      .cv-hero { padding: 20px 0 28px; }
+      .cv-hero-grid { grid-template-columns: 1fr 150px; gap: 28px; }
+      .cv-portrait { width: 150px; }
+      .cv-layout { display: block; }
+      .cv-sheet { padding-bottom: 0; }
+      .cv-section { padding: 18px 0; }
+      body { font-size: 11pt; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav-row">
+  <svg class="cv-icon-definitions" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="cv-profile" viewBox="0 0 32 32">
+        <circle cx="16" cy="9" r="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M7 27c.8-5.2 4-8 9-8s8.2 2.8 9 8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="cv-academics" viewBox="0 0 32 32">
+        <path d="M4 10 16 5l12 5-12 5L4 10Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M8 13v7c4 3 12 3 16 0v-7M28 10v9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="cv-coding" viewBox="0 0 32 32">
+        <path d="m12 7-9 9 9 9M20 7l9 9-9 9M18 4l-4 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="cv-robotics" viewBox="0 0 32 32">
+        <rect x="7" y="9" width="18" height="17" rx="4" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M16 9V5M13 5h6M3 14v7M29 14v7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="12" cy="16" r="1.7" fill="currentColor"/>
+        <circle cx="20" cy="16" r="1.7" fill="currentColor"/>
+        <path d="M11 22h10" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="cv-chess" viewBox="0 0 32 32">
+        <path d="M11 27h13M13 23h9M14 23c1-3 0-5-2-7-2-2-2-5 1-7l2-2 1 4c3-1 6 2 5 5 3 1 3 5 0 7l-2 2" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="cv-community" viewBox="0 0 32 32">
+        <path d="M16 27S5 20.5 5 12.5C5 8.5 10 7 12.8 10c1.2-1.6 2.3-2.4 3.2-2.4s2 .8 3.2 2.4C22 7 27 8.5 27 12.5 27 20.5 16 27 16 27Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="cv-recognition" viewBox="0 0 32 32">
+        <path d="m16 3 3.1 8 8.4.5-6.5 5.4 2.1 8.1-7.1-4.4-7.1 4.4L11 17l-6.5-5.5 8.4-.5L16 3Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="cv-publication" viewBox="0 0 32 32">
+        <path d="M7 4h13l5 5v19H7V4Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M20 4v6h5M11 16h10M11 21h7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="cv-details" viewBox="0 0 32 32">
+        <path d="M7 25 25 7M14 7h11v11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="cv-skills" viewBox="0 0 32 32">
+        <path d="M8 6v20M16 6v20M24 6v20M4 11h8M12 21h8M20 14h8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="8" cy="11" r="2" fill="currentColor"/>
+        <circle cx="16" cy="21" r="2" fill="currentColor"/>
+        <circle cx="24" cy="14" r="2" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+  <header class="detail-header">
+    <div class="container detail-nav">
       <a class="brand" href="#top">OM<span>.</span></a>
-
-      <button class="menu-button" aria-label="Open navigation" aria-expanded="false">☰</button>
-
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#academics">Academics</a>
-        <a href="#coding">Coding</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">Publications</a>
-        <a href="#society">Beyond the Classroom</a>
-        <a href="#awards">Awards</a>
-        <a href="#chess">Chess</a>
-      </nav>
+      <button class="cv-print" id="print-cv" type="button">Print / Save PDF</button>
     </div>
   </header>
 
   <main id="top">
-
-    <!-- HERO / RESUME SUMMARY -->
-    <section class="hero">
-      <div class="container hero-grid">
+    <section class="cv-hero">
+      <div class="container cv-hero-grid">
         <div>
-          <p class="eyebrow">STUDENT • BUILDER • CHESS PLAYER • PROBLEM SOLVER</p>
+          <p class="kicker cv-eyebrow">CURRICULUM VITAE · STUDENT BUILDER</p>
           <h1>Om Chatterjee</h1>
-          <p class="hero-lead">
-            Student interested in science, engineering, artificial intelligence,
-            mathematics, chess, and building things that solve real problems.
-          </p>
+          <p class="cv-contact"><a href="mailto:emailgmail@gmail.com">emailgmail@gmail.com</a></p>
+        </div>
+        <img class="cv-portrait" src="images/profile-headshot.png" alt="Portrait of Om Chatterjee">
+      </div>
+    </section>
 
-          <div class="hero-actions">
-            <a class="button primary" href="#highlights">Explore highlights</a>
-            <a class="button secondary" href="#about">About me</a>
-          </div>
+    <div class="container cv-layout">
+      <aside class="cv-sidebar" aria-label="CV sections">
+        <p>Sections</p>
+        <nav>
+          <a href="#profile">Profile</a>
+          <a href="#education">Academics</a>
+          <a href="#coding">Coding</a>
+          <a href="#robotics">Robotics</a>
+          <a href="#projects">Projects</a>
+          <a href="#chess">Chess</a>
+          <a href="#beyond-the-classroom">Community</a>
+          <a href="#recognition">Recognition</a>
+          <a href="#publications">Publications</a>
+          <a href="#skills">Skills</a>
+        </nav>
+        <div class="cv-tag-legend" aria-label="Tag color key">
+          <span class="cv-tag-legend-label">Tag key</span>
+          <span class="cv-tag-light">Skill</span>
+          <span class="cv-tag-accomplishment">Highlight</span>
+          <span class="cv-timeframe">Date</span>
+        </div>
+      </aside>
 
-          <div class="mini-resume">
-            <div><span>FOCUS</span><strong>STEM + Chess</strong></div>
-            <div><span>INTERESTS</span><strong>AI, Robotics, Science</strong></div>
-            <div><span>STYLE</span><strong>Learn • Build • Test</strong></div>
-          </div>
+      <section class="cv-sheet">
+        <div class="cv-section" id="profile">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-profile"></use></svg>Profile</h2>
+          <p>8th-grade student building practical AI, robotics, and software projects while competing in programming, mathematics, and chess.</p>
         </div>
 
-        <aside class="profile-panel">
-          <div class="profile-photo">
-            <img src="images/portfolio_img.png" alt="Portrait of Om Chatterjee" />
-          </div>
+        <div class="cv-section" id="education">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-academics"></use></svg>Academics &amp; Mathematics</h2>
+          <ul>
+            <li><strong>Education:</strong> 8th grade <span class="cv-timeframe">2026–27</span>; advanced independent study in mathematics, science, and English.</li>
+            <li><strong>MATHCOUNTS:</strong> 2nd in Olentangy District Countdown; 6th overall <span class="cv-timeframe">2026</span>.</li>
+            <li><strong>MOEMS Division M:</strong> 24/25; Gold Pin, top 2% worldwide <span class="cv-timeframe">2025</span>.</li>
+          </ul>
+        </div>
 
-          <div class="profile-info">
-            <p class="eyebrow">QUICK PROFILE</p>
+        <div class="cv-section" id="coding">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-coding"></use></svg>Coding and AI/ML</h2>
+          <ul>
+            <li><strong>USACO Silver Promotion:</strong> advanced to Silver from Bronze <span class="cv-tag-light">C++</span> <span class="cv-tag-light">7th Grade</span> <span class="cv-timeframe">JANUARY 12, 2026</span>.</li>
+            <li><strong>Codeforces Pupil:</strong> achieved Pupil title with 1233 score. Handle is <a class="project-link" href="https://codeforces.com/profile/overflux" target="_blank" rel="noopener">overflux</a> <span class="cv-tag-light">C++</span>.</li>
+            <li><strong>AI/ML:</strong> developed projects to solve real-world problems with machine learning.
+              <ul id="projects" class="cv-project-list">
+                <li><strong>Personalized Allergy Prediction:</strong> implemented a personally developed neural network that combines pollen, weather, air quality, indoor dust sensing, and symptom history to predict next-day allergy risk. <span class="cv-tag-light">Python</span> <span class="cv-tag-light">scikit-learn</span> <span class="cv-tag-light">Neural network</span> <span class="cv-tag-light">Sensors</span> <span class="cv-tag-light">Raspberry Pi</span> <span class="cv-tag-accomplishment">2026 Ohio State Winner</span> <span class="cv-timeframe">MAY 16, 2026</span> <a class="project-link project-icon" href="pages/project-allergy.html" aria-label="Open Personalized Allergy Prediction project" title="Open project details">↗</a></li>
+                <li><strong>TankFlare (<a class="project-link" href="https://www.tankflare.com/" target="_blank" rel="noopener">https://www.tankflare.com/</a>):</strong> developed aquarium compatibility, tracking, and aquascape-planning tools, including a random forest model trained on fish and plant compatibility data to assess the risk of introducing new species into an aquarium. <span class="cv-tag-light">Python</span> <span class="cv-tag-light">scikit-learn</span> <span class="cv-tag-light">Random forest</span> <span class="cv-tag-accomplishment">1.62K monthly visitors</span> <span class="cv-timeframe">July 2026</span> <a class="project-link project-icon" href="pages/project-tankflare.html" aria-label="Open TankFlare project" title="Open project details">↗</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-section" id="robotics">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-robotics"></use></svg>Robotics &amp; Engineering</h2>
+          <ul>
+            <li><strong>robotCar:</strong> Raspberry Pi-powered four-wheel robot that can sense obstacles, control its own movement, and make basic navigation decisions without a human driver. <span class="cv-tag-light">Python</span> <span class="cv-tag-light">OpenCV</span> <span class="cv-tag-light">Raspberry Pi</span> <span class="cv-tag-light">Computer Vision</span> <span class="cv-tag-light">Sensor Fusion</span> <span class="cv-tag-light">Motor Control</span> <span class="cv-tag-light">Embedded Systems</span> <span class="cv-timeframe">Jun 2026</span> <a class="project-link project-icon" href="pages/project-robot-car.html" aria-label="Open robotCar project" title="Open project details">↗</a></li>
+            <li><strong>Whispering Hat:</strong> a wearable assistive computing system that detects nearby obstructions and speaks alerts to the wearer, while its perception, decisions, speech, and device controls run locally without Wi-Fi or cloud services. <span class="cv-tag-light">Python</span> <span class="cv-tag-light">Raspberry Pi</span> <span class="cv-tag-light">Computer Vision</span> <span class="cv-tag-light">Autonomous Navigation</span> <span class="cv-tag-light">Sensor Integration</span> <span class="cv-timeframe">Sep 2026</span> <a class="project-link project-icon" href="pages/project-whispering-hat.html" aria-label="Open Whispering Hat project" title="Open project details">↗</a></li>
+            <li><strong>Omnix:</strong> open-source 3D-printed six-legged robot with 18 servos, multiple walking gaits, IMU sensing, and an animated face with live system dashboards. <span class="cv-tag-light">C++</span> <span class="cv-tag-light">ESP32</span> <span class="cv-tag-light">CAD</span> <span class="cv-tag-light">Embedded Systems</span> <span class="cv-timeframe">Oct 2026</span> <a class="project-link project-icon" href="pages/project-omnix.html" aria-label="Open Omnix project" title="Open project details">↗</a></li>
+            <li><strong>Ringwraith:</strong> home-built 5-inch 6S freestyle quadcopter on a Mark4 HD frame, flown line of sight with a Radiomaster Pocket over ExpressLRS. <span class="cv-tag-light">Betaflight</span> <span class="cv-tag-light">ExpressLRS</span> <span class="cv-tag-light">STM32F722</span> <span class="cv-tag-light">Embedded Systems</span> <span class="cv-tag-light">6S LiPo</span> <span class="cv-timeframe">Oct 2026</span> <a class="project-link project-icon" href="pages/project-ringwraith.html" aria-label="Open Ringwraith project" title="Open project details">↗</a></li>
+          </ul>
+        </div>
+
+        <div class="cv-section" id="chess">
+          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-chess"></use></svg>Chess</span><span class="cv-heading-links"><a href="https://ratings.uschess.org/player/30496329" target="_blank" rel="noopener" aria-label="Open USCF player profile">USCF</a><a href="https://ratings.fide.com/profile/39978567/chart" target="_blank" rel="noopener" aria-label="Open FIDE player profile">FIDE</a></span></h2>
+          <ul>
+            <li><strong>Competitive Player:</strong> competitive chess player since 2023, now competing professionally. <span class="cv-tag-accomplishment">USCF 1800+</span> <span class="cv-tag-accomplishment">Lichess 2000+</span></li>
+          </ul>
+          <div class="cv-subsection">
+            <h3 class="cv-subsection-title">Notable Matches</h3>
             <ul>
-              <li><strong>Strengths:</strong> analytical thinking, creativity, persistence</li>
-              <li><strong>Enjoys:</strong> engineering projects, competitions, chess</li>
-              <li><strong>Learning:</strong> programming, machine learning, electronics</li>
+              <li><strong>Indianapolis Chess Open:</strong> U2100 section <span class="cv-tag-accomplishment">3rd Place</span> <span class="cv-timeframe">August 2026</span>.</li>
+              <li><strong>Cincinnati Chess Open:</strong> U1901 section <span class="cv-tag-accomplishment">Section Champion</span> <span class="cv-timeframe">April 2026</span>.</li>
+              <li><strong>Ohio Chess Congress:</strong> U1900 section <span class="cv-tag-accomplishment">Section Champion</span> <span class="cv-timeframe">August 2025</span>.</li>
             </ul>
           </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- HIGHLIGHTS -->
-    <section class="section section-dark" id="highlights">
-      <div class="container">
-        <div class="section-heading light">
-          <p class="eyebrow">AT A GLANCE</p>
-          <h2>Highlights</h2>
-          <p>A few things that represent my interests and work.</p>
         </div>
 
-        <div class="highlight-grid">
-          <a class="highlight-card" href="pages/project-allergy.html">
-            <span>SCIENCE</span>
-            <h3>Personalized Allergy Prediction</h3>
-            <p>Machine-learning science project using environmental and personal data.</p>
-            <strong>View details →</strong>
-          </a>
-
-          <a class="highlight-card" href="pages/project-whispering-hat.html">
-            <span>ENGINEERING</span>
-            <h3>Whispering Hat</h3>
-            <p>Wearable assistive-technology prototype using computer vision and sensors.</p>
-            <strong>View details →</strong>
-          </a>
-
-          <a class="highlight-card" href="pages/chess-profile.html">
-            <span>CHESS</span>
-            <h3>Competitive Chess</h3>
-            <p>Tournament play, rating progress, selected games, and lessons from competition.</p>
-            <strong>View details →</strong>
-          </a>
+        <div class="cv-section" id="beyond-the-classroom">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-community"></use></svg>Community &amp; Service</h2>
+          <ul>
+            <li><strong>Chess education:</strong> introduced and teach chess at a school in Tanzania; supported children in a Uganda refugee camp. <a class="project-link" href="pages/society-arise-school.html">Arise School</a> · <a class="project-link" href="pages/society-arise-tablets.html">Chess tablets</a></li>
+            <li><strong>Local volunteering:</strong> volunteer with children and families at Ronald McDonald House in Columbus. <a class="project-link" href="pages/society-rmh-chess.html">Community details</a></li>
+            <li><strong>Activities:</strong> <a class="project-link" href="pages/activity-community.html">community</a> · <a class="project-link" href="pages/activity-leadership.html">leadership</a> · <a class="project-link" href="pages/activity-writing.html">writing</a></li>
+          </ul>
         </div>
-      </div>
-    </section>
 
-    <!-- IN NUMBERS -->
-    <section class="numbers-band">
-      <div class="container">
-        <p class="eyebrow">At a glance</p>
-        <h2>My work in numbers</h2>
+        <div class="cv-section" id="recognition">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-recognition"></use></svg>Selected Recognition</h2>
+          <ul>
+            <li><strong>Ohio State Science Fair:</strong> Superior rating; Thermo Fisher Scientific Junior Innovation invitation; Ohio Environmental Health Association Award; Naval Science Award. <span class="cv-timeframe">2026</span> <a class="project-link" href="pages/award-science-fair.html">Award details</a></li>
+            <li><strong>The New York Times Student Reading Challenge:</strong> selected for a highlight article. <span class="cv-timeframe">2026</span> <a class="project-link" href="pages/publications.html">Publication details</a></li>
+            <li><strong>USACO Silver Promotion:</strong> advanced to Silver from Bronze <span class="cv-tag-light">C++</span> <span class="cv-tag-light">7th Grade</span> <span class="cv-timeframe">JANUARY 12, 2026</span>. <a class="project-link" href="pages/award-other.html">Other recognition</a></li>
+            <li><strong>MATHCOUNTS:</strong> 2nd in district Countdown; 6th overall <span class="cv-timeframe">2026</span>. <a class="project-link" href="pages/award-math.html">Math recognition</a></li>
+          </ul>
+        </div>
 
-        <div class="numbers-grid">
-          <div class="number-item">
-            <strong>10+</strong>
-            <span>Projects, experiments, and prototypes built end to end.</span>
-          </div>
-          <div class="number-item">
-            <strong>3</strong>
-            <span>Core focus areas: science, engineering, and computing.</span>
-          </div>
-          <div class="number-item">
-            <strong>100s</strong>
-            <span>Rated chess games played in competitive tournaments.</span>
+        <div class="cv-section" id="publications">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-publication"></use></svg>Publications</h2>
+          <ul>
+            <li><strong>The New York Times Student Reading Challenge:</strong> selected for a highlight article <span class="cv-timeframe">JUNE 4, 2026</span> <a class="project-link project-icon" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener" aria-label="Open New York Times publication" title="Open publication">↗</a></li>
+            <li><strong>Why Turtles?</strong> a popular-science article exploring turtle evolution and the survival value of the shell <a class="project-link project-icon" href="pages/publications/why-turtles.html" aria-label="Open Why Turtles article" title="Open publication">↗</a></li>
+          </ul>
+          <p><a class="project-link" href="pages/publications.html">Open publication portfolio</a></p>
+        </div>
+
+        <div class="cv-section" id="details">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-details"></use></svg>More details</h2>
+          <p>Expanded project, academic, activity, award, chess, and writing pages:</p>
+          <div class="cv-more-links">
+            <a href="pages/academics-math.html">Mathematics</a>
+            <a href="pages/academics-science.html">Science</a>
+            <a href="pages/academics-coding.html">Coding</a>
+            <a href="pages/project-allergy.html">Allergy prediction</a>
+            <a href="pages/project-whispering-hat.html">Whispering Hat</a>
+            <a href="pages/project-robot-car.html">Robot car</a>
+            <a href="pages/project-tankflare.html">TankFlare</a>
+            <a href="pages/chess-profile.html">Chess</a>
+            <a href="pages/publications.html">Publications</a>
+            <a href="pages/society-rmh-chess.html">RMH chess</a>
+            <a href="pages/society-arise-school.html">Arise School</a>
+            <a href="pages/society-arise-tablets.html">Chess tablets</a>
+            <a href="pages/activity-community.html">Community</a>
+            <a href="pages/activity-leadership.html">Leadership</a>
+            <a href="pages/activity-writing.html">Writing</a>
+            <a href="pages/award-science-fair.html">Science awards</a>
+            <a href="pages/award-math.html">Math awards</a>
+            <a href="pages/award-other.html">Other awards</a>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section class="section" id="about">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">ABOUT ME</p>
-          <h2>Curious about how things work.</h2>
+        <div class="cv-section skills-section" id="skills">
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-skills"></use></svg>Skills</h2>
+          <div class="skill-list"><span>Python</span><span>C++</span><span>Machine learning</span><span>Computer vision</span><span>Web development</span><span>Raspberry Pi</span><span>Electronics</span><span>CAD</span><span>Technical writing</span></div>
         </div>
-
-        <div class="body-copy">
-          <p class="lead">
-            I enjoy learning by building, testing, and improving.
-          </p>
-          <p>
-            My interests include science, engineering, artificial intelligence,
-            robotics, mathematics, chess, writing, and competitions. I especially
-            like projects where I can combine ideas from several subjects to solve
-            a practical problem.
-          </p>
-          <p>
-            This site is a collection of my work, achievements, activities, and
-            things I am proud to have learned.
-          </p>
-          <a class="button secondary" href="pages/cv.html">View my CV →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- PULL QUOTE -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="quote-block">
-          <blockquote>
-            &ldquo;The best way to understand something is to try to build it,
-            break it, and then build it again.&rdquo;
-          </blockquote>
-          <cite>Om Chatterjee &mdash; personal learning philosophy</cite>
-        </div>
-      </div>
-    </section>
-
-    <!-- ACADEMICS -->
-    <section class="section" id="academics">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">ACADEMICS</p>
-          <h2>Learning & coursework</h2>
-          <p>Courses, academic interests, competitions, and independent learning.</p>
-        </div>
-
-        <div class="item-grid">
-          <a class="item-card" href="pages/academics-math.html">
-            <div class="item-icon">∑</div>
-            <div>
-              <span class="item-type">MATHEMATICS</span>
-              <h3>Advanced Math Path</h3>
-              <p>Coursework, competitions, problem solving, and favorite areas of math.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-
-          <a class="item-card" href="pages/academics-science.html">
-            <div class="item-icon">⚗</div>
-            <div>
-              <span class="item-type">SCIENCE</span>
-              <h3>Science Studies</h3>
-              <p>Biology, physical science, experiments, research, and science-fair work.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-
-          <a class="item-card" href="pages/academics-coding.html">
-            <div class="item-icon">&lt;/&gt;</div>
-            <div>
-              <span class="item-type">COMPUTING</span>
-              <h3>Programming & AI</h3>
-              <p>Python, web development, computer vision, machine learning, and data work.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CODING -->
-    <section class="section section-alt" id="coding">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">CODING</p>
-          <h2>Algorithms, problem solving, and competitive programming.</h2>
-          <p>
-            Coding is one of my strongest interests. I primarily program in C++,
-            using it to explore data structures, algorithms, and the challenge of
-            solving problems under competition conditions.
-          </p>
-        </div>
-
-        <div class="coding-layout">
-          <div class="body-copy">
-            <p>
-              I use C++ to prepare for and compete in the USA Computing Olympiad,
-              where I have qualified for the Bronze division. I also practice on
-              Codeforces as <strong>overflux</strong>, learning from each contest
-              and working to improve my speed, reasoning, and implementation.
-            </p>
-            <a class="button secondary" href="https://codeforces.com/profile/overflux" target="_blank" rel="noopener">View Codeforces Profile →</a>
-          </div>
-
-          <div class="coding-stats">
-            <div class="coding-stat"><strong>C++</strong><span>Competitive Programming</span></div>
-            <div class="coding-stat"><strong>USACO</strong><span>Bronze</span></div>
-            <div class="coding-stat"><strong>Codeforces</strong><span>1233 · Pupil</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">SCIENCE & ENGINEERING</p>
-          <h2>Projects</h2>
-          <p>Selected projects with detailed pages showing the idea, build, results, and lessons.</p>
-        </div>
-
-        <div class="feature-list">
-          <a class="feature-row feature-row-with-image" href="pages/project-allergy.html">
-            <div class="feature-number">01</div>
-            <div>
-              <span>SCIENCE • MACHINE LEARNING</span>
-              <h3>Personalized Allergy Prediction</h3>
-              <p>Can personalized data predict next-day allergy symptoms better than pollen alone?</p>
-            </div>
-            <img class="feature-image" src="images/pollen/pollen4.png" alt="Personalized allergy prediction neural network visualization">
-            <div class="feature-arrow">→</div>
-          </a>
-
-          <a class="feature-row feature-row-with-image" href="pages/project-whispering-hat.html">
-            <div class="feature-number">02</div>
-            <div>
-              <span>ENGINEERING • AI • ASSISTIVE TECHNOLOGY</span>
-              <h3>Whispering Hat</h3>
-              <p>A wearable system that uses a camera, sensors, and audio feedback.</p>
-            </div>
-            <img class="feature-image" src="images/what/what1.jpg" alt="Whispering Hat assistive technology project">
-            <div class="feature-arrow">→</div>
-          </a>
-
-          <a class="feature-row feature-row-with-image" href="pages/project-robot-car.html">
-            <div class="feature-number">03</div>
-            <div>
-              <span>ROBOTICS • PYTHON • COMPUTER VISION</span>
-              <h3>Autonomous Robot Car</h3>
-              <p>A Raspberry Pi robot used to experiment with sensors, motors, and navigation.</p>
-            </div>
-            <img class="feature-image" src="images/acar/acar1.png" alt="Autonomous Car robotics project">
-            <div class="feature-arrow">→</div>
-          </a>
-
-          <a class="feature-row feature-row-with-image" href="pages/project-tankflare.html">
-            <div class="feature-number">04</div>
-            <div>
-              <span>WEB • AI • AQUARISTICS</span>
-              <h3>TankFlare</h3>
-              <p>A live site that uses AI to check fish, plant, and decor compatibility before you buy.</p>
-            </div>
-            <img class="feature-image" src="images/tflare/tflare1.png" alt="TankFlare aquarium planning project">
-            <div class="feature-arrow">→</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- BEYOND THE CLASSROOM -->
-    <section class="section society-section" id="society">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">BEYOND THE CLASSROOM</p>
-          <h2>Chess as a way to give back</h2>
-          <p>
-            Volunteering, outreach, and fundraising work that uses chess to reach
-            students and families across two continents.
-          </p>
-        </div>
-
-        <div class="item-grid">
-          <a class="item-card photo-card" href="pages/society-rmh-chess.html">
-            <div class="card-thumb">
-              <img src="images/rmh/2026-02-12-18-50-36-1024x768.jpeg" alt="A chess game at the Ronald McDonald House" loading="lazy">
-            </div>
-            <div>
-              <span class="item-type">VOLUNTEERING</span>
-              <h3>RMH &mdash; Introducing Chess</h3>
-              <p>Weekly chess evenings at the largest Ronald McDonald House in the country.</p>
-              <strong>Open &rarr;</strong>
-            </div>
-          </a>
-
-          <a class="item-card photo-card" href="pages/society-arise-tablets.html">
-            <div class="card-thumb">
-              <img src="images/act/IMG_0601-1024x576.jpg" alt="Children celebrating with the chess-loaded tablets" loading="lazy">
-            </div>
-            <div>
-              <span class="item-type">FUNDRAISING</span>
-              <h3>Arise &mdash; Chess-Loaded Tablets</h3>
-              <p>Raising funds and shipping offline chess tools to students in East Africa.</p>
-              <strong>Open &rarr;</strong>
-            </div>
-          </a>
-
-          <a class="item-card photo-card" href="pages/society-arise-school.html">
-            <div class="card-thumb">
-              <img src="images/asb/school3.png" alt="Arise Community School in Tanzania" loading="lazy">
-            </div>
-            <div>
-              <span class="item-type">EDUCATION</span>
-              <h3>Arise School &mdash; New Beginnings</h3>
-              <p>Building a chess club from scratch at a school in the foothills of Kilimanjaro.</p>
-              <strong>Open &rarr;</strong>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- AWARDS -->
-    <section class="section" id="awards">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">RECOGNITION</p>
-          <h2>Awards & honors</h2>
-          <p>Competitions, academic recognition, certificates, and notable accomplishments.</p>
-        </div>
-
-        <div class="item-grid">
-          <a class="item-card" href="pages/award-science-fair.html">
-            <div class="item-icon">★</div>
-            <div>
-              <span class="item-type">SCIENCE FAIR</span>
-              <h3>Science Fair Recognition</h3>
-              <p>Add awards, placements, judge feedback, photos, and project links.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-
-          <a class="item-card" href="pages/award-math.html">
-            <div class="item-icon">π</div>
-            <div>
-              <span class="item-type">MATH</span>
-              <h3>Math Honors</h3>
-              <p>Math competitions, pins, certificates, qualifying scores, and milestones.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-
-          <a class="item-card" href="pages/award-other.html">
-            <div class="item-icon">🏅</div>
-            <div>
-              <span class="item-type">OTHER</span>
-              <h3>Other Recognition</h3>
-              <p>Writing, academics, technology, service, or other honors.</p>
-              <strong>Open →</strong>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CHESS -->
-    <section class="section chess-section" id="chess">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">CHESS</p>
-          <h2>Competitive chess</h2>
-          <p class="section-intro">
-            Tournament experience, ratings, selected games, and what chess has taught me.
-          </p>
-          <a class="button primary" href="pages/chess-profile.html">View chess profile</a>
-        </div>
-
-        <div class="chess-board">
-          <div class="chess-stat">
-            <span>RATING</span>
-            <strong>1810</strong>
-            <small>USCF rating</small>
-          </div>
-          <div class="chess-stat">
-            <span>TOURNAMENTS</span>
-            <strong>55</strong>
-            <small>Completed events</small>
-          </div>
-          <div class="chess-stat">
-            <span>FEATURED</span>
-            <strong>Games</strong>
-            <small>Annotated positions & lessons</small>
-          </div>
-          <div class="chess-stat">
-            <span>FOCUS</span>
-            <strong>Growth</strong>
-            <small>Calculation, strategy, resilience</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section class="section" id="publications">
-      <div class="container split">
-        <div>
-          <p class="eyebrow">WRITING PORTFOLIO</p>
-          <h2>Publications</h2>
-        </div>
-
-        <div class="body-copy">
-          <p class="lead">Essays, reading responses, and science writing shaped by the questions I want to understand better.</p>
-          <p>
-            My writing includes a New York Times Student Reading Challenge
-            highlight article and popular-science work such as <em>Why Turtles?</em>,
-            an exploration of turtle evolution and adaptation.
-          </p>
-          <a class="button primary" href="pages/publications.html">Explore publications →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">SKILLS</p>
-          <h2>Tools I use</h2>
-        </div>
-
-        <div class="skills-grid">
-          <div><span>PROGRAMMING</span><p>Python · HTML · CSS · JavaScript · SQL</p></div>
-          <div><span>AI / DATA</span><p>Machine Learning · Computer Vision · Data Analysis</p></div>
-          <div><span>HARDWARE</span><p>Raspberry Pi · Cameras · Sensors · Motors · Electronics</p></div>
-          <div><span>OTHER</span><p>Research · Experiment Design · Presentations · Chess Analysis</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="container footer-row">
-        <div>
-          <strong>Om Chatterjee</strong>
-          <p>Student résumé & portfolio</p>
-        </div>
-        <div class="footer-links">
-          <a href="#top">Back to top ↑</a>
-          <a href="#">GitHub</a>
-        </div>
-      </div>
-    </footer>
+      </section>
+    </div>
   </main>
+
+  <footer><div class="container">Om Chatterjee • Student résumé &amp; portfolio</div></footer>
+  <script>
+    document.getElementById("print-cv").addEventListener("click", () => window.print());
+    const sectionLinks = [...document.querySelectorAll(".cv-sidebar a")];
+    const updateActiveSection = () => {
+      const currentId = window.location.hash.slice(1) || "profile";
+      sectionLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${currentId}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) link.setAttribute("aria-current", "page");
+        else link.removeAttribute("aria-current");
+      });
+    };
+    updateActiveSection();
+    window.addEventListener("hashchange", updateActiveSection);
+  </script>
 </body>
 </html>

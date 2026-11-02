@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ringwraith, a home-built 5-inch 6S freestyle quadcopter with Betaflight, ExpressLRS, and a documented first-flight build.">
+  <title>Ringwraith | Om Chatterjee</title>
+  <link rel="stylesheet" href="../detail.css">
+  <style>
+    .ring-stat-grid { grid-template-columns: repeat(4, 1fr); }
+    .ring-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 24px 0; }
+    .ring-card { padding: 18px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+    .ring-card h3 { margin: 0 0 6px; font-family: var(--font-display); font-size: 1.05rem; color: var(--text); }
+    .ring-card p { margin: 0; font-size: .9rem; }
+    .ring-diagram { margin: 24px 0; overflow: hidden; border: 1px solid var(--line); border-radius: 4px; background: var(--soft); }
+    .ring-diagram img { width: 100%; max-height: 520px; object-fit: contain; padding: 18px; background: #fff; }
+    .ring-diagram figcaption { padding: 10px 14px; color: var(--muted); font-size: .8rem; border-left: 3px solid var(--accent); background: var(--soft); }
+    .ring-list { display: grid; gap: 0; margin: 20px 0; }
+    .ring-list p { display: grid; grid-template-columns: 170px 1fr; gap: 16px; margin: 0; padding: 13px 0; border-top: 1px solid var(--line); }
+    .ring-list strong { color: var(--accent); }
+    .tech-list { display: grid; gap: 0; }
+    .tech-list div { display: grid; grid-template-columns: 145px 1fr; gap: 16px; padding: 13px 0; border-top: 1px solid var(--line); }
+    .tech-list span { color: var(--accent); font-size: .7rem; font-weight: 800; letter-spacing: .12em; }
+    .tech-list strong { color: var(--text); font-size: .92rem; }
+    .hero-repo { display: inline-flex; margin-top: 24px; }
+    @media (max-width: 720px) {
+      .ring-stat-grid { grid-template-columns: 1fr 1fr; }
+      .ring-cards { grid-template-columns: 1fr; }
+      .ring-list p, .tech-list div { grid-template-columns: 1fr; gap: 4px; }
+    }
+    @media (max-width: 500px) {
+      .ring-stat-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="detail-header">
+    <div class="container detail-nav">
+      <a class="brand" href="../index.html">OM<span>.</span></a>
+      <a class="back" href="../index.html#robotics">← Back to CV</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">ROBOTICS • FLIGHT SYSTEMS • EMBEDDED CONTROL</p>
+          <h1>Ringwraith</h1>
+          <p class="summary">A home-built 5-inch 6S freestyle quadcopter on a Mark4 HD frame, flown with a Radiomaster Pocket over ExpressLRS.</p>
+          <a class="button primary hero-repo" href="https://github.com/gandalfrepos/Ringwraith" target="_blank" rel="noopener noreferrer">GitHub repository ↗</a>
+          <div class="meta">
+            <div><span>YEAR</span><strong>2026</strong></div>
+            <div><span>TYPE</span><strong>Freestyle quadcopter</strong></div>
+            <div><span>ROLE</span><strong>Builder &amp; Pilot</strong></div>
+            <div><span>STATUS</span><strong>First flights complete</strong></div>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img src="https://github.com/gandalfrepos/Ringwraith/raw/main/Wiring%20Diagrams/FC%20to%20Motor%20Wiring.svg" alt="Ringwraith flight controller and motor wiring diagram">
+          <figcaption>Flight controller, ESC, and motor wiring</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="detail-section">
+        <div><p class="kicker">OVERVIEW</p><h2>A complete flight build</h2></div>
+        <div class="content">
+          <p class="lead">Ringwraith is a documented first quadcopter build, from choosing the parts and soldering the stack to configuring Betaflight and flying line of sight.</p>
+          <p>The build uses a Mark4 HD 5-inch, 240 mm carbon-fiber frame, four 2207 1800KV motors, a 6S 1300mAh LiPo battery, and a JHEMCU F722 flight stack. A SpeedyBee Nano ExpressLRS receiver connects the quad to a Radiomaster Pocket transmitter over a 2.4 GHz control link.</p>
+          <p>There is no video system yet, so the first flights are line of sight. The repository records the wiring, configuration, battery care, flying notes, and next upgrade ideas.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">HIGHLIGHTS</p><h2>Key details</h2></div>
+        <div class="content">
+          <div class="stat-grid ring-stat-grid">
+            <div class="stat"><strong>5&quot;</strong><span>Freestyle frame</span></div>
+            <div class="stat"><strong>6S</strong><span>LiPo power</span></div>
+            <div class="stat"><strong>4</strong><span>2207 motors</span></div>
+            <div class="stat"><strong>3–4</strong><span>Minutes per pack</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">HARDWARE</p><h2>Choosing the system</h2></div>
+        <div class="content">
+          <div class="ring-cards">
+            <article class="ring-card"><h3>Frame and propulsion</h3><p>The Mark4 HD 5-inch H-style carbon-fiber frame carries four iFlight XING-E Pro 2207 1800KV motors and 5-inch tri-blade props.</p></article>
+            <article class="ring-card"><h3>Flight stack</h3><p>A JHEMCU GF30F722-ICM flight controller and RuiBet BLHeli_S 4-in-1 ESC form the control and motor-power stack.</p></article>
+            <article class="ring-card"><h3>Radio link</h3><p>A SpeedyBee Nano 2.4 GHz ExpressLRS receiver communicates with the Radiomaster Pocket using CRSF over UART.</p></article>
+            <article class="ring-card"><h3>Power and protection</h3><p>The 6S battery connects through an XT60 pigtail, with a low-ESR capacitor across the battery pads and separate attention to battery safety.</p></article>
+          </div>
+          <figure class="ring-diagram">
+            <img src="https://github.com/gandalfrepos/Ringwraith/raw/main/Wiring%20Diagrams/FC%20to%20ELRS%20Wiring.svg" alt="Ringwraith flight controller to ExpressLRS receiver wiring diagram">
+            <figcaption>Receiver-to-flight-controller wiring, with TX and RX crossing over on the UART connection.</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">FLIGHT CONTROLLER</p><h2>What the F722 provides</h2></div>
+        <div class="content">
+          <p>The JHEMCU GF30F722-ICM gives the quad room for both current flight control and future expansion.</p>
+          <div class="ring-list">
+            <p><strong>Processor and sensing</strong><span>STM32F722 processor with an ICM-42688-P gyro.</span></p>
+            <p><strong>Power range</strong><span>3–8S input with regulated 5V and 10V outputs; the 10V rail is intended for a future HD video unit.</span></p>
+            <p><strong>Diagnostics</strong><span>16MB blackbox storage and an AT7456E analog OSD chip support flight review and configuration.</span></p>
+            <p><strong>Expansion</strong><span>Six UARTs, I2C, LED strip and buzzer pads, an HD port, USB-C, and a boot button.</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">SOFTWARE</p><h2>Configuring the aircraft</h2></div>
+        <div class="content">
+          <p>Betaflight handles the flight controller configuration, motor layout, receiver link, arming behavior, modes, and flight tuning. The build notes emphasize checking the physical setup before applying power and confirming every motor direction in the Motors tab.</p>
+          <ul>
+            <li>Stack orientation is documented so the flight controller arrow points forward and the ESC battery pads face the rear.</li>
+            <li>The receiver uses a crossed TX/RX UART connection and is powered from the flight controller's 5V pad.</li>
+            <li>The motor layout follows Betaflight's default props-in arrangement, with motor direction verified before propellers are installed.</li>
+            <li>The repository records the Radiomaster Pocket and EdgeTX setup for the ExpressLRS control link.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">FIRST FLIGHTS</p><h2>Learning to fly safely</h2></div>
+        <div class="content">
+          <p>Ringwraith was first flown line of sight because the build does not yet include a video system. That keeps the early testing focused on the airframe, control link, motor response, and battery behavior.</p>
+          <p>The build notes cover arming checks, failsafe behavior, propeller direction, LiPo charging and storage, and the difference between a controlled short test and a longer flight. Video and an HD system are planned as future upgrades.</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">LESSONS</p><h2>What the build taught me</h2></div>
+        <div class="content">
+          <p class="lead">A quadcopter build is a chain of small decisions where wiring, firmware, radio setup, power, and mechanical assembly all meet.</p>
+          <ul>
+            <li>Small signal pads need the right wire size and careful soldering.</li>
+            <li>Correct stack orientation and motor mapping prevent software configuration from hiding a physical wiring mistake.</li>
+            <li>Battery voltage, capacitor placement, receiver power, and failsafe behavior all matter before a first flight.</li>
+            <li>Documenting the build makes later upgrades, troubleshooting, and safe repeatable tests much easier.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">TECH STACK</p><h2>What I used</h2></div>
+        <div class="content">
+          <div class="tech-list">
+            <div><span>FRAME</span><strong>Mark4 HD 5-inch, 240 mm carbon fiber</strong></div>
+            <div><span>PROPULSION</span><strong>4 × iFlight XING-E Pro 2207 1800KV motors · 5-inch tri-blade props</strong></div>
+            <div><span>CONTROL</span><strong>JHEMCU GF30F722-ICM · STM32F722 · Betaflight</strong></div>
+            <div><span>ESC</span><strong>RuiBet BLHeli_S 4-in-1, 3–6S</strong></div>
+            <div><span>RADIO</span><strong>ExpressLRS 2.4 GHz · Radiomaster Pocket · CRSF</strong></div>
+            <div><span>POWER</span><strong>6S 1300mAh LiPo · XT60 · Low-ESR capacitor</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div><p class="kicker">RESOURCES</p><h2>Build documentation</h2></div>
+        <div class="content">
+          <p>The repository includes the bill of materials, wiring diagrams, Betaflight setup notes, radio setup, flying guidance, battery care, lessons learned, and future upgrade ideas.</p>
+          <div class="links">
+            <a class="button primary" href="https://github.com/gandalfrepos/Ringwraith" target="_blank" rel="noopener noreferrer">View Ringwraith on GitHub ↗</a>
+            <a class="button" href="https://github.com/gandalfrepos/Ringwraith/blob/main/Miscellaneous/Ringwraith%20BOM.xlsx" target="_blank" rel="noopener noreferrer">Bill of materials ↗</a>
+            <a class="button" href="https://github.com/gandalfrepos/Ringwraith/blob/main/Wiring%20Diagrams/FC%20to%20ELRS%20Wiring.svg" target="_blank" rel="noopener noreferrer">Receiver wiring ↗</a>
+            <a class="button" href="https://github.com/gandalfrepos/Ringwraith/blob/main/Wiring%20Diagrams/FC%20to%20Motor%20Wiring.svg" target="_blank" rel="noopener noreferrer">Motor wiring ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Om Chatterjee • Student résumé &amp; portfolio
+    </div>
+  </footer>
+</body>
+</html>
