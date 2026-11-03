@@ -5,19 +5,28 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Publication portfolio for Om Chatterjee, featuring student writing and notable published work.">
-  <title>Publications | Om Chatterjee</title>
+  <title>Publications Portfolio | Om Chatterjee</title>
   <link rel="stylesheet" href="../detail.css">
   <style>
     .archive-section { padding-bottom: 82px; }
-    .archive-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+    .archive-heading { display: flex; align-items: end; justify-content: flex-end; gap: 24px; margin-bottom: 24px; }
     .archive-heading h2 { margin: 0; }
+    .archive-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px; }
     .view-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
     .view-tab { border: 1px solid var(--line); background: #fff; padding: 8px 11px; color: var(--muted); font: inherit; font-size: .76rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
     .view-tab:hover, .view-tab[aria-selected="true"] { color: #fff; border-color: var(--accent); background: var(--accent); }
+    .card-columns { display: inline-flex; align-items: center; gap: 3px; padding: 4px 5px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+    .card-columns-label { padding: 0 5px 0 2px; color: var(--muted); font: 800 .66rem var(--font-body); letter-spacing: .08em; text-transform: uppercase; }
+    .card-column-button { min-width: 26px; padding: 6px 5px; color: var(--muted); border: 1px solid transparent; background: transparent; font: 800 .72rem var(--font-body); cursor: pointer; }
+    .card-column-button:hover, .card-column-button:focus-visible { color: var(--accent); border-color: #cbb8bb; outline: none; }
+    .card-column-button[aria-pressed="true"] { color: #fff; border-color: var(--accent); background: var(--accent); }
     .archive-view[hidden] { display: none; }
-    .post-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 36px; border-top: 1px solid var(--line); }
-    .post { padding: 28px 0; border-bottom: 1px solid var(--line); }
-    .post-wide { grid-column: 1 / -1; }
+    .card-grid { --card-columns: 3; display: grid; grid-template-columns: repeat(var(--card-columns), minmax(0, 1fr)); gap: 16px; }
+    .card-grid[data-columns="2"] { --card-columns: 2; }
+    .card-grid[data-columns="3"] { --card-columns: 3; }
+    .card-grid[data-columns="4"] { --card-columns: 4; }
+    .post-grid { display: grid; }
+    .post { padding: 22px; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 4px; background: #fff; box-shadow: 0 8px 20px rgba(27, 27, 27, .05); }
     .publication-date { color: var(--accent); font-size: .75rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
     .post h3 { margin: 8px 0 0; font-size: 1.45rem; }
     .post p { margin: 8px 0 0; color: var(--muted); }
@@ -26,20 +35,18 @@
     .genre-tag { padding: 3px 7px; border: 1px solid #cbb8bb; color: var(--accent); font-size: .65rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
     .genre-group + .genre-group { margin-top: 34px; }
     .genre-group h3 { margin: 0 0 12px; font-family: var(--font-display); font-size: 1.2rem; }
-    .highlights { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-    .highlight { min-height: 130px; padding: 18px; border-top: 3px solid var(--accent); background: var(--soft); }
+    .highlights { display: grid; }
+    .highlight { min-height: 130px; padding: 18px; border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: 4px; background: var(--soft); box-shadow: 0 8px 20px rgba(27, 27, 27, .05); }
     .highlight p { margin: 10px 0 0; color: var(--muted); }
     .highlight strong { display: block; margin-top: 8px; font-family: var(--font-display); font-size: 1.08rem; line-height: 1.2; }
-    .publication-link { display: inline-block; margin-top: 12px; color: var(--accent); font-size: .75rem; font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
-    .sample-highlight { border-top-color: #a8874b; background: #f6f3ea; }
+    .publication-logo { display: inline-flex; align-items: center; justify-content: center; padding: 3px 7px; border: 1px solid #e3cf91; border-radius: 3px; background: #f7edcf; color: #6b531d; font-family: var(--font-body); font-size: .65rem; font-weight: 800; letter-spacing: .06em; line-height: 1; text-transform: uppercase; }
+    .publication-logo--hwp { border-color: #e3cf91; background: #f7edcf; color: #6b531d; }
+    .publication-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; padding: 8px 11px; color: #fff; border: 1px solid var(--accent); border-radius: 4px; background: var(--accent); font-size: .75rem; font-weight: 800; text-decoration: none; transition: background-color .18s ease, border-color .18s ease, transform .18s ease; }
+    .publication-link:hover, .publication-link:focus-visible { color: #fff; border-color: var(--accent-deep); background: var(--accent-deep); transform: translateY(-1px); outline: none; }
     @media (max-width: 700px) {
       .archive-heading { display: block; }
-      .view-tabs { margin-top: 18px; }
-      .post-grid { grid-template-columns: 1fr; }
-      .highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (max-width: 430px) {
-      .highlights { grid-template-columns: 1fr; }
+      .archive-tools { justify-content: flex-start; margin-top: 18px; }
+      .card-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -55,103 +62,90 @@
     <section class="hero">
       <div class="container">
         <p class="kicker">WRITING PORTFOLIO</p>
-        <h1>Publications</h1>
+        <h1>Publications Portfolio</h1>
         <p class="summary">A growing collection of essays and published writing that explores science, history, and the ideas that make me curious.</p>
       </div>
     </section>
 
     <section class="container">
-      <div class="detail-section">
-        <div><p class="kicker">HIGHLIGHTS</p><h2>Notable mentions</h2></div>
-        <div class="highlights">
-          <article class="highlight">
-            <span class="publication-meta">Published · June 2026</span>
-            <strong>NY Times Highlight Article</strong>
-            <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
-          </article>
-          <article class="highlight sample-highlight">
-            <span class="publication-meta">Sample mention</span>
-            <strong>Student Science Journal</strong>
-          </article>
-          <article class="highlight sample-highlight">
-            <span class="publication-meta">Sample mention</span>
-            <strong>Regional Writing Showcase</strong>
-          </article>
-          <article class="highlight sample-highlight">
-            <span class="publication-meta">Sample mention</span>
-            <strong>School Literary Review</strong>
-          </article>
-        </div>
-      </div>
-
-      <section class="archive-section" aria-labelledby="archive-heading">
+      <section class="archive-section">
         <div class="archive-heading">
-          <div><p class="kicker">BLOG ARCHIVE</p><h2 id="archive-heading">Writing archive</h2></div>
-          <div class="view-tabs" role="tablist" aria-label="Publication views">
-            <button class="view-tab" id="all-posts-tab" type="button" role="tab" aria-selected="true" aria-controls="all-posts">All posts</button>
-            <button class="view-tab" id="genre-tab" type="button" role="tab" aria-selected="false" aria-controls="by-genre">By genre</button>
-            <button class="view-tab" id="date-tab" type="button" role="tab" aria-selected="false" aria-controls="by-date">By date</button>
+          <div class="archive-tools">
+            <div class="card-columns" aria-label="Number of cards per row">
+              <span class="card-columns-label">Cards</span>
+              <button class="card-column-button" type="button" data-columns-button="2" aria-pressed="false" title="Show two cards per row">2</button>
+              <button class="card-column-button" type="button" data-columns-button="3" aria-pressed="true" title="Show three cards per row">3</button>
+              <button class="card-column-button" type="button" data-columns-button="4" aria-pressed="false" title="Show four cards per row">4</button>
+            </div>
+            <div class="view-tabs" role="tablist" aria-label="Publication views">
+              <button class="view-tab" id="all-posts-tab" type="button" role="tab" aria-selected="true" aria-controls="all-posts">All posts</button>
+              <button class="view-tab" id="genre-tab" type="button" role="tab" aria-selected="false" aria-controls="by-genre">By genre</button>
+              <button class="view-tab" id="date-tab" type="button" role="tab" aria-selected="false" aria-controls="by-date">By date</button>
+            </div>
           </div>
         </div>
 
         <div class="archive-view" id="all-posts" role="tabpanel" aria-labelledby="all-posts-tab">
-          <div class="post-grid">
+          <div class="post-grid card-grid" data-card-grid data-columns="3">
             <article class="post">
-              <div class="genre-tags"><span class="genre-tag">Popular Science</span><span class="genre-tag">Evolution</span></div>
-              <h3>Why Turtles?</h3>
-              <p>A lively exploration of turtle evolution that reframes their protective shell as a remarkable survival adaptation shaped over millions of years.</p>
-              <a class="publication-link" href="publications/why-turtles.html">Read article &rarr;</a>
-              <span class="publication-date">Date to be added</span>
+              <span class="publication-date">June 4, 2026</span>
+              <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span><span class="publication-logo" role="img" aria-label="The New York Times logo">Published · NYT</span></div>
+              <h3>NY Times Student Writing Challenge Highlight</h3>
+              <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Writing Challenge.</p>
+              <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication ↗</a>
             </article>
             <article class="post">
-              <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span></div>
-              <h3>NY Times Student Reading Challenge Highlight</h3>
-              <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Reading Challenge.</p>
-              <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
+              <span class="publication-date">October 30, 2026</span>
+              <div class="genre-tags"><span class="genre-tag">Young Adult</span><span class="genre-tag">Horror</span><span class="genre-tag">Eyes</span><span class="publication-logo publication-logo--hwp" role="img" aria-label="Haunted Words Press logo">Published · HWP</span></div>
+              <h3>The Ocular Express</h3>
+              <p>A Young Adult horror story about a mysterious train and a spectral hand covered in eyes that pulls a traveler into a nightmarish reality.</p>
+              <a class="publication-link" href="https://issuu.com/hauntedwordspress/docs/issue_fourteen_crooked_creatures" target="_blank" rel="noopener">Read Publication ↗</a>
             </article>
           </div>
         </div>
 
         <div class="archive-view" id="by-genre" role="tabpanel" aria-labelledby="genre-tab" hidden>
           <div class="genre-group">
-            <h3>Popular Science</h3>
-            <div class="post-grid">
+            <h3>Reading Response</h3>
+            <div class="post-grid card-grid" data-card-grid data-columns="3">
               <article class="post post-wide">
-                <div class="genre-tags"><span class="genre-tag">Popular Science</span><span class="genre-tag">Evolution</span></div>
-                <h3>Why Turtles?</h3>
-                <p>A lively exploration of turtle evolution that reframes their protective shell as a remarkable survival adaptation shaped over millions of years.</p>
-                <a class="publication-link" href="publications/why-turtles.html">Read article &rarr;</a>
+                <span class="publication-date">June 4, 2026</span>
+                <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span><span class="publication-logo" role="img" aria-label="The New York Times logo">Published · NYT</span></div>
+                <h3>NY Times Student Writing Challenge Highlight</h3>
+                <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Writing Challenge.</p>
+                <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication ↗</a>
               </article>
             </div>
           </div>
           <div class="genre-group">
-            <h3>Reading Response</h3>
-            <div class="post-grid">
+            <h3>Young Adult Horror</h3>
+            <div class="post-grid card-grid" data-card-grid data-columns="3">
               <article class="post post-wide">
-                <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span></div>
-                <h3>NY Times Student Reading Challenge Highlight</h3>
-                <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Reading Challenge.</p>
-                <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
+                <span class="publication-date">October 30, 2026</span>
+                <div class="genre-tags"><span class="genre-tag">Young Adult</span><span class="genre-tag">Horror</span><span class="genre-tag">Eyes</span><span class="publication-logo publication-logo--hwp" role="img" aria-label="Haunted Words Press logo">Published · HWP</span></div>
+                <h3>The Ocular Express</h3>
+                <p>A Young Adult horror story about a mysterious train and a spectral hand covered in eyes that pulls a traveler into a nightmarish reality.</p>
+                <a class="publication-link" href="https://issuu.com/hauntedwordspress/docs/issue_fourteen_crooked_creatures" target="_blank" rel="noopener">Read Publication ↗</a>
               </article>
             </div>
           </div>
         </div>
 
         <div class="archive-view" id="by-date" role="tabpanel" aria-labelledby="date-tab" hidden>
-          <div class="post-grid">
+          <div class="post-grid card-grid" data-card-grid data-columns="3">
             <article class="post post-wide">
               <span class="publication-date">June 4, 2026</span>
-              <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span></div>
-              <h3>NY Times Student Reading Challenge Highlight</h3>
-              <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Reading Challenge.</p>
-              <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication &rarr;</a>
+              <div class="genre-tags"><span class="genre-tag">Reading Response</span><span class="genre-tag">Publication</span><span class="publication-logo" role="img" aria-label="The New York Times logo">Published · NYT</span></div>
+              <h3>NY Times Student Writing Challenge Highlight</h3>
+              <p>A student reading response selected as a highlight article by The New York Times in its 2026 Student Writing Challenge.</p>
+              <a class="publication-link" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener">Read publication ↗</a>
             </article>
             <article class="post post-wide">
-              <span class="publication-date">Date to be added</span>
-              <div class="genre-tags"><span class="genre-tag">Popular Science</span><span class="genre-tag">Evolution</span></div>
-              <h3>Why Turtles?</h3>
-              <p>A lively exploration of turtle evolution that reframes their protective shell as a remarkable survival adaptation shaped over millions of years.</p>
-              <a class="publication-link" href="publications/why-turtles.html">Read article &rarr;</a>
+              <span class="publication-date">October 30, 2026</span>
+              <div class="genre-tags"><span class="genre-tag">Young Adult</span><span class="genre-tag">Horror</span><span class="genre-tag">Eyes</span><span class="publication-logo publication-logo--hwp" role="img" aria-label="Haunted Words Press logo">Published · HWP</span></div>
+              <h3>The Ocular Express</h3>
+              <p>A Young Adult horror story about a mysterious train and a spectral hand covered in eyes that pulls a traveler into a nightmarish reality.</p>
+              <a class="publication-link" href="https://issuu.com/hauntedwordspress/docs/issue_fourteen_crooked_creatures" target="_blank" rel="noopener">Read Publication ↗</a>
             </article>
           </div>
         </div>
@@ -163,10 +157,19 @@
   <script>
     const tabs = document.querySelectorAll('[role="tab"]');
     const views = document.querySelectorAll('[role="tabpanel"]');
+    const cardGrids = document.querySelectorAll('[data-card-grid]');
+    const columnButtons = document.querySelectorAll('[data-columns-button]');
     tabs.forEach((tab) => {
       tab.addEventListener('click', () => {
         tabs.forEach((item) => item.setAttribute('aria-selected', item === tab));
         views.forEach((view) => { view.hidden = view.id !== tab.getAttribute('aria-controls'); });
+      });
+    });
+    columnButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const columns = button.dataset.columnsButton;
+        cardGrids.forEach((grid) => { grid.dataset.columns = columns; });
+        columnButtons.forEach((columnButton) => columnButton.setAttribute('aria-pressed', String(columnButton === button)));
       });
     });
   </script>

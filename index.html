@@ -64,8 +64,6 @@
     .skill-list span { background: var(--soft); border: 1px solid var(--line); padding: 7px 11px; font-size: .88rem; }
     .project-link { color: var(--accent); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
     .project-icon { display: inline-block; margin-left: 5px; font-size: 1.05em; text-decoration: none; }
-    .cv-more-links { display: flex; flex-wrap: wrap; gap: 6px 16px; }
-    .cv-more-links a { color: var(--accent); font-size: .82rem; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
     .button { display: inline-block; border: 1px solid var(--line); padding: 11px 16px; font-weight: 800; font-size: .86rem; }
     .project-action { margin-bottom: 0; }
     .project-action .button { display: inline-flex; min-height: 0; width: fit-content; padding: 4px 8px; font-size: .62rem; line-height: 1.1; }
@@ -73,6 +71,17 @@
     .button:hover { color: #fff; background: var(--text); border-color: var(--text); }
     .project-action .button.primary,
     .project-action .button.primary:hover { color: var(--accent); background: transparent; border-color: transparent; padding-inline: 0; text-decoration: underline; text-underline-offset: 3px; }
+    .cv-footer { padding: 44px 0 38px; border-top: 4px solid var(--accent); background: #f7f3e9; }
+    .cv-footer-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 34px; align-items: end; }
+    .cv-footer-kicker { margin: 0 0 8px; color: #9c4a31; font-size: .68rem; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .cv-footer h2 { margin: 0; color: #3d3932; font-family: var(--font-display); font-size: 1.65rem; line-height: 1.15; }
+    .cv-footer-copy { max-width: 470px; margin: 10px 0 0; color: #6b665b; font-size: .9rem; }
+    .cv-footer-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px 18px; }
+    .cv-footer-nav a { color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; }
+    .cv-footer-nav a:hover, .cv-footer-nav a:focus-visible { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 4px; }
+    .cv-footer-bottom { display: flex; justify-content: space-between; gap: 18px; margin-top: 30px; padding-top: 14px; border-top: 1px solid #ded7c7; color: #81796b; font-size: .76rem; }
+    .cv-footer-top { color: var(--accent); font-weight: 800; text-decoration: none; }
+    .cv-footer-top:hover, .cv-footer-top:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 700px) {
       .cv-hero { padding: 28px 0 24px; }
       .cv-hero-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -89,6 +98,9 @@
       .cv-date { display: block; margin-top: 5px; }
       .cv-heading-with-links { align-items: flex-start; }
       .cv-heading-links { margin-top: 5px; }
+      .cv-footer-grid { grid-template-columns: 1fr; gap: 22px; }
+      .cv-footer-nav { justify-content: flex-start; }
+      .cv-footer-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
     }
     @media print {
       .detail-header, .cv-print, .cv-sidebar { display: none; }
@@ -135,9 +147,6 @@
       <symbol id="cv-publication" viewBox="0 0 32 32">
         <path d="M7 4h13l5 5v19H7V4Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
         <path d="M20 4v6h5M11 16h10M11 21h7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      </symbol>
-      <symbol id="cv-details" viewBox="0 0 32 32">
-        <path d="M7 25 25 7M14 7h11v11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
       <symbol id="cv-skills" viewBox="0 0 32 32">
         <path d="M8 6v20M16 6v20M24 6v20M4 11h8M12 21h8M20 14h8" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -256,44 +265,18 @@
           <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-recognition"></use></svg>Selected Recognition</h2>
           <ul>
             <li><strong>Ohio State Science Fair:</strong> Superior rating; Thermo Fisher Scientific Junior Innovation invitation; Ohio Environmental Health Association Award; Naval Science Award. <span class="cv-timeframe">2026</span> <a class="project-link" href="pages/award-science-fair.html">Award details</a></li>
-            <li><strong>The New York Times Student Reading Challenge:</strong> selected for a highlight article. <span class="cv-timeframe">2026</span> <a class="project-link" href="pages/publications.html">Publication details</a></li>
+            <li><strong>The New York Times Student Writing Challenge:</strong> selected for a highlight article. <span class="cv-timeframe">2026</span> <a class="project-link" href="pages/publications.html">Publication details</a></li>
             <li><strong>USACO Silver Promotion:</strong> advanced to Silver from Bronze <span class="cv-tag-light">C++</span> <span class="cv-tag-light">7th Grade</span> <span class="cv-timeframe">JANUARY 12, 2026</span>. <a class="project-link" href="pages/award-other.html">Other recognition</a></li>
             <li><strong>MATHCOUNTS:</strong> 2nd in district Countdown; 6th overall <span class="cv-timeframe">2026</span>. <a class="project-link" href="pages/award-math.html">Math recognition</a></li>
           </ul>
         </div>
 
         <div class="cv-section" id="publications">
-          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-publication"></use></svg>Publications</h2>
+          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-publication"></use></svg>Key Publications</span><span class="cv-heading-links"><a class="portfolio-link" href="pages/publications.html" aria-label="Open publication portfolio">Publication portfolio</a></span></h2>
           <ul>
-            <li><strong>The New York Times Student Reading Challenge:</strong> selected for a highlight article <span class="cv-timeframe">JUNE 4, 2026</span> <a class="project-link project-icon" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener" aria-label="Open New York Times publication" title="Open publication">↗</a></li>
-            <li><strong>Why Turtles?</strong> a popular-science article exploring turtle evolution and the survival value of the shell <a class="project-link project-icon" href="pages/publications/why-turtles.html" aria-label="Open Why Turtles article" title="Open publication">↗</a></li>
+            <li><strong>The New York Times Student Writing Challenge:</strong> selected for a highlight article <span class="cv-timeframe">JUNE 4, 2026</span> <a class="project-link project-icon" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener" aria-label="Open New York Times publication" title="Open publication">↗</a></li>
+            <li><strong>The Ocular Express:</strong> a Young Adult horror story about a mysterious train and a spectral hand covered in eyes that pulls a traveler into a nightmarish reality. <span class="cv-tag-accomplishment">Published by Haunted Words Press</span> <span class="cv-tag-light">Horror Writing</span> <span class="cv-timeframe">OCTOBER 30, 2026</span> <a class="project-link project-icon" href="https://issuu.com/hauntedwordspress/docs/issue_fourteen_crooked_creatures" target="_blank" rel="noopener" aria-label="Read The Ocular Express in Crooked Creatures" title="Read publication">↗</a></li>
           </ul>
-          <p><a class="project-link" href="pages/publications.html">Open publication portfolio</a></p>
-        </div>
-
-        <div class="cv-section" id="details">
-          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-details"></use></svg>More details</h2>
-          <p>Expanded project, academic, activity, award, chess, and writing pages:</p>
-          <div class="cv-more-links">
-            <a href="pages/academics-math.html">Mathematics</a>
-            <a href="pages/academics-science.html">Science</a>
-            <a href="pages/academics-coding.html">Coding</a>
-            <a href="pages/project-allergy.html">Allergy prediction</a>
-            <a href="pages/project-whispering-hat.html">Whispering Hat</a>
-            <a href="pages/project-robot-car.html">Robot car</a>
-            <a href="pages/project-tankflare.html">TankFlare</a>
-            <a href="pages/chess-profile.html">Chess</a>
-            <a href="pages/publications.html">Publications</a>
-            <a href="pages/society-rmh-chess.html">RMH chess</a>
-            <a href="pages/society-arise-school.html">Arise School</a>
-            <a href="pages/society-arise-tablets.html">Chess tablets</a>
-            <a href="pages/activity-community.html">Community</a>
-            <a href="pages/activity-leadership.html">Leadership</a>
-            <a href="pages/activity-writing.html">Writing</a>
-            <a href="pages/award-science-fair.html">Science awards</a>
-            <a href="pages/award-math.html">Math awards</a>
-            <a href="pages/award-other.html">Other awards</a>
-          </div>
         </div>
 
         <div class="cv-section skills-section" id="skills">
@@ -304,7 +287,27 @@
     </div>
   </main>
 
-  <footer><div class="container">Om Chatterjee • Student résumé &amp; portfolio</div></footer>
+  <footer class="cv-footer">
+    <div class="container">
+      <div class="cv-footer-grid">
+        <div>
+          <p class="cv-footer-kicker">Keep exploring</p>
+          <h2>Work, writing, and the details between.</h2>
+          <p class="cv-footer-copy">A closer look at the projects and publications behind this CV.</p>
+        </div>
+        <nav class="cv-footer-nav" aria-label="Portfolio links">
+          <a href="pages/project-portfolio.html">Project portfolio ↗</a>
+          <a href="pages/publications.html">Publication portfolio ↗</a>
+          <a href="#skills">Skills</a>
+          <a href="#top">Back to top ↑</a>
+        </nav>
+      </div>
+      <div class="cv-footer-bottom">
+        <span>Om Chatterjee • Student résumé &amp; portfolio</span>
+        <a class="cv-footer-top" href="#top">Return to the beginning ↑</a>
+      </div>
+    </div>
+  </footer>
   <script>
     document.getElementById("print-cv").addEventListener("click", () => window.print());
     const sectionLinks = [...document.querySelectorAll(".cv-sidebar a")];
