@@ -8,7 +8,7 @@
   <title>CV | Om Chatterjee</title>
   <link rel="stylesheet" href="detail.css">
   <style>
-    .cv-hero { padding: 42px 0 36px; background: #fbf5ef; border-bottom: 1px solid var(--line); }
+    .cv-hero { padding: 42px 0 36px; background: var(--profile-surface); border-bottom: 1px solid var(--line); }
     .cv-hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(190px, 260px); gap: 36px; align-items: center; }
     .cv-portrait { width: 180px; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid #d6dbe0; border-radius: 3px; box-shadow: 0 12px 28px rgba(75, 37, 25, .12); margin-inline: auto; }
     .cv-hero h1 { max-width: 700px; margin-bottom: 12px; font-family: var(--font-body); font-size: clamp(2.35rem, 4vw, 3.35rem); font-weight: 700; line-height: 1.08; letter-spacing: 0; }
@@ -41,12 +41,14 @@
     .cv-heading-with-links { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
     .cv-heading-title { display: inline-flex; align-items: center; min-width: 0; }
     .cv-heading-links { display: inline-flex; flex: 0 0 auto; gap: 14px; font-family: var(--font-display); font-size: .8rem; font-weight: 700; letter-spacing: .03em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
+    .cv-heading-links .portfolio-link { font-family: var(--font-body); font-size: .72rem; font-weight: 800; letter-spacing: .08em; line-height: 1.2; }
     .cv-heading-links a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; text-underline-offset: 3px; }
     .cv-heading-links a:hover, .cv-heading-links a:focus-visible { color: var(--accent-deep); border-bottom-width: 2px; outline: none; }
     .cv-heading-links .portfolio-link::after { margin-left: 4px; content: "↗"; font-family: var(--font-body); font-size: .82rem; }
     .cv-subsection { margin-left: 19px; }
     .cv-subsection-title { margin: 24px 0 9px; padding-top: 12px; color: var(--text); border-top: 1px solid #e8dfcb; font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; letter-spacing: 0; line-height: 1.25; }
     .cv-heading-icon { display: inline-block; width: 1.35rem; height: 1.35rem; margin-right: 7px; color: #3f777b; line-height: 1; vertical-align: -.2em; }
+    .cv-heading-image { display: inline-block; width: 1.35rem; height: 1.35rem; margin-right: 7px; object-fit: contain; vertical-align: -.2em; }
     .cv-section h3 { margin: 0; font-size: 1.08rem; }
     .cv-section p { margin: 6px 0 0; color: var(--muted); }
     .cv-section ul { margin: 0; padding-left: 19px; color: var(--muted); }
@@ -71,7 +73,7 @@
     .button:hover { color: #fff; background: var(--text); border-color: var(--text); }
     .project-action .button.primary,
     .project-action .button.primary:hover { color: var(--accent); background: transparent; border-color: transparent; padding-inline: 0; text-decoration: underline; text-underline-offset: 3px; }
-    .cv-footer { padding: 44px 0 38px; border-top: 4px solid var(--accent); background: #f7f3e9; }
+    .cv-footer { padding: 24px 0; border-top: 1px solid var(--line); background: var(--profile-surface); }
     .cv-footer-grid { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 34px; align-items: end; }
     .cv-footer-kicker { margin: 0 0 8px; color: #9c4a31; font-size: .68rem; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
     .cv-footer h2 { margin: 0; color: #3d3932; font-family: var(--font-display); font-size: 1.65rem; line-height: 1.15; }
@@ -82,6 +84,12 @@
     .cv-footer-bottom { display: flex; justify-content: space-between; gap: 18px; margin-top: 30px; padding-top: 14px; border-top: 1px solid #ded7c7; color: #81796b; font-size: .76rem; }
     .cv-footer-top { color: var(--accent); font-weight: 800; text-decoration: none; }
     .cv-footer-top:hover, .cv-footer-top:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+    .cv-footer-simple { display: flex; justify-content: space-between; align-items: center; gap: 20px; color: #81796b; font-size: .78rem; }
+    .cv-footer-name { display: inline-flex; align-items: center; gap: 9px; }
+    .cv-footer-stamp { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+    .cv-footer-simple nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 9px 18px; }
+    .cv-footer-simple a { color: var(--accent); font-weight: 800; text-decoration: none; }
+    .cv-footer-simple a:hover { text-decoration: underline; text-underline-offset: 3px; }
     @media (max-width: 700px) {
       .cv-hero { padding: 28px 0 24px; }
       .cv-hero-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -101,6 +109,8 @@
       .cv-footer-grid { grid-template-columns: 1fr; gap: 22px; }
       .cv-footer-nav { justify-content: flex-start; }
       .cv-footer-bottom { align-items: flex-start; flex-direction: column; gap: 8px; }
+      .cv-footer-simple { align-items: flex-start; flex-direction: column; }
+      .cv-footer-simple nav { justify-content: flex-start; }
     }
     @media print {
       .detail-header, .cv-print, .cv-sidebar { display: none; }
@@ -159,7 +169,7 @@
   <header class="detail-header">
     <div class="container detail-nav">
       <a class="brand" href="#top">OM<span>.</span></a>
-      <button class="cv-print" id="print-cv" type="button">Print / Save PDF</button>
+      <nav class="page-nav" aria-label="Portfolio navigation"><a href="pages/achievements.html">Achievements</a><a href="pages/skills.html">Skills</a><a href="pages/project-portfolio.html">Projects</a><a href="pages/publications.html">Publications</a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch theme">☾</button><button class="cv-print" id="print-cv" type="button">Print / Save PDF</button></nav>
     </div>
   </header>
 
@@ -214,7 +224,7 @@
         </div>
 
         <div class="cv-section" id="coding">
-          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-coding"></use></svg>Coding and AI/ML</h2>
+          <h2><img class="cv-heading-image" src="images/computing.png" alt="">Coding and AI/ML</h2>
           <ul>
             <li><strong>USACO Silver Promotion:</strong> advanced to Silver from Bronze <span class="cv-tag-light">C++</span> <span class="cv-tag-light">7th Grade</span> <span class="cv-timeframe">JANUARY 12, 2026</span>.</li>
             <li><strong>Codeforces Pupil:</strong> achieved Pupil title with 1233 score. Handle is <a class="project-link" href="https://codeforces.com/profile/overflux" target="_blank" rel="noopener">overflux</a> <span class="cv-tag-light">C++</span>.</li>
@@ -238,7 +248,7 @@
         </div>
 
         <div class="cv-section" id="chess">
-          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-chess"></use></svg>Chess</span><span class="cv-heading-links"><a href="https://ratings.uschess.org/player/30496329" target="_blank" rel="noopener" aria-label="Open USCF player profile">USCF</a><a href="https://ratings.fide.com/profile/39978567/chart" target="_blank" rel="noopener" aria-label="Open FIDE player profile">FIDE</a></span></h2>
+          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><img class="cv-heading-image" src="images/chess.png" alt="">Chess</span><span class="cv-heading-links"><a class="portfolio-link" href="https://ratings.uschess.org/player/30496329" target="_blank" rel="noopener" aria-label="Open USCF player profile">USCF Profile</a><a class="portfolio-link" href="https://ratings.fide.com/profile/39978567/chart" target="_blank" rel="noopener" aria-label="Open FIDE player profile">FIDE Profile</a></span></h2>
           <ul>
             <li><strong>Competitive Player:</strong> competitive chess player since 2023, now competing professionally. <span class="cv-tag-accomplishment">USCF 1800+</span> <span class="cv-tag-accomplishment">Lichess 2000+</span></li>
           </ul>
@@ -253,26 +263,26 @@
         </div>
 
         <div class="cv-section" id="beyond-the-classroom">
-          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-community"></use></svg>Community &amp; Service</h2>
+          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-community"></use></svg>Community</h2>
           <ul>
-            <li><strong>Chess education:</strong> introduced and teach chess at a school in Tanzania; supported children in a Uganda refugee camp. <a class="project-link" href="pages/society-arise-school.html">Arise School</a> · <a class="project-link" href="pages/society-arise-tablets.html">Chess tablets</a></li>
-            <li><strong>Local volunteering:</strong> volunteer with children and families at Ronald McDonald House in Columbus. <a class="project-link" href="pages/society-rmh-chess.html">Community details</a></li>
-            <li><strong>Activities:</strong> <a class="project-link" href="pages/activity-community.html">community</a> · <a class="project-link" href="pages/activity-leadership.html">leadership</a> · <a class="project-link" href="pages/activity-writing.html">writing</a></li>
+            <li><strong>Tanzania chess education:</strong> introduced and teach chess at a school in Tanzania. <a class="project-link" href="pages/society-arise-school.html">Arise School ↗</a> <span class="cv-timeframe">2025–2026</span></li>
+            <li><strong>Uganda refugee-camp chess support:</strong> supported children in a Uganda refugee camp through chess tablets. <a class="project-link" href="pages/society-arise-school.html">Raise Chess Academy ↗</a> · <a class="project-link" href="pages/society-rca-tables.html">Chess tablets ↗</a> <span class="cv-timeframe">2025–2026</span></li>
+            <li><strong>RMDH Chess Volunteering:</strong> volunteer with children and families at Ronald McDonald House in Columbus. <a class="project-link" href="pages/society-rmh-chess.html">RMDH Chess Volunteering ↗</a> <span class="cv-timeframe">2025–2026</span></li>
           </ul>
         </div>
 
         <div class="cv-section" id="recognition">
-          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-recognition"></use></svg>Selected Recognition</h2>
+          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-recognition"></use></svg>Selected Recognition</span><span class="cv-heading-links"><a class="portfolio-link" href="pages/achievements.html" aria-label="Open achievements and recognition page">View achievements</a></span></h2>
           <ul>
-            <li><strong>Ohio State Science Fair:</strong> Superior rating; Thermo Fisher Scientific Junior Innovation invitation; Ohio Environmental Health Association Award; Naval Science Award. <span class="cv-timeframe">2026</span> <a class="project-link" href="pages/award-science-fair.html">Award details</a></li>
-            <li><strong>The New York Times Student Writing Challenge:</strong> selected for a highlight article. <span class="cv-timeframe">2026</span> <a class="project-link" href="pages/publications.html">Publication details</a></li>
-            <li><strong>USACO Silver Promotion:</strong> advanced to Silver from Bronze <span class="cv-tag-light">C++</span> <span class="cv-tag-light">7th Grade</span> <span class="cv-timeframe">JANUARY 12, 2026</span>. <a class="project-link" href="pages/award-other.html">Other recognition</a></li>
-            <li><strong>MATHCOUNTS:</strong> 2nd in district Countdown; 6th overall <span class="cv-timeframe">2026</span>. <a class="project-link" href="pages/award-math.html">Math recognition</a></li>
+            <li><strong>Ohio State Science Fair:</strong> Superior rating; Thermo Fisher Scientific Junior Innovation invitation; Ohio Environmental Health Association Award; Naval Science Award. <span class="cv-timeframe">2026</span></li>
+            <li><strong>The New York Times Student Writing Challenge:</strong> selected for a highlight article. <span class="cv-timeframe">2026</span></li>
+            <li><strong>USACO Silver Promotion:</strong> advanced to Silver from Bronze <span class="cv-tag-light">C++</span> <span class="cv-tag-light">7th Grade</span> <span class="cv-timeframe">JANUARY 12, 2026</span>.</li>
+            <li><strong>MATHCOUNTS:</strong> 2nd in district Countdown; 6th overall <span class="cv-timeframe">2026</span>.</li>
           </ul>
         </div>
 
         <div class="cv-section" id="publications">
-          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-publication"></use></svg>Key Publications</span><span class="cv-heading-links"><a class="portfolio-link" href="pages/publications.html" aria-label="Open publication portfolio">Publication portfolio</a></span></h2>
+          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><img class="cv-heading-image" src="images/writing.png" alt="">Key Publications</span><span class="cv-heading-links"><a class="portfolio-link" href="pages/publications.html" aria-label="Open publication portfolio">Publication portfolio</a></span></h2>
           <ul>
             <li><strong>The New York Times Student Writing Challenge:</strong> selected for a highlight article <span class="cv-timeframe">JUNE 4, 2026</span> <a class="project-link project-icon" href="https://www.nytimes.com/2026/06/04/learning/student-reading-challenge.html" target="_blank" rel="noopener" aria-label="Open New York Times publication" title="Open publication">↗</a></li>
             <li><strong>The Ocular Express:</strong> a Young Adult horror story about a mysterious train and a spectral hand covered in eyes that pulls a traveler into a nightmarish reality. <span class="cv-tag-accomplishment">Published by Haunted Words Press</span> <span class="cv-tag-light">Horror Writing</span> <span class="cv-timeframe">OCTOBER 30, 2026</span> <a class="project-link project-icon" href="https://issuu.com/hauntedwordspress/docs/issue_fourteen_crooked_creatures" target="_blank" rel="noopener" aria-label="Read The Ocular Express in Crooked Creatures" title="Read publication">↗</a></li>
@@ -280,35 +290,25 @@
         </div>
 
         <div class="cv-section skills-section" id="skills">
-          <h2><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-skills"></use></svg>Skills</h2>
+          <h2 class="cv-heading-with-links"><span class="cv-heading-title"><svg class="cv-heading-icon" aria-hidden="true"><use href="#cv-skills"></use></svg>Skills</span><span class="cv-heading-links"><a class="portfolio-link" href="pages/skills.html" aria-label="Open skills and expertise page">Explore skills</a></span></h2>
           <div class="skill-list"><span>Python</span><span>C++</span><span>Machine learning</span><span>Computer vision</span><span>Web development</span><span>Raspberry Pi</span><span>Electronics</span><span>CAD</span><span>Technical writing</span></div>
         </div>
       </section>
     </div>
   </main>
 
-  <footer class="cv-footer">
-    <div class="container">
-      <div class="cv-footer-grid">
-        <div>
-          <p class="cv-footer-kicker">Keep exploring</p>
-          <h2>Work, writing, and the details between.</h2>
-          <p class="cv-footer-copy">A closer look at the projects and publications behind this CV.</p>
-        </div>
-        <nav class="cv-footer-nav" aria-label="Portfolio links">
-          <a href="pages/project-portfolio.html">Project portfolio ↗</a>
-          <a href="pages/publications.html">Publication portfolio ↗</a>
-          <a href="#skills">Skills</a>
-          <a href="#top">Back to top ↑</a>
-        </nav>
-      </div>
-      <div class="cv-footer-bottom">
-        <span>Om Chatterjee • Student résumé &amp; portfolio</span>
-        <a class="cv-footer-top" href="#top">Return to the beginning ↑</a>
-      </div>
-    </div>
-  </footer>
+  <footer class="cv-footer"><div class="container cv-footer-simple"><span class="cv-footer-name"><img class="cv-footer-stamp" src="images/profile-headshot.png" alt="">Om Chatterjee</span><nav aria-label="Footer navigation"><a href="pages/project-portfolio.html">Projects ↗</a><a href="pages/publications.html">Publications ↗</a><a href="pages/skills.html">Skills ↗</a><a href="pages/achievements.html">Recognition ↗</a><a href="#top">Back to top ↑</a></nav></div></footer>
   <script>
+    const savedTheme = localStorage.getItem("om-theme");
+    if (savedTheme === "dark") document.documentElement.dataset.theme = "dark";
+    const themeToggle = document.querySelector("[data-theme-toggle]");
+    themeToggle.addEventListener("click", () => {
+      const dark = document.documentElement.dataset.theme !== "dark";
+      document.documentElement.dataset.theme = dark ? "dark" : "";
+      localStorage.setItem("om-theme", dark ? "dark" : "light");
+      themeToggle.textContent = dark ? "☀" : "☾";
+      themeToggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    });
     document.getElementById("print-cv").addEventListener("click", () => window.print());
     const sectionLinks = [...document.querySelectorAll(".cv-sidebar a")];
     const updateActiveSection = () => {
