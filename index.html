@@ -5,15 +5,19 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Curriculum vitae for Om Chatterjee, a student interested in science, engineering, AI, robotics, and chess.">
-  <title>CV | Om Chatterjee</title>
+  <title>Om Resume</title>
+  <link rel="icon" type="image/png" href="images/profile-headshot.png">
   <link rel="stylesheet" href="detail.css">
   <style>
     .cv-hero { padding: 42px 0 36px; background: var(--profile-surface); border-bottom: 1px solid var(--line); }
     .cv-hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(190px, 260px); gap: 36px; align-items: center; }
-    .cv-portrait { width: 180px; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid #d6dbe0; border-radius: 3px; box-shadow: 0 12px 28px rgba(75, 37, 25, .12); margin-inline: auto; }
+    .cv-portrait { width: 180px; aspect-ratio: 4 / 5; object-fit: cover; border: 2px solid #fff; border-radius: 3px; box-shadow: 0 12px 28px rgba(75, 37, 25, .12); margin-inline: auto; }
     .cv-hero h1 { max-width: 700px; margin-bottom: 12px; font-family: var(--font-body); font-size: clamp(2.35rem, 4vw, 3.35rem); font-weight: 700; line-height: 1.08; letter-spacing: 0; }
     .cv-eyebrow { color: #9c4a31; }
     .cv-contact { margin: 0; color: #554b47; font-size: .95rem; }
+    .cv-contact-list { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 8px; }
+    .cv-contact-item { display: inline-flex; align-items: center; gap: 5px; }
+    .cv-contact-icon { display: inline-grid; place-items: center; width: 1.35rem; height: 1.35rem; color: var(--accent); font-size: 1rem; font-weight: 850; line-height: 1; }
     .cv-contact a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
     .cv-print { padding: 7px 10px; color: var(--accent); background: transparent; border: 1px solid var(--line); font: inherit; font-size: .68rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
     .cv-print:hover { color: #fff; background: var(--accent); border-color: var(--accent); }
@@ -55,6 +59,7 @@
     .cv-subsection-title { margin: 24px 0 9px; padding-top: 12px; color: var(--text); border-top: 1px solid #e8dfcb; font-family: var(--font-display); font-size: 1.12rem; font-weight: 700; letter-spacing: 0; line-height: 1.25; }
     .cv-heading-icon { display: inline-block; width: 1.35rem; height: 1.35rem; margin-right: 7px; color: #3f777b; line-height: 1; vertical-align: -.2em; }
     .cv-heading-image { display: inline-block; width: 1.7rem; height: 1.7rem; margin-right: 9px; object-fit: contain; vertical-align: -.28em; }
+    .cv-heading-image.academic-icon { width: 2.1rem; height: 2.1rem; }
     .cv-section h3 { margin: 0; font-size: 1.08rem; }
     .cv-section p { margin: 6px 0 0; color: var(--muted); }
     .cv-section ul { margin: 0; padding-left: 19px; color: var(--muted); }
@@ -71,6 +76,7 @@
     .skill-list { display: flex; flex-wrap: wrap; gap: 9px; }
     .skill-list span { background: var(--soft); border: 1px solid var(--line); padding: 7px 11px; font-size: .88rem; }
     .project-link { color: var(--accent); font-weight: 800; text-decoration: underline; text-underline-offset: 3px; }
+    .community-link { font-size: .86rem; }
     :root[data-theme="dark"] .project-link, :root[data-theme="dark"] .cv-contact a { color: #f0c866; }
     :root[data-theme="dark"] .cv-heading-links a { color: #f0c866; }
     :root[data-theme="dark"] .cv-heading-links a:hover, :root[data-theme="dark"] .cv-heading-links a:focus-visible { color: #ffe4a0; }
@@ -180,7 +186,7 @@
   </svg>
   <header class="detail-header">
     <div class="container detail-nav">
-      <a class="brand" href="#top">OM<span>.</span></a>
+      <a class="brand resume-brand" href="#top"><img src="images/profile-headshot.png" alt="">OM'S RESUME</a>
       <nav class="page-nav" aria-label="Portfolio navigation"><a href="pages/achievements.html">Achievements</a><a href="pages/skills.html">Skills</a><a href="pages/project-portfolio.html">Projects</a><a href="pages/publications.html">Publications</a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" title="Switch theme">☾</button><button class="cv-print" id="print-cv" type="button">Print / Save PDF</button></nav>
     </div>
   </header>
@@ -191,7 +197,11 @@
         <div>
           <p class="kicker cv-eyebrow">CURRICULUM VITAE · STUDENT BUILDER</p>
           <h1>Om Chatterjee</h1>
-          <p class="cv-contact"><a href="mailto:emailgmail@gmail.com">emailgmail@gmail.com</a></p>
+          <div class="cv-contact cv-contact-list" aria-label="Contact links">
+            <span class="cv-contact-item"><span class="cv-contact-icon" aria-hidden="true">✉</span><span>Email:</span> <a href="mailto:emailgmail@gmail.com">emailgmail@gmail.com</a></span>
+            <span class="cv-contact-item"><span class="cv-contact-icon" aria-hidden="true">in</span><span>LinkedIn:</span> <a href="https://www.linkedin.com/in/dummylinkedin-profile" target="_blank" rel="noopener">dummylinkedin profile</a></span>
+            <span class="cv-contact-item"><span class="cv-contact-icon" aria-hidden="true">◈</span><span>GitHub:</span> <a href="https://github.com/dummygithub-link" target="_blank" rel="noopener">dummygithub link</a></span>
+          </div>
         </div>
         <img class="cv-portrait" src="images/profile-headshot.png" alt="Portrait of Om Chatterjee">
       </div>
@@ -205,7 +215,6 @@
           <a href="#education">Academics</a>
           <a href="#coding">Coding</a>
           <a href="#robotics">Robotics</a>
-          <a href="#projects">Projects</a>
           <a href="#chess">Chess</a>
           <a href="#beyond-the-classroom">Community</a>
           <a href="#recognition">Recognition</a>
@@ -227,7 +236,7 @@
         </div>
 
         <div class="cv-section" id="education">
-          <h2><img class="cv-heading-image" src="images/math.png" alt="">Academics &amp; Mathematics</h2>
+          <h2><img class="cv-heading-image academic-icon" src="images/academic.png" alt="">Academics &amp; Mathematics</h2>
           <ul>
             <li><strong>Education:</strong> 8th grade <span class="cv-timeframe">2026–27</span>; advanced independent study in mathematics, science, and English.</li>
             <li><strong>MATHCOUNTS:</strong> 2nd in Olentangy District Countdown; 6th overall <span class="cv-timeframe">2026</span>.</li>
@@ -277,9 +286,9 @@
         <div class="cv-section" id="beyond-the-classroom">
           <h2><img class="cv-heading-image" src="images/community.png" alt="" loading="eager">Community</h2>
           <ul>
-            <li><strong>Tanzania chess education:</strong> introduced and teach chess at a school in Tanzania. <a class="project-link" href="pages/society-arise-school.html">Arise School ↗</a> <span class="cv-timeframe">2025–2026</span></li>
-            <li><strong>Uganda refugee-camp chess support:</strong> supported children in a Uganda refugee camp through chess tablets. <a class="project-link" href="pages/society-arise-school.html">Raise Chess Academy ↗</a> · <a class="project-link" href="pages/society-rca-tables.html">Chess tablets ↗</a> <span class="cv-timeframe">2025–2026</span></li>
-            <li><strong>RMDH Chess Volunteering:</strong> volunteer with children and families at Ronald McDonald House in Columbus. <a class="project-link" href="pages/society-rmh-chess.html">RMDH Chess Volunteering ↗</a> <span class="cv-timeframe">2025–2026</span></li>
+            <li><strong>Tanzania chess education:</strong> introduced and teach chess at a school in Tanzania. <a class="project-link community-link" href="pages/society-arise-school.html">Arise School ↗</a> <span class="cv-timeframe">2025–2026</span></li>
+            <li><strong>Uganda refugee-camp chess support:</strong> supported children in a Uganda refugee camp through chess tablets. <a class="project-link community-link" href="pages/society-arise-school.html">Raise Chess Academy ↗</a> · <a class="project-link community-link" href="pages/society-rca-tables.html">Chess tablets ↗</a> <span class="cv-timeframe">2025–2026</span></li>
+            <li><strong>RMDH Chess Volunteering:</strong> volunteer with children and families at Ronald McDonald House in Columbus. <a class="project-link community-link" href="pages/society-rmh-chess.html">RMDH Chess Volunteering ↗</a> <span class="cv-timeframe">2025–2026</span></li>
           </ul>
         </div>
 
